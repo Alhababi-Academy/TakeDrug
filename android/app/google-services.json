@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "89975840381",
+    "project_id": "takedrug-dd3ed",
+    "storage_bucket": "takedrug-dd3ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:89975840381:android:e5f0010ca7437d211adb14",
+        "android_client_info": {
+          "package_name": "com.example.take_drug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "89975840381-n1hvvh49ekl5cpca8ksjv593g1vvfndh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsC5ogfJS8FxaTjPqsl8E5bc4XAwmXHpo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "89975840381-n1hvvh49ekl5cpca8ksjv593g1vvfndh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "89975840381-9l1bqrcq52908tdpeve7044env28tlsh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.takeDrug"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
