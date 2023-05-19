@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -28,7 +29,7 @@ class errorDialog extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Text("حسنا"),
+              child: Text("okay".tr().toString()),
             ),
           ],
         ),

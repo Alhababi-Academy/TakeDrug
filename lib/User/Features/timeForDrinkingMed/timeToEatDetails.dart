@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -45,13 +46,13 @@ class _timeToEatDetails extends State<timeToEatDetails> {
   String? currentUser = takeDrug.auth?.currentUser?.uid;
 
   final List<String> _days = [
-    'الأحد',
-    'الاثنين',
-    'الثلاثاء',
-    'الأربعاء',
-    'الخميس',
-    'الجمعة',
-    'السبت'
+    'sunday'.tr().toString(),
+    'monday'.tr().toString(),
+    'tuesday'.tr().toString(),
+    'wednesday'.tr().toString(),
+    'thursday'.tr().toString(),
+    'friday'.tr().toString(),
+    'saturday'.tr().toString(),
   ];
 
   final List<bool> _isChecked = List<bool>.filled(7, false);
@@ -66,337 +67,339 @@ class _timeToEatDetails extends State<timeToEatDetails> {
       appBar: AppBar(
         toolbarHeight: 70,
         backgroundColor: takeDrug.BackgroundColor,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GestureDetector(
-              onTap: () {
-                Route route =
-                    MaterialPageRoute(builder: (_) => const MyProfile());
-                Navigator.push(context, route);
-              },
-              child: Column(
-                children: [
-                  const Icon(
-                    Icons.person_2_rounded,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Row(
-                      children: const [
-                        Text(
-                          "رجوع",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Icon(
-                          Icons.arrow_forward,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ],
+        // actions: [
+        //   Padding(
+        //     padding: const EdgeInsets.all(8.0),
+        //     child: GestureDetector(
+        //       onTap: () {
+        //         Route route =
+        //             MaterialPageRoute(builder: (_) => const MyProfile());
+        //         Navigator.push(context, route);
+        //       },
+        //       child: Column(
+        //         children: [
+        //           const Icon(
+        //             Icons.person_2_rounded,
+        //           ),
+        //           GestureDetector(
+        //             onTap: () {
+        //               Navigator.pop(context);
+        //             },
+        //             child: Row(
+        //               children: const [
+        //                 Text(
+        //                   "رجوع",
+        //                   style: TextStyle(fontWeight: FontWeight.bold),
+        //                 ),
+        //                 SizedBox(
+        //                   width: 5,
+        //                 ),
+        //                 SizedBox(
+        //                   height: 30,
+        //                 ),
+        //                 Icon(
+        //                   Icons.arrow_forward,
+        //                 ),
+        //               ],
+        //             ),
+        //           )
+        //         ],
+        //       ),
+        //     ),
+        //   ),
+        // ],
         title: Column(
-          children: const [Text("اضافة تنبيه دواء")],
+          children: [
+            Text(
+              "Add_a_medication_alert".tr().toString(),
+            ),
+          ],
         ),
         centerTitle: true,
       ),
-      drawer: currentUser != null ? UserDrawer() : null,
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: SingleChildScrollView(
-          physics: NeverScrollableScrollPhysics(),
+      endDrawer: currentUser != null ? UserDrawer() : null,
+      body: SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          height: MediaQuery.of(context).size.height,
+          margin: const EdgeInsets.all(10),
           child: Container(
+            margin:
+                const EdgeInsets.only(right: 15, left: 15, top: 5, bottom: 10),
             decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(7),
               color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
+              boxShadow: const [
+                // BoxShadow(
+                //   color: Colors.grey.withOpacity(0.5), // shadow color
+                //   spreadRadius: 5, // spread radius
+                //   blurRadius: 7, // blur radius
+                //   offset: Offset(0, 3), // changes position of shadow
+                // ),
+              ],
             ),
-            height: MediaQuery.of(context).size.height,
-            margin: const EdgeInsets.all(10),
-            child: Container(
-              margin: const EdgeInsets.only(
-                  right: 15, left: 15, top: 5, bottom: 10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(7),
-                color: Colors.white,
-                boxShadow: const [
-                  // BoxShadow(
-                  //   color: Colors.grey.withOpacity(0.5), // shadow color
-                  //   spreadRadius: 5, // spread radius
-                  //   blurRadius: 7, // blur radius
-                  //   offset: Offset(0, 3), // changes position of shadow
-                  // ),
-                ],
-              ),
-              child: Column(
-                children: [
-                  Column(
-                    children: [
-                      TextField(
-                        controller: titleOfTheAlarm,
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(
-                            Icons.local_offer,
-                            color: takeDrug.BackgroundColor,
-                            size: 18,
-                          ),
-                          hintText: "عنوان المنبه: تناول دوا الانسولين",
-                          hintStyle: const TextStyle(fontSize: 13),
+            child: Column(
+              children: [
+                Column(
+                  children: [
+                    TextField(
+                      controller: titleOfTheAlarm,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.local_offer,
+                          color: takeDrug.BackgroundColor,
+                          size: 18,
                         ),
+                        hintText: "drink_ansolin".tr().toString(),
+                        hintStyle: const TextStyle(fontSize: 13),
                       ),
-                      TextField(
-                        controller: DetialsfTheAlarm,
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(
-                            Icons.local_offer,
-                            color: takeDrug.BackgroundColor,
-                            size: 18,
-                          ),
-                          hintText: " التفاصيل : تناول دوا الانسولين والتفاصيل",
-                          hintStyle: const TextStyle(fontSize: 13),
+                    ),
+                    TextField(
+                      controller: DetialsfTheAlarm,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.local_offer,
+                          color: takeDrug.BackgroundColor,
+                          size: 18,
                         ),
+                        hintText: "drink_med_details".tr().toString(),
+                        hintStyle: const TextStyle(fontSize: 13),
                       ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.only(right: 15),
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 220,
-                              child: ListView.builder(
-                                itemCount: _days.length,
-                                itemBuilder: (context, index) {
-                                  return Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      SizedBox(
-                                        width: 25,
-                                        height: 20,
-                                        child: Checkbox(
-                                          value: _isChecked[index],
-                                          onChanged: (bool? value) {
-                                            setState(() {
-                                              _isChecked[index] = value!;
-                                            });
-                                          },
-                                        ),
-                                      ),
-                                      const SizedBox(width: 5),
-                                      Text(
-                                        _days[index],
-                                        style: const TextStyle(
-                                          fontSize: 18,
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              ),
-                            ),
-                            // Row(
-                            //   children: [
-                            //     Icon(
-                            //       Icons.watch,
-                            //       color: takeDrug.BackgroundColor,
-                            //     ),
-                            //     const SizedBox(
-                            //       width: 15,
-                            //     ),
-                            //     const Text(
-                            //       "عدد المرات في اليوم:",
-                            //       style: TextStyle(fontSize: 13),
-                            //     ),
-                            //     Row(
-                            //       children: [
-                            //         IconButton(
-                            //           icon: Icon(
-                            //             Icons.remove,
-                            //             color: takeDrug.BackgroundColor,
-                            //           ),
-                            //           onPressed: () {
-                            //             setState(() {
-                            //               if (_count > 1) {
-                            //                 _count--;
-                            //               }
-                            //             });
-                            //           },
-                            //         ),
-                            //         Text('$_count'),
-                            //         IconButton(
-                            //           icon: Icon(
-                            //             Icons.add,
-                            //             color: takeDrug.BackgroundColor,
-                            //           ),
-                            //           onPressed: () {
-                            //             setState(() {
-                            //               _count++;
-                            //             });
-                            //           },
-                            //         ),
-                            //       ],
-                            //     ),
-                            //   ],
-                            // ),
-                            const Divider(
-                              height: 2,
-                              color: Colors.black,
-                            ),
-                            Container(
-                              child: Column(
-                                children: [
-                                  const SizedBox(
-                                    height: 15,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.watch,
-                                        color: takeDrug.BackgroundColor,
-                                      ),
-                                      const SizedBox(
-                                        width: 15,
-                                      ),
-                                      const Text(
-                                        "وقت الموعد :",
-                                        style: TextStyle(fontSize: 13),
-                                      ),
-                                      Text(
-                                          "${selectedTime.hour}:${selectedTime.minute}"),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  const SizedBox(
-                                    width: 15,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      ElevatedButton(
-                                        onPressed: () {
-                                          _selectTime();
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(right: 15),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 220,
+                            child: ListView.builder(
+                              itemCount: _days.length,
+                              itemBuilder: (context, index) {
+                                return Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      width: 25,
+                                      height: 20,
+                                      child: Checkbox(
+                                        value: _isChecked[index],
+                                        onChanged: (bool? value) {
+                                          setState(() {
+                                            _isChecked[index] = value!;
+                                          });
                                         },
-                                        child: (const Text("اختر والوقت")),
                                       ),
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 2,
-                                    color: Colors.black,
-                                  ),
-                                ],
-                              ),
+                                    ),
+                                    const SizedBox(width: 5),
+                                    Text(
+                                      _days[index],
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
                             ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.only(right: 15),
-                        child: Column(
-                          children: [
-                            Row(
+                          ),
+                          // Row(
+                          //   children: [
+                          //     Icon(
+                          //       Icons.watch,
+                          //       color: takeDrug.BackgroundColor,
+                          //     ),
+                          //     const SizedBox(
+                          //       width: 15,
+                          //     ),
+                          //     const Text(
+                          //       "عدد المرات في اليوم:",
+                          //       style: TextStyle(fontSize: 13),
+                          //     ),
+                          //     Row(
+                          //       children: [
+                          //         IconButton(
+                          //           icon: Icon(
+                          //             Icons.remove,
+                          //             color: takeDrug.BackgroundColor,
+                          //           ),
+                          //           onPressed: () {
+                          //             setState(() {
+                          //               if (_count > 1) {
+                          //                 _count--;
+                          //               }
+                          //             });
+                          //           },
+                          //         ),
+                          //         Text('$_count'),
+                          //         IconButton(
+                          //           icon: Icon(
+                          //             Icons.add,
+                          //             color: takeDrug.BackgroundColor,
+                          //           ),
+                          //           onPressed: () {
+                          //             setState(() {
+                          //               _count++;
+                          //             });
+                          //           },
+                          //         ),
+                          //       ],
+                          //     ),
+                          //   ],
+                          // ),
+                          const Divider(
+                            height: 2,
+                            color: Colors.black,
+                          ),
+                          Container(
+                            child: Column(
                               children: [
-                                Icon(
-                                  Icons.image,
-                                  color: takeDrug.BackgroundColor,
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.watch,
+                                      color: takeDrug.BackgroundColor,
+                                    ),
+                                    const SizedBox(
+                                      width: 15,
+                                    ),
+                                    Text(
+                                      "appointment_time".tr().toString(),
+                                      style: const TextStyle(fontSize: 13),
+                                    ),
+                                    Text(
+                                        "${selectedTime.hour}:${selectedTime.minute}"),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 10,
                                 ),
                                 const SizedBox(
                                   width: 15,
                                 ),
-                                const Text(
-                                  "صورة الاشعار: ",
-                                  style: TextStyle(fontSize: 13),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    pickingImageFromGallery();
-                                  },
-                                  child: Center(
-                                    child: Container(
-                                      padding: const EdgeInsets.only(
-                                          right: 4, left: 4),
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: Colors.blue,
-                                          width: 2.0,
-                                        ),
-                                        borderRadius: BorderRadius.circular(6),
-                                        color: Colors.lightBlue[50],
-                                      ),
-                                      child: const Padding(
-                                        padding: EdgeInsets.only(
-                                            right: 10, left: 10),
-                                        child: Text("تحميل"),
-                                      ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        _selectTime();
+                                      },
+                                      child: Text(
+                                          "pick_date_and_time".tr().toString()),
                                     ),
-                                  ),
+                                  ],
+                                ),
+                                const Divider(
+                                  height: 2,
+                                  color: Colors.black,
                                 ),
                               ],
                             ),
-                            imageGetting != null
-                                ? Text(imageGetting!.path)
-                                : Container()
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(
-                        height: 15,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(right: 15),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.image,
+                                color: takeDrug.BackgroundColor,
+                              ),
+                              const SizedBox(
+                                width: 15,
+                              ),
+                              Text(
+                                "Notice_image".tr().toString(),
+                                style: const TextStyle(fontSize: 13),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  pickingImageFromGallery();
+                                },
+                                child: Center(
+                                  child: Container(
+                                    padding: const EdgeInsets.only(
+                                        right: 4, left: 4),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: Colors.blue,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(6),
+                                      color: Colors.lightBlue[50],
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          right: 10, left: 10),
+                                      child: Text("upload".tr().toString()),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          imageGetting != null
+                              ? Text(imageGetting!.path)
+                              : Container()
+                        ],
                       ),
-                      const Divider(
-                        height: 2,
-                        color: Colors.black,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const Divider(
+                      height: 2,
+                      color: Colors.black,
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        // Navigator.pop(context);
+                        showD();
+                      },
+                      child: Text(
+                        "cancel".tr().toString(),
+                        style: const TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
                       ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          // Navigator.pop(context);
-                          showD();
-                        },
-                        child: const Text(
-                          "الغاء",
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        ),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        saveDate();
+                      },
+                      child: Text(
+                        "save".tr().toString(),
+                        style: const TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
                       ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          saveDate();
-                        },
-                        child: const Text(
-                          "حفظ",
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
@@ -447,8 +450,8 @@ class _timeToEatDetails extends State<timeToEatDetails> {
   showError() {
     showDialog(
       context: context,
-      builder: (_) => const errorDialog(
-        message: "قم بملى جميع الخيارات",
+      builder: (_) => errorDialog(
+        message: "fill_up_the_form".tr().toString(),
       ),
     );
   }
@@ -465,15 +468,15 @@ class _timeToEatDetails extends State<timeToEatDetails> {
     if (newSelectedDate.isBefore(minDateTime)) {
       showDialog(
         context: context,
-        builder: (_) => const errorDialog(
-          message: 'الوقت المختار لابد ان يزيد عن ٢٠ دقيقة من الوقت الحالي',
+        builder: (_) => errorDialog(
+          message: "time_choosed_should_be_above_20_mintures".tr().toString(),
         ),
       );
     } else {
       showDialog(
         context: context,
-        builder: (_) => const LoadingAlertDialog(
-          message: "اضافة تنبيه دواء",
+        builder: (_) => LoadingAlertDialog(
+          message: "Add_a_medication_alert".tr().toString(),
         ),
       );
       if (ImageXFile != null) {
@@ -507,8 +510,8 @@ class _timeToEatDetails extends State<timeToEatDetails> {
         Navigator.pop(context);
         showDialog(
           context: context,
-          builder: (_) => const errorDialog(
-            message: "تم اضافة تنبيه",
+          builder: (_) => errorDialog(
+            message: "done_adding_alarm".tr().toString(),
           ),
         );
         // To Add Notifications

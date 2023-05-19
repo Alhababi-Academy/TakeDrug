@@ -8,7 +8,6 @@ import 'package:take_drug/Common/DialogBox/loadingDialog.dart';
 import 'package:take_drug/Common/Widgets/customTextFieldRegisterPage.dart';
 import 'package:take_drug/Common/config/config.dart';
 import 'package:take_drug/User/UserHomePage.dart';
-import 'package:flag/flag.dart';
 
 class loginPage extends StatefulWidget {
   const loginPage({super.key});
@@ -48,7 +47,7 @@ class _loginPage extends State<loginPage> {
                           left: 10,
                         ),
                         child: Text(
-                          "الايميل",
+                          "email".tr().toString(),
                           style: TextStyle(
                             color: takeDrug.whiteTow,
                             fontWeight: FontWeight.bold,
@@ -75,7 +74,7 @@ class _loginPage extends State<loginPage> {
                           left: 10,
                         ),
                         child: Text(
-                          "كلمة المرور",
+                          "password".tr().toString(),
                           style: TextStyle(
                             color: takeDrug.whiteTow,
                             fontWeight: FontWeight.bold,
@@ -137,20 +136,14 @@ class _loginPage extends State<loginPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(right: 20),
-                              child: Text(
-                                'ارسال',
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: takeDrug.BackgroundColor),
-                              ),
+                            Text(
+                              "send".tr().toString(),
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: takeDrug.BackgroundColor),
                             ),
-                            Icon(
-                              Icons.arrow_forward,
-                              color: takeDrug.BackgroundColor,
-                            ),
+                            //
                           ],
                         ),
                       ),
@@ -163,7 +156,7 @@ class _loginPage extends State<loginPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          " نسيت كلمة المرور ؟ ",
+                          "forget_password".tr().toString(),
                           style: TextStyle(
                             color: takeDrug.whiteOne,
                           ),
@@ -175,7 +168,7 @@ class _loginPage extends State<loginPage> {
                             Navigator.push(context, route);
                           },
                           child: Text(
-                            "أظغط هنا",
+                            "click_here".tr().toString(),
                             style: TextStyle(
                               color: takeDrug.whiteTow,
                               fontWeight: FontWeight.bold,
@@ -189,7 +182,7 @@ class _loginPage extends State<loginPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "ليس لديك حساب؟ ",
+                          "no_account".tr().toString(),
                           style: TextStyle(
                             color: takeDrug.whiteOne,
                           ),
@@ -201,7 +194,7 @@ class _loginPage extends State<loginPage> {
                             Navigator.push(context, route);
                           },
                           child: Text(
-                            "سجل الان",
+                            "register_now".tr().toString(),
                             style: TextStyle(
                               color: takeDrug.whiteTow,
                               fontWeight: FontWeight.bold,
@@ -223,7 +216,7 @@ class _loginPage extends State<loginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      " الاستمرار كا زائر ؟ ",
+                      "continue_as_guest".tr().toString(),
                       style: TextStyle(
                         color: takeDrug.whiteOne,
                       ),
@@ -240,7 +233,7 @@ class _loginPage extends State<loginPage> {
                         ),
                       ),
                       child: Text(
-                        "أظغط هنا",
+                        "click_here".tr().toString(),
                         style: TextStyle(
                           color: takeDrug.whiteTow,
                           fontWeight: FontWeight.bold,
@@ -269,8 +262,8 @@ class _loginPage extends State<loginPage> {
         context: context,
         barrierDismissible: false,
         builder: (c) {
-          return const errorDialog(
-            message: "قم بي مل الاستمارة",
+          return errorDialog(
+            message: "fill_up_the_form".tr().toString(),
           );
         });
   }
@@ -279,8 +272,8 @@ class _loginPage extends State<loginPage> {
     showDialog(
         context: context,
         builder: (c) {
-          return const LoadingAlertDialog(
-              message: "...التحقق من البيانات ، يرجاء الانتظار");
+          return LoadingAlertDialog(
+              message: "validating_data_please_wait".tr().toString());
         });
     _login();
   }

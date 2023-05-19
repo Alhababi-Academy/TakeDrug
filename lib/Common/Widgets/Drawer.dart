@@ -67,9 +67,9 @@ class UserDrawer extends StatelessWidget {
                     Icons.home,
                     color: Colors.white,
                   ),
-                  title: const Text(
-                    "الصفحة اليئيسية",
-                    style: TextStyle(
+                  title: Text(
+                    "main_page".tr().toString(),
+                    style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -90,9 +90,9 @@ class UserDrawer extends StatelessWidget {
                     Icons.calendar_month,
                     color: Colors.white,
                   ),
-                  title: const Text(
-                    "السياسات والخصوصية",
-                    style: TextStyle(
+                  title: Text(
+                    "pravices_security".tr().toString(),
+                    style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -113,9 +113,9 @@ class UserDrawer extends StatelessWidget {
                     Icons.indeterminate_check_box,
                     color: Colors.white,
                   ),
-                  title: const Text(
-                    "الاقتراحات والشكاوي",
-                    style: TextStyle(
+                  title: Text(
+                    "suggestions_complaints".tr().toString(),
+                    style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -136,9 +136,9 @@ class UserDrawer extends StatelessWidget {
                     Icons.info,
                     color: Colors.white,
                   ),
-                  title: const Text(
-                    "عن التطبيق",
-                    style: TextStyle(
+                  title: Text(
+                    "about_app".tr().toString(),
+                    style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -159,9 +159,9 @@ class UserDrawer extends StatelessWidget {
                     Icons.logout,
                     color: Colors.white,
                   ),
-                  title: const Text(
-                    "تسجيل خروج",
-                    style: TextStyle(
+                  title: Text(
+                    "sign_out".tr().toString(),
+                    style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),

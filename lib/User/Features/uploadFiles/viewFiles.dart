@@ -1,22 +1,12 @@
-import 'dart:io';
-import 'dart:isolate';
-import 'dart:ui';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_file_downloader/flutter_file_downloader.dart';
-import 'package:intl/intl.dart' as dateFixing;
-import 'package:permission_handler/permission_handler.dart';
 import 'package:take_drug/Common/Authentication/login.dart';
-import 'package:take_drug/Common/DialogBox/errorDialog.dart';
 import 'package:take_drug/Common/DialogBox/loadingDialog.dart';
 import 'package:take_drug/Common/config/config.dart';
 import 'package:take_drug/User/Features/uploadFiles/uploadFiles.dart';
-import 'package:http/http.dart' as http;
-import 'package:path_provider/path_provider.dart';
-import 'package:http/http.dart' as http;
-import 'package:dio/dio.dart';
 
 class viewFiles extends StatefulWidget {
   const viewFiles({super.key});
@@ -63,204 +53,194 @@ class _viewFiles extends State<viewFiles> {
             )
           : Container(),
       appBar: AppBar(
-        title: const Text("جميع الملفات"),
+        title: Text("all_files".tr().toString()),
         centerTitle: true,
       ),
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Column(
-          children: [
-            Container(
-              child: Row(
-                children: [],
-              ),
-            ),
-            userIsLoggedIn == true
-                ? Expanded(
-                    child: StreamBuilder<QuerySnapshot>(
-                      stream: takeDrug.firebaseFirestore!
-                          .collection("filesUploaded")
-                          .where("userUploadedUID", isEqualTo: currentUser)
-                          .snapshots(),
-                      builder: (context, snapshot) {
-                        return !snapshot.hasData
-                            ? const Center(
-                                child: CircularProgressIndicator(),
-                              )
-                            : ListView.builder(
-                                physics: const AlwaysScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: snapshot.data!.docs.length,
-                                itemBuilder: (context, index) {
-                                  String deleteID =
-                                      snapshot.data!.docs[index].id;
-                                  return Container(
-                                    padding: const EdgeInsets.all(10),
-                                    margin: const EdgeInsets.symmetric(
-                                        horizontal: 15, vertical: 10),
-                                    width: MediaQuery.of(context).size.width,
-                                    decoration: BoxDecoration(
-                                      color: const Color.fromARGB(
-                                          255, 206, 205, 205),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Row(
-                                                  children: [
-                                                    const Text("من: "),
-                                                    Text(
-                                                      "${snapshot.data!.docs[index]['FullName']}",
-                                                    ),
-                                                  ],
-                                                ),
-                                                const SizedBox(
-                                                  height: 5,
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    const Text(
-                                                      'نوع الملف: ',
-                                                    ),
-                                                    Text(
-                                                      snapshot
-                                                          .data!
-                                                          .docs[index]
-                                                              ['fileType']
-                                                          .toString(),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    const Text(
-                                                      'تاريخ الرفع: ',
-                                                    ),
-                                                    Text(
-                                                      snapshot
-                                                          .data!
-                                                          .docs[index]
-                                                              ['DateTime']
-                                                          .toString(),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
-                                              children: [
-                                                Container(
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    children: [
-                                                      IconButton(
-                                                        color: takeDrug
-                                                            .BackgroundColor,
-                                                        onPressed: () {
-                                                          delete(deleteID);
-                                                        },
-                                                        icon: const Icon(
-                                                          Icons.delete,
-                                                        ),
-                                                      ),
-                                                    ],
+      body: Column(
+        children: [
+          userIsLoggedIn == true
+              ? Expanded(
+                  child: StreamBuilder<QuerySnapshot>(
+                    stream: takeDrug.firebaseFirestore!
+                        .collection("filesUploaded")
+                        .where("userUploadedUID", isEqualTo: currentUser)
+                        .snapshots(),
+                    builder: (context, snapshot) {
+                      return !snapshot.hasData
+                          ? const Center(
+                              child: CircularProgressIndicator(),
+                            )
+                          : ListView.builder(
+                              physics: const AlwaysScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: snapshot.data!.docs.length,
+                              itemBuilder: (context, index) {
+                                String deleteID = snapshot.data!.docs[index].id;
+                                return Container(
+                                  padding: const EdgeInsets.all(10),
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 15, vertical: 10),
+                                  width: MediaQuery.of(context).size.width,
+                                  decoration: BoxDecoration(
+                                    color: const Color.fromARGB(
+                                        255, 206, 205, 205),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Text("from".tr().toString()),
+                                                  Text(
+                                                    "${snapshot.data!.docs[index]['FullName']}",
                                                   ),
-                                                ),
-                                                Row(
+                                                ],
+                                              ),
+                                              const SizedBox(
+                                                height: 5,
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    "file_type".tr().toString(),
+                                                  ),
+                                                  Text(
+                                                    snapshot.data!
+                                                        .docs[index]['fileType']
+                                                        .toString(),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    "date_uploaded"
+                                                        .tr()
+                                                        .toString(),
+                                                  ),
+                                                  Text(
+                                                    snapshot.data!
+                                                        .docs[index]['DateTime']
+                                                        .toString(),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            children: [
+                                              Container(
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
                                                   children: [
-                                                    ElevatedButton(
+                                                    IconButton(
+                                                      color: takeDrug
+                                                          .BackgroundColor,
                                                       onPressed: () {
-                                                        downloadFile(
-                                                          snapshot.data!
-                                                                  .docs[index]
-                                                              ['fileURL'],
-                                                        );
+                                                        delete(deleteID);
                                                       },
-                                                      child: const Text(
-                                                        "تحميل",
-                                                        style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
+                                                      icon: const Icon(
+                                                        Icons.delete,
                                                       ),
                                                     ),
                                                   ],
                                                 ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              );
-                      },
-                    ),
-                  )
-                : Expanded(
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          takeDrug.whiteOne,
-                        ),
-                        shadowColor: MaterialStateProperty.all(
-                          Colors.transparent,
-                        ),
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                              10.0,
-                            ),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  ElevatedButton(
+                                                    onPressed: () {
+                                                      downloadFile(
+                                                        snapshot.data!
+                                                                .docs[index]
+                                                            ['fileURL'],
+                                                      );
+                                                    },
+                                                    child: Text(
+                                                      "download"
+                                                          .tr()
+                                                          .toString(),
+                                                      style: const TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                    },
+                  ),
+                )
+              : Expanded(
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                        takeDrug.whiteOne,
+                      ),
+                      shadowColor: MaterialStateProperty.all(
+                        Colors.transparent,
+                      ),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                            10.0,
                           ),
                         ),
                       ),
-                      onPressed: () {
-                        Route route =
-                            MaterialPageRoute(builder: (_) => loginPage());
-                        Navigator.pushAndRemoveUntil(
-                            context, route, (route) => false);
-                      },
-                      child: Container(
-                        width: 200,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'يجب تسجيل الدخول',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: takeDrug.BackgroundColor),
-                            ),
-                            Icon(
-                              Icons.arrow_forward,
-                              color: takeDrug.BackgroundColor,
-                            ),
-                          ],
-                        ),
+                    ),
+                    onPressed: () {
+                      Route route =
+                          MaterialPageRoute(builder: (_) => loginPage());
+                      Navigator.pushAndRemoveUntil(
+                          context, route, (route) => false);
+                    },
+                    child: Container(
+                      width: 200,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'يجب تسجيل الدخول',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: takeDrug.BackgroundColor),
+                          ),
+                          Icon(
+                            Icons.arrow_forward,
+                            color: takeDrug.BackgroundColor,
+                          ),
+                        ],
                       ),
                     ),
                   ),
-          ],
-        ),
+                ),
+        ],
       ),
     );
   }

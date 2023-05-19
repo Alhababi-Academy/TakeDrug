@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:take_drug/Common/Authentication/myProfile.dart';
 import 'package:take_drug/Common/Widgets/Drawer.dart';
@@ -28,29 +29,29 @@ class _UserHomePageState extends State<UserHomePage> {
         automaticallyImplyLeading: false,
         toolbarHeight: 70,
         backgroundColor: takeDrug.BackgroundColor,
-        actions: [
-          currentUser != null
-              ? Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: GestureDetector(
-                    onTap: () {
-                      Route route =
-                          MaterialPageRoute(builder: (_) => const MyProfile());
-                      Navigator.push(context, route);
-                    },
-                    child: const Icon(
-                      Icons.person_2_rounded,
-                    ),
+        leading: currentUser != null
+            ? Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GestureDetector(
+                  onTap: () {
+                    Route route =
+                        MaterialPageRoute(builder: (_) => const MyProfile());
+                    Navigator.push(context, route);
+                  },
+                  child: const Icon(
+                    Icons.person_2_rounded,
                   ),
-                )
-              : Container()
-        ],
+                ),
+              )
+            : Container(),
         title: Column(
-          children: const [Text("الصفحة الرئيسية")],
+          children: [
+            Text("main_page".tr().toString()),
+          ],
         ),
         centerTitle: true,
       ),
-      drawer: currentUser != null ? UserDrawer() : null,
+      endDrawer: currentUser != null ? UserDrawer() : null,
       body: Container(
         width: MediaQuery.of(context).size.width,
         margin: const EdgeInsets.symmetric(horizontal: 40),
@@ -97,10 +98,10 @@ class _UserHomePageState extends State<UserHomePage> {
                               bottomRight: Radius.circular(12),
                               bottomLeft: Radius.circular(12))),
                       padding: const EdgeInsets.all(5),
-                      child: const Text(
-                        'اوقات تناول الادوية',
+                      child: Text(
+                        "Medication_times".tr().toString(),
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
                         ),
@@ -149,10 +150,10 @@ class _UserHomePageState extends State<UserHomePage> {
                               bottomRight: Radius.circular(12),
                               bottomLeft: Radius.circular(12))),
                       padding: const EdgeInsets.all(5),
-                      child: const Text(
-                        'اوقات المواعيد الطبية',
+                      child: Text(
+                        "Medical_appointment_times".tr().toString(),
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
                         ),
@@ -201,10 +202,10 @@ class _UserHomePageState extends State<UserHomePage> {
                               bottomRight: Radius.circular(12),
                               bottomLeft: Radius.circular(12))),
                       padding: const EdgeInsets.all(5),
-                      child: const Text(
-                        'دليلك الطبي',
+                      child: Text(
+                        "medical_directory".tr().toString(),
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
                         ),
@@ -253,10 +254,10 @@ class _UserHomePageState extends State<UserHomePage> {
                               bottomRight: Radius.circular(12),
                               bottomLeft: Radius.circular(12))),
                       padding: const EdgeInsets.all(5),
-                      child: const Text(
-                        'ملفاتك المحفوظة',
+                      child: Text(
+                        "saved_Files".tr().toString(),
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
                         ),
@@ -320,10 +321,10 @@ class _UserHomePageState extends State<UserHomePage> {
                               bottomRight: Radius.circular(12),
                               bottomLeft: Radius.circular(12))),
                       padding: const EdgeInsets.all(5),
-                      child: const Text(
-                        'بريدك الالكتروني',
+                      child: Text(
+                        "E-mail".tr().toString(),
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
                         ),
@@ -371,10 +372,10 @@ class _UserHomePageState extends State<UserHomePage> {
                               bottomRight: Radius.circular(12),
                               bottomLeft: Radius.circular(12))),
                       padding: const EdgeInsets.all(5),
-                      child: const Text(
-                        'خريطة الموقع المحلي',
+                      child: Text(
+                        "Local_site_map".tr().toString(),
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
                         ),

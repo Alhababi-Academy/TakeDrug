@@ -9,7 +9,7 @@
     },
     {
       "name": "args",
-      "rootUri": "file:///C:/Users/Asus/AppData/Local/Pub/Cache/hosted/pub.dev/args-2.4.0",
+      "rootUri": "file:///C:/Users/Asus/AppData/Local/Pub/Cache/hosted/pub.dev/args-2.4.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -87,7 +87,7 @@
     },
     {
       "name": "easy_localization",
-      "rootUri": "file:///C:/Users/Asus/AppData/Local/Pub/Cache/hosted/pub.dev/easy_localization-3.0.1",
+      "rootUri": "file:///C:/Users/Asus/AppData/Local/Pub/Cache/hosted/pub.dev/easy_localization-3.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -716,7 +716,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-05-18T17:35:27.936177Z",
+  "generated": "2023-05-18T18:51:04.627104Z",
   "generator": "pub",
   "generatorVersion": "2.19.5"
 }

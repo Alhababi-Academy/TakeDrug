@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:file_picker/file_picker.dart' as FilePicker;
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -40,8 +41,8 @@ class _FileUploadScreenState extends State<FileUploadScreen> {
     if (_file != null) {
       showDialog(
         context: context,
-        builder: (_) => const LoadingAlertDialog(
-          message: "رفع الملفات...",
+        builder: (_) => LoadingAlertDialog(
+          message: "upload_files".tr().toString(),
         ),
       );
       final fileName = Path.basename(_file!.path);
@@ -71,106 +72,104 @@ class _FileUploadScreenState extends State<FileUploadScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final fileName =
-        _file != null ? Path.basename(_file!.path) : 'لم يتم اختيار اي شي';
+    final fileName = _file != null
+        ? Path.basename(_file!.path)
+        : 'Nothing_is_selected'.tr().toString();
     return Scaffold(
       appBar: AppBar(
         title: const Text('File Upload to Firebase Storage'),
       ),
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Image.asset(
-              "images/lightBlue.png",
-              width: 190,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Image.asset(
+            "images/lightBlue.png",
+            width: 190,
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            margin: const EdgeInsets.only(right: 20, left: 20),
+            child: Column(
+              children: [
+                SizedBox(
+                  width: double.infinity, // <-- match_parent
+                  child: ElevatedButton(
+                    onPressed: _pickFile,
+                    style: ElevatedButton.styleFrom(),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Choose_a_file".tr().toString(),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 17),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Icon(
+                          Icons.upload,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Text(fileName),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                  width: double.infinity, // <-- match_parent
+                  child: ElevatedButton(
+                    onPressed: _uploadFile,
+                    style: ElevatedButton.styleFrom(),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'upload_a_file'.tr().toString(),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 17),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Icon(
+                          Icons.cloud,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.only(right: 20, left: 20),
-              child: Column(
-                children: [
-                  SizedBox(
-                    width: double.infinity, // <-- match_parent
-                    child: ElevatedButton(
-                      onPressed: _pickFile,
-                      style: ElevatedButton.styleFrom(),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text(
-                            'اختر ملف',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 17),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Icon(
-                            Icons.upload,
-                          )
-                        ],
-                      ),
-                    ),
+          ),
+          Container(
+            margin: const EdgeInsets.all(10),
+            child: Column(
+              children: [
+                Text(
+                  "caution".tr().toString(),
+                  style: const TextStyle(
+                    color: Colors.red,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
                   ),
-                  Center(
-                    child: Text(fileName),
+                ),
+                Text(
+                  "Please_only_upload_allowed_files".tr().toString(),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                    width: double.infinity, // <-- match_parent
-                    child: ElevatedButton(
-                      onPressed: _uploadFile,
-                      style: ElevatedButton.styleFrom(),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text(
-                            'رفم ملف',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 17),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Icon(
-                            Icons.cloud,
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-            Container(
-              margin: EdgeInsets.all(10),
-              child: Column(
-                children: const [
-                  Text(
-                    "تنويه:",
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                  Text(
-                    "الرجاء رفع ملفات طبية فقط، في حالة وجود ملقات غير طبية، هذا يعتبر مخالف لسياسات استخدام منصة TakeDrug وقد تودي الى اغلاق حسابك.",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
@@ -189,15 +188,16 @@ class _FileUploadScreenState extends State<FileUploadScreen> {
     }).then((value) {
       showDialog(
           context: context,
-          builder: (_) => const errorDialog(message: "تم رفع الملفات"));
+          builder: (_) =>
+              errorDialog(message: "done_uploading_files".tr().toString()));
     });
   }
 
   showDialogFunction() {
     showDialog(
       context: context,
-      builder: (_) => const errorDialog(
-        message: "قم برفع ملف اولا",
+      builder: (_) => errorDialog(
+        message: "upload_file_first".tr().toString(),
       ),
     );
   }

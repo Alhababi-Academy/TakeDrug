@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:take_drug/Admin/medical/goodPractice/goodPractice.dart';
 import 'package:take_drug/Admin/medical/medicalInfomration/medicalInformation.dart';
@@ -27,59 +28,59 @@ class _yourMedication extends State<yourMedication> {
       appBar: AppBar(
         toolbarHeight: 70,
         backgroundColor: takeDrug.BackgroundColor,
-        actions: [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: GestureDetector(
-              onTap: () {
-                Route route =
-                    MaterialPageRoute(builder: (_) => const MyProfile());
-                Navigator.push(context, route);
-              },
-              child: Column(
-                children: [
-                  const Icon(
-                    Icons.person_2_rounded,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Row(
-                      children: const [
-                        Text(
-                          "رجوع",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Icon(
-                          Icons.arrow_forward,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ],
+        // actions: [
+        //   Padding(
+        //     padding: EdgeInsets.all(8.0),
+        //     child: GestureDetector(
+        //       onTap: () {
+        //         Route route =
+        //             MaterialPageRoute(builder: (_) => const MyProfile());
+        //         Navigator.push(context, route);
+        //       },
+        //       child: Column(
+        //         children: [
+        //           const Icon(
+        //             Icons.person_2_rounded,
+        //           ),
+        //           GestureDetector(
+        //             onTap: () {
+        //               Navigator.pop(context);
+        //             },
+        //             child: Row(
+        //               children: const [
+        //                 Text(
+        //                   "رجوع",
+        //                   style: TextStyle(fontWeight: FontWeight.bold),
+        //                 ),
+        //                 SizedBox(
+        //                   width: 5,
+        //                 ),
+        //                 SizedBox(
+        //                   height: 30,
+        //                 ),
+        //                 Icon(
+        //                   Icons.arrow_forward,
+        //                 ),
+        //               ],
+        //             ),
+        //           )
+        //         ],
+        //       ),
+        //     ),
+        //   ),
+        // ],
         title: Column(
-          children: const [
+          children: [
             // Image.asset(
             //   "images/lightBlue.png",
             //   width: 50,
             // ),
-            Text("دليلك الطبي")
+            Text("your_Medical".tr().toString())
           ],
         ),
         centerTitle: true,
       ),
-      drawer: currentUser != null ? UserDrawer() : null,
+      endDrawer: currentUser != null ? UserDrawer() : null,
       body: Container(
         width: MediaQuery.of(context).size.width,
         child: Column(
@@ -109,10 +110,10 @@ class _yourMedication extends State<yourMedication> {
                     child: Container(
                       width: 250,
                       height: 70,
-                      child: const Center(
+                      child: Center(
                         child: Text(
-                          ' الانظمة الغذائية',
-                          style: TextStyle(
+                          "medical_food_system".tr().toString(),
+                          style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
@@ -144,10 +145,10 @@ class _yourMedication extends State<yourMedication> {
                     child: Container(
                       width: 250,
                       height: 70,
-                      child: const Center(
+                      child: Center(
                         child: Text(
-                          'ممارسات صحية',
-                          style: TextStyle(
+                          "healthy_practices".tr().toString(),
+                          style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
@@ -179,10 +180,10 @@ class _yourMedication extends State<yourMedication> {
                     child: Container(
                       width: 250,
                       height: 70,
-                      child: const Center(
+                      child: Center(
                         child: Text(
-                          'معلومات طبية',
-                          style: TextStyle(
+                          "medical_information".tr().tr(),
+                          style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,

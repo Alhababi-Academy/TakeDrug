@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -26,7 +27,7 @@ class _MapScreenState extends State<MapScreen> {
     String? currentUser = takeDrug.auth?.currentUser?.uid.toString();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Google Maps'),
+        title: Text("google_map".tr().toString()),
         centerTitle: true,
       ),
       body: currentUser != null

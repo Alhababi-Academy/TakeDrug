@@ -1,5 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:take_drug/Common/Authentication/login.dart';
 import 'package:take_drug/Common/DialogBox/errorDialog.dart';
 import 'package:take_drug/Common/DialogBox/loadingDialog.dart';
@@ -62,381 +62,371 @@ class _ReigsterPage extends State<ReigsterPage> {
     return Scaffold(
       backgroundColor: takeDrug.primaryNewColor,
       body: SafeArea(
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: SingleChildScrollView(
-            child: Container(
-              margin: const EdgeInsets.all(15),
-              child: Column(
-                children: [
-                  Column(
-                    children: [
-                      SizedBox(
-                        width: 180,
-                        child: Image.asset("images/lightBlue.png"),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.all(10),
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            left: 10,
-                          ),
-                          child: Text(
-                            "الإسم الأول",
-                            style: TextStyle(
-                              color: takeDrug.whiteTow,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                        customTextFieldRegsiterPage(
-                          isSecure: false,
-                          enabledEdit: true,
-                          prefixIcon: Icon(
-                            Icons.person,
-                            color: takeDrug.BackgroundColor,
-                          ),
-                          textEditingController: firstName,
-                          textInputType: TextInputType.emailAddress,
-                          hint: "الإسم الأول",
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            left: 10,
-                          ),
-                          child: Text(
-                            "الإسم الثاني",
-                            style: TextStyle(
-                              color: takeDrug.whiteTow,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                        customTextFieldRegsiterPage(
-                          isSecure: false,
-                          enabledEdit: true,
-                          prefixIcon: Icon(
-                            Icons.person,
-                            color: takeDrug.BackgroundColor,
-                          ),
-                          textEditingController: secondName,
-                          textInputType: TextInputType.emailAddress,
-                          hint: "الإسم الثاني",
-                        ),
-                        Text(
-                          "الجنس",
-                          style: TextStyle(
-                            color: takeDrug.whiteTow,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                        ),
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: RadioListTile(
-                                    activeColor: takeDrug.forthColor,
-                                    selectedTileColor: takeDrug.forthColor,
-                                    title: Text(
-                                      'ذكر',
-                                      style: TextStyle(
-                                        color: takeDrug.whiteTow,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    value: Gender.male,
-                                    dense: true,
-                                    groupValue: _selectedGender,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        _selectedGender = value!;
-                                      });
-                                    },
-                                  ),
-                                ),
-                                Expanded(
-                                  child: RadioListTile(
-                                    activeColor: takeDrug.forthColor,
-                                    selectedTileColor: takeDrug.forthColor,
-                                    title: Text(
-                                      'انثى',
-                                      style: TextStyle(
-                                        color: takeDrug.whiteTow,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    value: Gender.female,
-                                    dense: true,
-                                    groupValue: _selectedGender,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        _selectedGender = value!;
-                                      });
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(),
-                              child: Text(
-                                "تاريخ الميلاد: ",
-                                style: TextStyle(
-                                  color: takeDrug.whiteTow,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ),
-                            Column(
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    _selectDate();
-                                  },
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        NewDate.length > 3
-                                            ? NewDate.toString()
-                                            : "اختر تاريخ",
-                                        style: TextStyle(
-                                          color: takeDrug.forthColor,
-                                        ),
-                                      ),
-                                      const Icon(
-                                        Icons.arrow_drop_down,
-                                        color: Color(0xffB5D5FF),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.zero,
-                                  color: takeDrug.whiteTow,
-                                  width: 80,
-                                  height: 1,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            left: 10,
-                          ),
-                          child: Text(
-                            "الايميل",
-                            style: TextStyle(
-                              color: takeDrug.whiteTow,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                        customTextFieldRegsiterPage(
-                          isSecure: false,
-                          enabledEdit: true,
-                          prefixIcon: Icon(
-                            Icons.email,
-                            color: takeDrug.BackgroundColor,
-                          ),
-                          textEditingController: emailTextEditingController,
-                          textInputType: TextInputType.emailAddress,
-                          hint: "example@gmail.com",
-                        ),
-                        Text(
-                          "كلمة المرور",
-                          style: TextStyle(
-                            color: takeDrug.whiteTow,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                        ),
-                        customTextFieldRegsiterPage(
-                          isSecure: isSecureClicked,
-                          enabledEdit: true,
-                          textEditingController: passworTextEditingController,
-                          textInputType: TextInputType.emailAddress,
-                          hint: "123456789*",
-                          prefixIcon: Icon(
-                            Icons.lock,
-                            color: takeDrug.BackgroundColor,
-                          ),
-                          suffixIcon: IconButton(
-                            icon: Icon(!isSecureClicked
-                                ? Icons.visibility_off
-                                : Icons.remove_red_eye),
-                            color: takeDrug.BackgroundColor,
-                            onPressed: () {
-                              setState(() {
-                                isSecureClicked = !isSecureClicked;
-                              });
-                            },
-                          ),
-                        ),
-                        Text(
-                          "المدينة",
-                          style: TextStyle(
-                            color: takeDrug.whiteTow,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 6),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(9),
-                            color: takeDrug.whiteOne,
-                          ),
-                          child: DropdownButton<String>(
-                            value: selectedCity,
-                            isDense: true,
-                            style: TextStyle(
-                              color: takeDrug.BackgroundColor,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            items: cites.map(sectorDepartments).toList(),
-                            isExpanded: true,
-                            underline: const Text(""),
-                            iconSize: 20,
-                            icon: Icon(
-                              Icons.arrow_drop_down,
-                              color: takeDrug.BackgroundColor,
-                            ),
-                            onChanged: (value) =>
-                                setState(() => selectedCity = value),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            left: 10,
-                          ),
-                          child: Text(
-                            "رقم الهاتف",
-                            style: TextStyle(
-                              color: takeDrug.whiteTow,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                        customTextFieldRegsiterPage(
-                          isSecure: false,
-                          enabledEdit: true,
-                          prefixIcon: Icon(
-                            Icons.phone,
-                            color: takeDrug.BackgroundColor,
-                          ),
-                          textEditingController: phoneNumber,
-                          textInputType: TextInputType.phone,
-                          hint: "0555555555",
-                        ),
-                      ],
+        child: SingleChildScrollView(
+          child: Container(
+            margin: const EdgeInsets.all(15),
+            child: Column(
+              children: [
+                Column(
+                  children: [
+                    SizedBox(
+                      width: 180,
+                      child: Image.asset("images/lightBlue.png"),
                     ),
-                  ),
-                  Column(
+                  ],
+                ),
+                Container(
+                  margin: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                            takeDrug.whiteOne,
-                          ),
-                          shadowColor: MaterialStateProperty.all(
-                            Colors.transparent,
-                          ),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                10.0,
-                              ),
-                            ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 10,
+                        ),
+                        child: Text(
+                          "First_Name".tr().toString(),
+                          style: TextStyle(
+                            color: takeDrug.whiteTow,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
                           ),
                         ),
-                        onPressed: () {
-                          validateData();
-                        },
-                        child: Container(
-                          width: 100,
-                          height: 45,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      ),
+                      customTextFieldRegsiterPage(
+                        isSecure: false,
+                        enabledEdit: true,
+                        prefixIcon: Icon(
+                          Icons.person,
+                          color: takeDrug.BackgroundColor,
+                        ),
+                        textEditingController: firstName,
+                        textInputType: TextInputType.emailAddress,
+                        hint: "First_Name".tr().toString(),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 10,
+                        ),
+                        child: Text(
+                          "second_name".tr().toString(),
+                          style: TextStyle(
+                            color: takeDrug.whiteTow,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                      customTextFieldRegsiterPage(
+                        isSecure: false,
+                        enabledEdit: true,
+                        prefixIcon: Icon(
+                          Icons.person,
+                          color: takeDrug.BackgroundColor,
+                        ),
+                        textEditingController: secondName,
+                        textInputType: TextInputType.emailAddress,
+                        hint: "second_name".tr().toString(),
+                      ),
+                      Text(
+                        "Gender".tr().toString(),
+                        style: TextStyle(
+                          color: takeDrug.whiteTow,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                      Column(
+                        children: [
+                          Row(
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(right: 20),
-                                child: Text(
-                                  'تسجيل',
-                                  style: TextStyle(
-                                      fontSize: 18,
+                              Expanded(
+                                child: RadioListTile(
+                                  activeColor: takeDrug.forthColor,
+                                  selectedTileColor: takeDrug.forthColor,
+                                  title: Text(
+                                    "male".tr().toString(),
+                                    style: TextStyle(
+                                      color: takeDrug.whiteTow,
                                       fontWeight: FontWeight.bold,
-                                      color: takeDrug.BackgroundColor),
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  value: Gender.male,
+                                  dense: true,
+                                  groupValue: _selectedGender,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _selectedGender = value!;
+                                    });
+                                  },
                                 ),
                               ),
-                              Icon(
-                                Icons.arrow_forward,
-                                color: takeDrug.BackgroundColor,
+                              Expanded(
+                                child: RadioListTile(
+                                  activeColor: takeDrug.forthColor,
+                                  selectedTileColor: takeDrug.forthColor,
+                                  title: Text(
+                                    "girl".tr().toString(),
+                                    style: TextStyle(
+                                      color: takeDrug.whiteTow,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  value: Gender.female,
+                                  dense: true,
+                                  groupValue: _selectedGender,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _selectedGender = value!;
+                                    });
+                                  },
+                                ),
                               ),
                             ],
                           ),
-                        ),
+                        ],
                       ),
                       Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            " هل لديك حساب؟ ",
-                            style: TextStyle(
-                              color: takeDrug.whiteOne,
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                  builder: (_) => const loginPage(),
-                                ),
-                              );
-                            },
-                            style: ButtonStyle(
-                              padding: MaterialStateProperty.all(
-                                EdgeInsets.zero,
-                              ),
-                              minimumSize: MaterialStateProperty.all(
-                                const Size(0, 0),
-                              ),
-                            ),
+                          Padding(
+                            padding: const EdgeInsets.only(),
                             child: Text(
-                              "سجل الدخول",
+                              "date_of_birth".tr().toString(),
                               style: TextStyle(
                                 color: takeDrug.whiteTow,
                                 fontWeight: FontWeight.bold,
+                                fontSize: 18,
                               ),
                             ),
                           ),
+                          Column(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  _selectDate();
+                                },
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      NewDate.length > 3
+                                          ? NewDate.toString()
+                                          : "pick_date".tr().toString(),
+                                      style: TextStyle(
+                                        color: takeDrug.forthColor,
+                                      ),
+                                    ),
+                                    const Icon(
+                                      Icons.arrow_drop_down,
+                                      color: Color(0xffB5D5FF),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                padding: EdgeInsets.zero,
+                                color: takeDrug.whiteTow,
+                                width: 80,
+                                height: 1,
+                              ),
+                            ],
+                          ),
                         ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 10,
+                        ),
+                        child: Text(
+                          "email".tr().toString(),
+                          style: TextStyle(
+                            color: takeDrug.whiteTow,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                      customTextFieldRegsiterPage(
+                        isSecure: false,
+                        enabledEdit: true,
+                        prefixIcon: Icon(
+                          Icons.email,
+                          color: takeDrug.BackgroundColor,
+                        ),
+                        textEditingController: emailTextEditingController,
+                        textInputType: TextInputType.emailAddress,
+                        hint: "example@gmail.com",
+                      ),
+                      Text(
+                        "password".tr().toString(),
+                        style: TextStyle(
+                          color: takeDrug.whiteTow,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                      customTextFieldRegsiterPage(
+                        isSecure: isSecureClicked,
+                        enabledEdit: true,
+                        textEditingController: passworTextEditingController,
+                        textInputType: TextInputType.emailAddress,
+                        hint: "123456789*",
+                        prefixIcon: Icon(
+                          Icons.lock,
+                          color: takeDrug.BackgroundColor,
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Icon(!isSecureClicked
+                              ? Icons.visibility_off
+                              : Icons.remove_red_eye),
+                          color: takeDrug.BackgroundColor,
+                          onPressed: () {
+                            setState(() {
+                              isSecureClicked = !isSecureClicked;
+                            });
+                          },
+                        ),
+                      ),
+                      Text(
+                        "City".tr().toString(),
+                        style: TextStyle(
+                          color: takeDrug.whiteTow,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 6),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(9),
+                          color: takeDrug.whiteOne,
+                        ),
+                        child: DropdownButton<String>(
+                          value: selectedCity,
+                          isDense: true,
+                          style: TextStyle(
+                            color: takeDrug.BackgroundColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          items: cites.map(sectorDepartments).toList(),
+                          isExpanded: true,
+                          underline: const Text(""),
+                          iconSize: 20,
+                          icon: Icon(
+                            Icons.arrow_drop_down,
+                            color: takeDrug.BackgroundColor,
+                          ),
+                          onChanged: (value) =>
+                              setState(() => selectedCity = value),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 10,
+                        ),
+                        child: Text(
+                          "phone_number".tr().toString(),
+                          style: TextStyle(
+                            color: takeDrug.whiteTow,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                      customTextFieldRegsiterPage(
+                        isSecure: false,
+                        enabledEdit: true,
+                        prefixIcon: Icon(
+                          Icons.phone,
+                          color: takeDrug.BackgroundColor,
+                        ),
+                        textEditingController: phoneNumber,
+                        textInputType: TextInputType.phone,
+                        hint: "0555555555",
                       ),
                     ],
                   ),
-                ],
-              ),
+                ),
+                Column(
+                  children: [
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          takeDrug.whiteOne,
+                        ),
+                        shadowColor: MaterialStateProperty.all(
+                          Colors.transparent,
+                        ),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                              10.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        validateData();
+                      },
+                      child: Container(
+                        width: 100,
+                        height: 45,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text(
+                              "register_now".tr().toString(),
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: takeDrug.BackgroundColor),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "you_Have_Account".tr().toString(),
+                          style: TextStyle(
+                            color: takeDrug.whiteOne,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                builder: (_) => const loginPage(),
+                              ),
+                            );
+                          },
+                          style: ButtonStyle(
+                            padding: MaterialStateProperty.all(
+                              EdgeInsets.zero,
+                            ),
+                            minimumSize: MaterialStateProperty.all(
+                              const Size(0, 0),
+                            ),
+                          ),
+                          child: Text(
+                            "click_here".tr().toString(),
+                            style: TextStyle(
+                              color: takeDrug.whiteTow,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
@@ -496,8 +486,8 @@ class _ReigsterPage extends State<ReigsterPage> {
       context: context,
       barrierDismissible: false,
       builder: (c) {
-        return const errorDialog(
-          message: "قم بي مل الاستمارة",
+        return errorDialog(
+          message: "fill_up_the_form".tr().toString(),
         );
       },
     );
@@ -507,8 +497,8 @@ class _ReigsterPage extends State<ReigsterPage> {
     showDialog(
         context: context,
         builder: (c) {
-          return const LoadingAlertDialog(
-            message: " التحقق من البيانات ، يرجاء الانتظار ...",
+          return LoadingAlertDialog(
+            message: "validating_data_please_wait".tr().toString(),
           );
         });
     // this is the function to start creating account

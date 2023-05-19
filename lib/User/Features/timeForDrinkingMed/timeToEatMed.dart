@@ -1,16 +1,10 @@
-import 'dart:convert';
 import 'package:awesome_notifications/awesome_notifications.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:take_drug/Common/Authentication/myProfile.dart';
 import 'package:take_drug/Common/Widgets/Drawer.dart';
 import 'package:take_drug/Common/config/config.dart';
-import 'package:take_drug/User/Features/timeForDrinkingMed/editNotification.dart';
-import 'package:take_drug/User/Features/timeForDrinkingMed/modules/module.dart';
 import 'package:take_drug/User/Features/timeForDrinkingMed/timeToEatDetails.dart';
-import 'package:take_drug/User/Features/yourMedication/showDetialsFood/pageDetialsFood.dart';
-import 'package:take_drug/services/notificationsServices.dart';
 
 class timeToEatUser extends StatefulWidget {
   const timeToEatUser({super.key});
@@ -47,7 +41,8 @@ class _timeToEatUser extends State<timeToEatUser> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Route route = MaterialPageRoute(builder: (_) => timeToEatDetails());
+          Route route =
+              MaterialPageRoute(builder: (_) => const timeToEatDetails());
           Navigator.push(context, route);
         },
         child: const Icon(Icons.add),
@@ -57,59 +52,58 @@ class _timeToEatUser extends State<timeToEatUser> {
       appBar: AppBar(
         toolbarHeight: 70,
         backgroundColor: takeDrug.BackgroundColor,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GestureDetector(
-              onTap: () {
-                Route route =
-                    MaterialPageRoute(builder: (_) => const MyProfile());
-                Navigator.push(context, route);
-              },
-              child: Column(
-                children: [
-                  const Icon(
-                    Icons.person_2_rounded,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Row(
-                      children: const [
-                        Text(
-                          "رجوع",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Icon(
-                          Icons.arrow_forward,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ],
+        // actions: [
+        //   // GestureDetector(
+        //   //   onTap: () {
+        //   //     Route route =
+        //   //         MaterialPageRoute(builder: (_) => const MyProfile());
+        //   //     Navigator.push(context, route);
+        //   //   },
+        //   //   child: Column(
+        //   //     children: [
+        //   //       const Icon(
+        //   //         Icons.person_2_rounded,
+        //   //       ),
+        //   //       // GestureDetector(
+        //   //       //   onTap: () {
+        //   //       //     Navigator.pop(context);
+        //   //       //   },
+        //   //       //   child: Row(
+        //   //       //     children: [
+        //   //       //       Text(
+        //   //       //         "go_back".tr().toString(),
+        //   //       //         style: const TextStyle(fontWeight: FontWeight.bold),
+        //   //       //       ),
+        //   //       //       const SizedBox(
+        //   //       //         width: 5,
+        //   //       //       ),
+        //   //       //       const SizedBox(
+        //   //       //         height: 30,
+        //   //       //       ),
+        //   //       //       const Icon(
+        //   //       //         Icons.arrow_forward,
+        //   //       //       ),
+        //   //       //     ],
+        //   //       //   ),
+        //   //       // )
+        //   //     ],
+        //   //   ),
+        //   // ),
+        // ],
         title: Column(
-          children: const [
+          children: [
             // Image.asset(
             //   "images/lightBlue.png",
             //   width: 50,
             // ),
-            Text("اوقات تناول الادوية")
+            Text(
+              "Medication_times".tr().toString(),
+            ),
           ],
         ),
         centerTitle: true,
       ),
-      drawer: currentUser != null ? UserDrawer() : null,
+      endDrawer: currentUser != null ? UserDrawer() : null,
       // body: SingleChildScrollView(
       //   child: Column(
       //     children: [
@@ -225,9 +219,11 @@ class _timeToEatUser extends State<timeToEatUser> {
                                                 ),
                                                 Row(
                                                   children: [
-                                                    const Text(
-                                                      "عنوان المنبه: ",
-                                                      style: TextStyle(
+                                                    Text(
+                                                      "alarm_address"
+                                                          .tr()
+                                                          .toString(),
+                                                      style: const TextStyle(
                                                         color: Colors.black,
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -263,9 +259,11 @@ class _timeToEatUser extends State<timeToEatUser> {
                                                 ),
                                                 Row(
                                                   children: [
-                                                    const Text(
-                                                      "تاريخ التنبيه: ",
-                                                      style: TextStyle(
+                                                    Text(
+                                                      "date_of_alarm"
+                                                          .tr()
+                                                          .toString(),
+                                                      style: const TextStyle(
                                                         color: Colors.black,
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -301,9 +299,11 @@ class _timeToEatUser extends State<timeToEatUser> {
                                                 ),
                                                 Row(
                                                   children: [
-                                                    const Text(
-                                                      "وقت التنبيه: ",
-                                                      style: TextStyle(
+                                                    Text(
+                                                      "alarm_time"
+                                                          .tr()
+                                                          .toString(),
+                                                      style: const TextStyle(
                                                         color: Colors.black,
                                                         fontWeight:
                                                             FontWeight.bold,

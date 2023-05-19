@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -60,212 +61,208 @@ class _EditProfileState extends State<EditProfile> {
   Widget build(BuildContext context) {
     return Material(
       child: SafeArea(
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Column(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.all(5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: Icon(
+                            Icons.arrow_back,
+                            color: takeDrug.BackgroundColor,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            Route route = MaterialPageRoute(
+                                builder: (_) => const UserHomePage());
+                            Navigator.pushAndRemoveUntil(
+                                context, route, (route) => false);
+                          },
+                          icon: Icon(
+                            Icons.home,
+                            color: takeDrug.BackgroundColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Text(
+                    "Profile_personly".tr().toString(),
+                    style: const TextStyle(
+                      color: Color(0XFF00213F),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              ),
+              Flexible(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Container(
-                      margin: const EdgeInsets.all(5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            icon: Icon(
-                              Icons.arrow_back,
-                              color: takeDrug.BackgroundColor,
+                    Column(
+                      children: [
+                        Stack(
+                          children: [
+                            CircleAvatar(
+                              radius: 60,
+                              backgroundColor: const Color(0XFFD9D9D9),
+                              backgroundImage: ImageXFile == null
+                                  ? null
+                                  : FileImage(File(ImageXFile!.path)),
+                              child: ImageXFile == null
+                                  ? Icon(
+                                      Icons.add_photo_alternate,
+                                      size: MediaQuery.of(context).size.width *
+                                          0.20,
+                                      color: Colors.grey,
+                                    )
+                                  : null,
                             ),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              Route route = MaterialPageRoute(
-                                  builder: (_) => const UserHomePage());
-                              Navigator.pushAndRemoveUntil(
-                                  context, route, (route) => false);
-                            },
-                            icon: Icon(
-                              Icons.home,
-                              color: takeDrug.BackgroundColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Text(
-                      "الملف الشخصي",
-                      style: TextStyle(
-                        color: Color(0XFF00213F),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ],
-                ),
-                Flexible(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Column(
-                        children: [
-                          Stack(
-                            children: [
-                              CircleAvatar(
-                                radius: 60,
-                                backgroundColor: const Color(0XFFD9D9D9),
-                                backgroundImage: ImageXFile == null
-                                    ? null
-                                    : FileImage(File(ImageXFile!.path)),
-                                child: ImageXFile == null
-                                    ? Icon(
-                                        Icons.add_photo_alternate,
-                                        size:
-                                            MediaQuery.of(context).size.width *
-                                                0.20,
-                                        color: Colors.grey,
-                                      )
-                                    : null,
-                              ),
-                              Positioned(
-                                bottom: 10,
-                                right: 5,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(30),
-                                      color: const Color.fromARGB(
-                                          255, 198, 197, 197)),
-                                  child: IconButton(
-                                    onPressed: () {
-                                      pickingImageFromGallery();
-                                    },
-                                    icon: const Icon(
-                                      Icons.edit,
-                                    ),
+                            Positioned(
+                              bottom: 10,
+                              right: 5,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    color: const Color.fromARGB(
+                                        255, 198, 197, 197)),
+                                child: IconButton(
+                                  onPressed: () {
+                                    pickingImageFromGallery();
+                                  },
+                                  icon: const Icon(
+                                    Icons.edit,
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "${takeDrug.sharedPreferences!.getString(takeDrug.FristNameUser)} ${takeDrug.sharedPreferences!.getString(takeDrug.SecondNameUser)}",
-                            style: const TextStyle(
-                              fontSize: 20,
-                            ),
-                          )
-                        ],
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(right: 15, left: 15),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text("الاسم الاول"),
-                            customTextFieldRegsiterPage(
-                              isSecure: false,
-                              enabledEdit: true,
-                              prefixIcon: Icon(
-                                Icons.person,
-                                color: takeDrug.BackgroundColor,
-                              ),
-                              textEditingController: FristName,
-                              textInputType: TextInputType.text,
-                              hint: "lena",
-                            ),
-                            const Text("الاسم الثاني"),
-                            customTextFieldRegsiterPage(
-                              isSecure: false,
-                              enabledEdit: true,
-                              prefixIcon: Icon(
-                                Icons.person,
-                                color: takeDrug.BackgroundColor,
-                              ),
-                              textEditingController: SecondName,
-                              textInputType: TextInputType.text,
-                              hint: "mohammed",
-                            ),
-                            const Text("العمر"),
-                            customTextFieldRegsiterPage(
-                              isSecure: false,
-                              enabledEdit: true,
-                              prefixIcon: Icon(
-                                Icons.man,
-                                color: takeDrug.BackgroundColor,
-                              ),
-                              textEditingController: age,
-                              textInputType: TextInputType.phone,
-                              hint: "28",
-                            ),
-                            const Text(" الرقم"),
-                            customTextFieldRegsiterPage(
-                              isSecure: false,
-                              enabledEdit: true,
-                              prefixIcon: Icon(
-                                Icons.phone,
-                                color: takeDrug.BackgroundColor,
-                              ),
-                              textEditingController: phoneNumber,
-                              textInputType: TextInputType.phone,
-                              hint: "0554545834",
                             ),
                           ],
                         ),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          // checkUsers();
-                          updatingData();
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                            takeDrug.BackgroundColor,
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "${takeDrug.sharedPreferences!.getString(takeDrug.FristNameUser)} ${takeDrug.sharedPreferences!.getString(takeDrug.SecondNameUser)}",
+                          style: const TextStyle(
+                            fontSize: 20,
                           ),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                30.0,
-                              ),
+                        )
+                      ],
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(right: 15, left: 15),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("First_Name".tr().toString()),
+                          customTextFieldRegsiterPage(
+                            isSecure: false,
+                            enabledEdit: true,
+                            prefixIcon: Icon(
+                              Icons.person,
+                              color: takeDrug.BackgroundColor,
+                            ),
+                            textEditingController: FristName,
+                            textInputType: TextInputType.text,
+                            hint: "lena",
+                          ),
+                          Text("second_name".tr().toString()),
+                          customTextFieldRegsiterPage(
+                            isSecure: false,
+                            enabledEdit: true,
+                            prefixIcon: Icon(
+                              Icons.person,
+                              color: takeDrug.BackgroundColor,
+                            ),
+                            textEditingController: SecondName,
+                            textInputType: TextInputType.text,
+                            hint: "mohammed",
+                          ),
+                          Text("age".tr().toString()),
+                          customTextFieldRegsiterPage(
+                            isSecure: false,
+                            enabledEdit: true,
+                            prefixIcon: Icon(
+                              Icons.man,
+                              color: takeDrug.BackgroundColor,
+                            ),
+                            textEditingController: age,
+                            textInputType: TextInputType.phone,
+                            hint: "28",
+                          ),
+                          Text("phone_number".tr().toString()),
+                          customTextFieldRegsiterPage(
+                            isSecure: false,
+                            enabledEdit: true,
+                            prefixIcon: Icon(
+                              Icons.phone,
+                              color: takeDrug.BackgroundColor,
+                            ),
+                            textEditingController: phoneNumber,
+                            textInputType: TextInputType.phone,
+                            hint: "0554545834",
+                          ),
+                        ],
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        // checkUsers();
+                        updatingData();
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          takeDrug.BackgroundColor,
+                        ),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                              30.0,
                             ),
                           ),
-                          padding: MaterialStateProperty.all(
-                            const EdgeInsets.only(
-                                right: 25, left: 25, top: 7, bottom: 7),
-                          ),
                         ),
-                        child: const Text(
-                          " تحديث",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
-                          ),
+                        padding: MaterialStateProperty.all(
+                          const EdgeInsets.only(
+                              right: 25, left: 25, top: 7, bottom: 7),
                         ),
                       ),
-                      // TextButton(
-                      //   onPressed: () {
-                      //     Route route = MaterialPageRoute(
-                      //         builder: (_) => const EditAllergy());
-                      //     Navigator.push(context, route);
-                      //   },
-                      //   child: Text(
-                      //     "Edit Allergy Information?",
-                      //     style: TextStyle(
-                      //       color: takeDrug.primaryColor,
-                      //     ),
-                      //   ),
-                      // ),
-                    ],
-                  ),
+                      child: Text(
+                        "update".tr().toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                        ),
+                      ),
+                    ),
+                    // TextButton(
+                    //   onPressed: () {
+                    //     Route route = MaterialPageRoute(
+                    //         builder: (_) => const EditAllergy());
+                    //     Navigator.push(context, route);
+                    //   },
+                    //   child: Text(
+                    //     "Edit Allergy Information?",
+                    //     style: TextStyle(
+                    //       color: takeDrug.primaryColor,
+                    //     ),
+                    //   ),
+                    // ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -286,15 +283,16 @@ class _EditProfileState extends State<EditProfile> {
         ? updatingData()
         : showDialog(
             context: context,
-            builder: (_) => const errorDialog(message: "رجا قم بملي البيانات"),
+            builder: (_) =>
+                errorDialog(message: "fill_up_the_form".tr().toString()),
           );
   }
 
   Future updatingData() async {
     showDialog(
       context: context,
-      builder: (c) => const LoadingAlertDialog(
-        message: "حفظ البيانات",
+      builder: (c) => LoadingAlertDialog(
+        message: "saving_data".tr().toString(),
       ),
     );
     if (ImageXFile != null) {
@@ -335,7 +333,8 @@ class _EditProfileState extends State<EditProfile> {
         }
         showDialog(
           context: context,
-          builder: (_) => const errorDialog(message: "تم تحديث البيانات"),
+          builder: (_) =>
+              errorDialog(message: "done_updating_data".tr().toString()),
         );
       },
     );
