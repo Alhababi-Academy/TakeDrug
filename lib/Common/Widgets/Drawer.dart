@@ -184,33 +184,22 @@ class UserDrawer extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    GestureDetector(
-                      onTap: () async {
+                    TextButton(
+                      onPressed: () {
                         context.setLocale(const Locale("en"));
                       },
-                      child: Container(
-                        child: Flag.fromCode(
-                          FlagsCode.US,
-                          height: 30,
-                          width: 40,
-                          fit: BoxFit.fill,
-                        ),
+                      child: const Text(
+                        "English",
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    GestureDetector(
-                      onTap: () {
+                    TextButton(
+                      onPressed: () {
                         context.setLocale(const Locale("ar"));
                       },
-                      child: Container(
-                        child: Flag.fromCode(
-                          FlagsCode.SA,
-                          height: 30,
-                          width: 40,
-                          fit: BoxFit.fill,
-                        ),
+                      child: const Text(
+                        "Arabic",
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ],

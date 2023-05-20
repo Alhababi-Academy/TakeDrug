@@ -25,11 +25,6 @@ class _timeToEatUser extends State<timeToEatUser> {
       // Replace this with your logic for fetching the list of notifications
       List<NotificationModel> notifications =
           await AwesomeNotifications().listScheduledNotifications();
-
-      //     .then((value) {
-      //   value.forEach((element) {element.schedule});
-      // });
-      // Emit the list of notifications as a stream event
       yield notifications;
     }
 
@@ -52,50 +47,8 @@ class _timeToEatUser extends State<timeToEatUser> {
       appBar: AppBar(
         toolbarHeight: 70,
         backgroundColor: takeDrug.BackgroundColor,
-        // actions: [
-        //   // GestureDetector(
-        //   //   onTap: () {
-        //   //     Route route =
-        //   //         MaterialPageRoute(builder: (_) => const MyProfile());
-        //   //     Navigator.push(context, route);
-        //   //   },
-        //   //   child: Column(
-        //   //     children: [
-        //   //       const Icon(
-        //   //         Icons.person_2_rounded,
-        //   //       ),
-        //   //       // GestureDetector(
-        //   //       //   onTap: () {
-        //   //       //     Navigator.pop(context);
-        //   //       //   },
-        //   //       //   child: Row(
-        //   //       //     children: [
-        //   //       //       Text(
-        //   //       //         "go_back".tr().toString(),
-        //   //       //         style: const TextStyle(fontWeight: FontWeight.bold),
-        //   //       //       ),
-        //   //       //       const SizedBox(
-        //   //       //         width: 5,
-        //   //       //       ),
-        //   //       //       const SizedBox(
-        //   //       //         height: 30,
-        //   //       //       ),
-        //   //       //       const Icon(
-        //   //       //         Icons.arrow_forward,
-        //   //       //       ),
-        //   //       //     ],
-        //   //       //   ),
-        //   //       // )
-        //   //     ],
-        //   //   ),
-        //   // ),
-        // ],
         title: Column(
           children: [
-            // Image.asset(
-            //   "images/lightBlue.png",
-            //   width: 50,
-            // ),
             Text(
               "Medication_times".tr().toString(),
             ),
@@ -104,34 +57,6 @@ class _timeToEatUser extends State<timeToEatUser> {
         centerTitle: true,
       ),
       endDrawer: currentUser != null ? UserDrawer() : null,
-      // body: SingleChildScrollView(
-      //   child: Column(
-      //     children: [
-      //       StreamBuilder<List<NotificationModel>>(
-      //         stream: getNotificationsStream(),
-      //         builder: (context, snapshot) {
-      //           if (snapshot.hasData) {
-      //             // Replace this with your own UI code for displaying the list of notifications
-      //             return ListView.builder(
-      //               shrinkWrap: true,
-      //               itemCount: snapshot.data!.length,
-      //               itemBuilder: (context, index) {
-      //                 return ListTile(
-      //                   title: Text(
-      //                       snapshot.data![index].content!.title.toString()),
-      //                 );
-      //               },
-      //             );
-      //           } else if (snapshot.hasError) {
-      //             return Text("Error: ${snapshot.error}");
-      //           } else {
-      //             return CircularProgressIndicator();
-      //           }
-      //         },
-      //       )
-      //     ],
-      //   ),
-      // ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
@@ -272,9 +197,6 @@ class _timeToEatUser extends State<timeToEatUser> {
                                                     Text(
                                                       "${gettingSchduleData['year'].toString()}-${gettingSchduleData['month'].toString()}-${gettingSchduleData['day'].toString()}",
                                                     ),
-                                                    // Text(snapshot
-                                                    //     .data![index].schedule
-                                                    //     .toString())
                                                   ],
                                                 ),
                                               ],

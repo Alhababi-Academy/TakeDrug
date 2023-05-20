@@ -24,9 +24,8 @@ class _timeToEatDetails extends State<timeToEatDetails> {
   TextEditingController DetialsfTheAlarm = TextEditingController();
 
   // time of the day
-  TimeOfDay _time =
-      TimeOfDay.fromDateTime(DateTime.now().add(const Duration(minutes: 3)));
-  // final minDateTime = DateTime.now().add(const Duration(minutes: 3));
+  final TimeOfDay _time =
+      TimeOfDay.fromDateTime(DateTime.now().add(const Duration(minutes: 1)));
 
   final minDateTime = DateTime.now();
   // each day
@@ -34,12 +33,10 @@ class _timeToEatDetails extends State<timeToEatDetails> {
   // for images
   XFile? ImageXFile;
   File? imageGetting;
-  ImagePicker _picker = ImagePicker();
+  final ImagePicker _picker = ImagePicker();
   String? ImageUrl;
 
   // For The Date and Time
-  String? _setTime, _setDate;
-  String? dateTime;
   DateTime? selectedDate = DateTime.now();
   TimeOfDay selectedTime = TimeOfDay.now();
 
@@ -58,7 +55,7 @@ class _timeToEatDetails extends State<timeToEatDetails> {
   final List<bool> _isChecked = List<bool>.filled(7, false);
 
 // for the count
-  int _count = 1;
+  final int _count = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -67,53 +64,8 @@ class _timeToEatDetails extends State<timeToEatDetails> {
       appBar: AppBar(
         toolbarHeight: 70,
         backgroundColor: takeDrug.BackgroundColor,
-        // actions: [
-        //   Padding(
-        //     padding: const EdgeInsets.all(8.0),
-        //     child: GestureDetector(
-        //       onTap: () {
-        //         Route route =
-        //             MaterialPageRoute(builder: (_) => const MyProfile());
-        //         Navigator.push(context, route);
-        //       },
-        //       child: Column(
-        //         children: [
-        //           const Icon(
-        //             Icons.person_2_rounded,
-        //           ),
-        //           GestureDetector(
-        //             onTap: () {
-        //               Navigator.pop(context);
-        //             },
-        //             child: Row(
-        //               children: const [
-        //                 Text(
-        //                   "رجوع",
-        //                   style: TextStyle(fontWeight: FontWeight.bold),
-        //                 ),
-        //                 SizedBox(
-        //                   width: 5,
-        //                 ),
-        //                 SizedBox(
-        //                   height: 30,
-        //                 ),
-        //                 Icon(
-        //                   Icons.arrow_forward,
-        //                 ),
-        //               ],
-        //             ),
-        //           )
-        //         ],
-        //       ),
-        //     ),
-        //   ),
-        // ],
-        title: Column(
-          children: [
-            Text(
-              "Add_a_medication_alert".tr().toString(),
-            ),
-          ],
+        title: Text(
+          "Add_a_medication_alert".tr().toString(),
         ),
         centerTitle: true,
       ),
@@ -133,14 +85,7 @@ class _timeToEatDetails extends State<timeToEatDetails> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(7),
               color: Colors.white,
-              boxShadow: const [
-                // BoxShadow(
-                //   color: Colors.grey.withOpacity(0.5), // shadow color
-                //   spreadRadius: 5, // spread radius
-                //   blurRadius: 7, // blur radius
-                //   offset: Offset(0, 3), // changes position of shadow
-                // ),
-              ],
+              boxShadow: const [],
             ),
             child: Column(
               children: [
@@ -210,50 +155,6 @@ class _timeToEatDetails extends State<timeToEatDetails> {
                               },
                             ),
                           ),
-                          // Row(
-                          //   children: [
-                          //     Icon(
-                          //       Icons.watch,
-                          //       color: takeDrug.BackgroundColor,
-                          //     ),
-                          //     const SizedBox(
-                          //       width: 15,
-                          //     ),
-                          //     const Text(
-                          //       "عدد المرات في اليوم:",
-                          //       style: TextStyle(fontSize: 13),
-                          //     ),
-                          //     Row(
-                          //       children: [
-                          //         IconButton(
-                          //           icon: Icon(
-                          //             Icons.remove,
-                          //             color: takeDrug.BackgroundColor,
-                          //           ),
-                          //           onPressed: () {
-                          //             setState(() {
-                          //               if (_count > 1) {
-                          //                 _count--;
-                          //               }
-                          //             });
-                          //           },
-                          //         ),
-                          //         Text('$_count'),
-                          //         IconButton(
-                          //           icon: Icon(
-                          //             Icons.add,
-                          //             color: takeDrug.BackgroundColor,
-                          //           ),
-                          //           onPressed: () {
-                          //             setState(() {
-                          //               _count++;
-                          //             });
-                          //           },
-                          //         ),
-                          //       ],
-                          //     ),
-                          //   ],
-                          // ),
                           const Divider(
                             height: 2,
                             color: Colors.black,
@@ -283,9 +184,6 @@ class _timeToEatDetails extends State<timeToEatDetails> {
                                 ),
                                 const SizedBox(
                                   height: 10,
-                                ),
-                                const SizedBox(
-                                  width: 15,
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -375,8 +273,7 @@ class _timeToEatDetails extends State<timeToEatDetails> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        // Navigator.pop(context);
-                        showD();
+                        Navigator.pop(context);
                       },
                       child: Text(
                         "cancel".tr().toString(),
@@ -419,10 +316,6 @@ class _timeToEatDetails extends State<timeToEatDetails> {
         },
       );
     }
-  }
-
-  showD() async {
-    print(await AwesomeNotifications().listScheduledNotifications());
   }
 
   // Picking Image
@@ -481,10 +374,8 @@ class _timeToEatDetails extends State<timeToEatDetails> {
       );
       if (ImageXFile != null) {
         String imageName = DateTime.now().microsecondsSinceEpoch.toString();
-        Reference reference = takeDrug.firebaseStorage!
-            .ref()
-            .child("profileImages")
-            .child(imageName);
+        Reference reference =
+            takeDrug.firebaseStorage!.ref().child("alamr").child(imageName);
         UploadTask uploadTask = reference.putFile(
           File(imageGetting!.path),
         );
@@ -494,19 +385,24 @@ class _timeToEatDetails extends State<timeToEatDetails> {
         });
       }
 
-      takeDrug.firebaseFirestore!.collection("medicineAlarm").add({
-        'sunday': _isChecked[0],
-        'monday': _isChecked[4],
-        'tuesday': _isChecked[1],
-        'wednesday': _isChecked[2],
-        'thursday': _isChecked[3],
-        'friday': _isChecked[4],
-        'saturday': _isChecked[5],
-        "imageUrl": ImageUrl,
-        "HowManyTimes": _count,
-        // "timeForFristAlarm":  Foramtt.DateFormat('HH:mm').format(_time as DateTime)
-        "timeForFristAlarm": _time.format(context),
-      }).then((value) async {
+      await NotificationService.showNotification(
+        bigPicture: ImageUrl,
+        title: titleOfTheAlarm.text,
+        body: DetialsfTheAlarm.text,
+        scheduled: true,
+        interval: false,
+        notificationCalendar: NotificationCalendar(
+          timeZone: await AwesomeNotifications().getLocalTimeZoneIdentifier(),
+          hour: _time.hour,
+          minute: _time.minute,
+          year: DateTime.now().year,
+          allowWhileIdle: true,
+          weekday: 2,
+          month: DateTime.now().month,
+          repeats: true,
+          preciseAlarm: true,
+        ),
+      ).then((value) {
         Navigator.pop(context);
         showDialog(
           context: context,
@@ -514,41 +410,6 @@ class _timeToEatDetails extends State<timeToEatDetails> {
             message: "done_adding_alarm".tr().toString(),
           ),
         );
-        // To Add Notifications
-
-        await NotificationService.showNotification(
-          bigPicture: ImageUrl,
-          title: titleOfTheAlarm.text,
-          body: DetialsfTheAlarm.text,
-          scheduled: true,
-          interval: false,
-          notificationCalendar: NotificationCalendar(
-            timeZone: await AwesomeNotifications().getLocalTimeZoneIdentifier(),
-            hour: _time.hour,
-            minute: _time.minute,
-            year: DateTime.now().year,
-            allowWhileIdle: true,
-            weekday: 2,
-            month: DateTime.now().month,
-            repeats: true,
-            preciseAlarm: true,
-          ),
-          // notificationInterval: NotificationInterval(
-          //   interval: 70,
-          //   timeZone: await AwesomeNotifications().getLocalTimeZoneIdentifier(),
-          //   allowWhileIdle: true,
-          //   preciseAlarm: true,
-          //   repeats: true,
-          // ),
-        );
-
-        setState(() {
-          // titleOfTheAlarm.text = "";
-          // DetialsfTheAlarm.text = "";
-          // for (int i = 0; i < _isChecked.length; i++) {
-          //   _isChecked[i] = false;
-          // }
-        });
       });
     }
   }
