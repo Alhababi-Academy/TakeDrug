@@ -397,7 +397,6 @@ class _timeToEatDetails extends State<timeToEatDetails> {
           minute: _time.minute,
           year: DateTime.now().year,
           allowWhileIdle: true,
-          weekday: 2,
           month: DateTime.now().month,
           repeats: true,
           preciseAlarm: true,
