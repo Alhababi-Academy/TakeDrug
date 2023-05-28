@@ -4,7 +4,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:take_drug/Common/Authentication/myProfile.dart';
 import 'package:take_drug/Common/DialogBox/errorDialog.dart';
 import 'package:take_drug/Common/DialogBox/loadingDialog.dart';
 import 'package:take_drug/Common/Widgets/Drawer.dart';
@@ -22,10 +21,6 @@ class timeToEatDetails extends StatefulWidget {
 class _timeToEatDetails extends State<timeToEatDetails> {
   TextEditingController titleOfTheAlarm = TextEditingController();
   TextEditingController DetialsfTheAlarm = TextEditingController();
-
-  // time of the day
-  final TimeOfDay _time =
-      TimeOfDay.fromDateTime(DateTime.now().add(const Duration(minutes: 1)));
 
   final minDateTime = DateTime.now();
   // each day
@@ -71,7 +66,6 @@ class _timeToEatDetails extends State<timeToEatDetails> {
       ),
       endDrawer: currentUser != null ? UserDrawer() : null,
       body: SingleChildScrollView(
-        physics: const NeverScrollableScrollPhysics(),
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
@@ -333,11 +327,18 @@ class _timeToEatDetails extends State<timeToEatDetails> {
         eachDay = element;
       });
     }
-    titleOfTheAlarm.text.isNotEmpty &&
-            DetialsfTheAlarm.text.isNotEmpty &&
-            eachDay != false
-        ? showError()
-        : uploadToDatbase();
+    if (titleOfTheAlarm.text.isNotEmpty && DetialsfTheAlarm.text.isNotEmpty) {
+      for (int i = 0; i < _days.length; i++) {
+        String day = _days[i];
+        bool isChecked = _isChecked[i];
+        if (isChecked) {
+          print('$day is checked');
+          return uploadToDatbase();
+        }
+      }
+    } else {
+      showError();
+    }
   }
 
   showError() {
@@ -355,8 +356,8 @@ class _timeToEatDetails extends State<timeToEatDetails> {
       DateTime.now().year,
       DateTime.now().month,
       DateTime.now().day,
-      _time.hour,
-      _time.minute,
+      selectedTime.hour,
+      selectedTime.minute,
     );
     if (newSelectedDate.isBefore(minDateTime)) {
       showDialog(
@@ -382,6 +383,7 @@ class _timeToEatDetails extends State<timeToEatDetails> {
         TaskSnapshot taskSnapshot = await uploadTask.whenComplete(() {});
         await taskSnapshot.ref.getDownloadURL().then((SavedIMageUrl) {
           ImageUrl = SavedIMageUrl;
+          print(ImageUrl);
         });
       }
 
@@ -393,9 +395,10 @@ class _timeToEatDetails extends State<timeToEatDetails> {
         interval: false,
         notificationCalendar: NotificationCalendar(
           timeZone: await AwesomeNotifications().getLocalTimeZoneIdentifier(),
-          hour: _time.hour,
-          minute: _time.minute,
+          hour: selectedTime.hour,
+          minute: selectedTime.minute,
           year: DateTime.now().year,
+          day: DateTime.now().day,
           allowWhileIdle: true,
           month: DateTime.now().month,
           repeats: true,

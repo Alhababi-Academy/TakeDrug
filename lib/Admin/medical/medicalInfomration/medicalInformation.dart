@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -30,10 +31,10 @@ class _MedicalInfomration extends State<MedicalInfomration> {
   final TextEditingController MedicalTitle = TextEditingController();
 
   final List<String> medicalTypeEach = [
-    'كبار السن',
-    'غير الحامل',
-    'الحامل',
-    'الكل'
+    'old_'.tr().toString(),
+    'not_prefrant'.tr().toString(),
+    'prefreant'.tr().toString(),
+    'all'.tr().toString()
   ];
   String? medicalEach;
   final ImagePicker _imagePicker = ImagePicker();
@@ -54,254 +55,203 @@ class _MedicalInfomration extends State<MedicalInfomration> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Center(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(19.0),
-                    child: ListView(
-                      shrinkWrap: true,
-                      children: [
-                        Text(
-                          "اضافة معلومات طبية",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: takeDrug.BackgroundColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                          ),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(19.0),
+                  child: ListView(
+                    shrinkWrap: true,
+                    children: [
+                      Text(
+                        "add_medical_sure".tr().toString(),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: takeDrug.BackgroundColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
                         ),
-                        const Padding(padding: EdgeInsets.only(top: 12.0)),
-                        // ListTile(
-                        //   leading: Icon(
-                        //     Icons.money,
-                        //     color: takeDrug.BackgroundColor,
-                        //   ),
-                        //   title: SizedBox(
-                        //     width: 250.0,
-                        //     child: TextField(
-                        //       style:
-                        //           TextStyle(color: takeDrug.BackgroundColor),
-                        //       controller: suggestionsTitle,
-                        //       decoration: const InputDecoration(
-                        //         hintText: "عنوان الغذاء",
-                        //         hintStyle: TextStyle(color: Colors.grey),
-                        //         border: InputBorder.none,
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            left: 10,
-                          ),
-                          child: Text(
-                            "العنوان",
-                            style: TextStyle(
-                              color: takeDrug.BackgroundColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
+                      ),
+                      const Padding(padding: EdgeInsets.only(top: 12.0)),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 10,
                         ),
-                        customTextFieldRegsiterPage(
-                          isSecure: false,
-                          enabledEdit: true,
-                          prefixIcon: Icon(
-                            Icons.title,
-                            color: takeDrug.BackgroundColor,
-                          ),
-                          textEditingController: MedicalTitle,
-                          textInputType: TextInputType.text,
-                        ),
-
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "الوصف",
+                        child: Text(
+                          "title".tr().toString(),
                           style: TextStyle(
                             color: takeDrug.BackgroundColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
                           ),
                         ),
-                        customTextFieldRegsiterPage(
-                          isSecure: false,
-                          enabledEdit: true,
-                          prefixIcon: Icon(
-                            Icons.type_specimen,
-                            color: takeDrug.BackgroundColor,
-                          ),
-                          textEditingController: MedicalDescription,
-                          textInputType: TextInputType.text,
+                      ),
+                      customTextFieldRegsiterPage(
+                        isSecure: false,
+                        enabledEdit: true,
+                        prefixIcon: Icon(
+                          Icons.title,
+                          color: takeDrug.BackgroundColor,
                         ),
-                        const SizedBox(
-                          height: 10,
+                        textEditingController: MedicalTitle,
+                        textInputType: TextInputType.text,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "description".tr().toString(),
+                        style: TextStyle(
+                          color: takeDrug.BackgroundColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
                         ),
-                        Container(
-                          margin: const EdgeInsets.only(
-                              top: 10, right: 45, left: 45),
-                          child: Column(
-                            children: [
-                              Text(
-                                "رفع صورة",
-                                style: TextStyle(
-                                  color: takeDrug.BackgroundColor,
-                                ),
+                      ),
+                      customTextFieldRegsiterPage(
+                        isSecure: false,
+                        enabledEdit: true,
+                        prefixIcon: Icon(
+                          Icons.type_specimen,
+                          color: takeDrug.BackgroundColor,
+                        ),
+                        textEditingController: MedicalDescription,
+                        textInputType: TextInputType.text,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        margin:
+                            const EdgeInsets.only(top: 10, right: 45, left: 45),
+                        child: Column(
+                          children: [
+                            Text(
+                              "add_pic".tr().toString(),
+                              style: TextStyle(
+                                color: takeDrug.BackgroundColor,
                               ),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  uploadImage();
-                                },
-                                child: Container(
-                                  height: 150,
-                                  width: MediaQuery.of(context).size.width,
-                                  decoration: imageXFileProofe == null
-                                      ? BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: Color.fromARGB(
-                                              255, 214, 214, 214),
-                                        )
-                                      : BoxDecoration(
-                                          image: DecorationImage(
-                                            image: FileImage(
-                                              File(imageXFileProofe!.path),
-                                            ),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                uploadImage();
+                              },
+                              child: Container(
+                                height: 150,
+                                width: MediaQuery.of(context).size.width,
+                                decoration: imageXFileProofe == null
+                                    ? BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color:
+                                            Color.fromARGB(255, 214, 214, 214),
+                                      )
+                                    : BoxDecoration(
+                                        image: DecorationImage(
+                                          image: FileImage(
+                                            File(imageXFileProofe!.path),
                                           ),
                                         ),
-                                  child: Icon(
-                                    Icons.upload,
-                                    color: takeDrug.BackgroundColor,
-                                    size: 50,
-                                  ),
+                                      ),
+                                child: Icon(
+                                  Icons.upload,
+                                  color: takeDrug.BackgroundColor,
+                                  size: 50,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Text(
+                        "type".tr().toString(),
+                        style: TextStyle(
+                          color: takeDrug.BackgroundColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 6,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.white,
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 1,
+                          ),
+                        ),
+                        child: DropdownButton<String>(
+                          value: medicalEach,
+                          isDense: true,
+                          underline: const Text(""),
+                          style: TextStyle(
+                            color: takeDrug.BackgroundColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          items: medicalTypeEach.map(medicalType).toList(),
+                          iconSize: 20,
+                          isExpanded: true,
+                          icon: Icon(
+                            Icons.arrow_drop_down,
+                            color: takeDrug.BackgroundColor,
+                          ),
+                          onChanged: (value) =>
+                              setState(() => medicalEach = value),
+                        ),
+                      ),
+                      const Divider(
+                        color: Colors.black,
+                      ),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                            const Color(0xff0058A0),
+                          ),
+                          shadowColor: MaterialStateProperty.all(
+                            Colors.transparent,
+                          ),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                10.0,
+                              ),
+                            ),
+                          ),
+                        ),
+                        onPressed: () {
+                          saveItemInfo();
+                        },
+                        child: Container(
+                          width: 100,
+                          height: 45,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text(
+                                "add".tr().toString(),
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        // ListTile(
-                        //   leading: Icon(
-                        //     Icons.description,
-                        //     color: takeDrug.BackgroundColor,
-                        //   ),
-                        //   title: const SizedBox(
-                        //     // child: TextField(
-                        //     //   style:
-                        //     //       TextStyle(color: takeDrug.BackgroundColor),
-                        //     //   controller: suggestionsDescription,
-                        //     //   decoration: const InputDecoration(
-                        //     //     hintText: "وصف الاقتراح",
-                        //     //     hintStyle: TextStyle(color: Colors.grey),
-                        //     //     border: InputBorder.none,
-                        //     //   ),
-                        //     // ),
-                        //     child: TextField(
-                        //       maxLines: 3, // Allows for unlimited lines of text
-                        //       keyboardType: TextInputType
-                        //           .multiline, // Shows the multiline keyboard
-                        //       decoration: InputDecoration(
-                        //         hintText: "وصف الاقتراح",
-                        //         border:
-                        //             OutlineInputBorder(), // Adds an outline border
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
-                        Text(
-                          "الفئة",
-                          style: TextStyle(
-                            color: takeDrug.BackgroundColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 20,
-                            vertical: 6,
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.white,
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 1,
-                            ),
-                          ),
-                          child: DropdownButton<String>(
-                            value: medicalEach,
-                            isDense: true,
-                            underline: const Text(""),
-                            style: TextStyle(
-                              color: takeDrug.BackgroundColor,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            items: medicalTypeEach.map(medicalType).toList(),
-                            iconSize: 20,
-                            isExpanded: true,
-                            icon: Icon(
-                              Icons.arrow_drop_down,
-                              color: takeDrug.BackgroundColor,
-                            ),
-                            onChanged: (value) =>
-                                setState(() => medicalEach = value),
-                          ),
-                        ),
-                        const Divider(
-                          color: Colors.black,
-                        ),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                              const Color(0xff0058A0),
-                            ),
-                            shadowColor: MaterialStateProperty.all(
-                              Colors.transparent,
-                            ),
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                  10.0,
-                                ),
-                              ),
-                            ),
-                          ),
-                          onPressed: () {
-                            saveItemInfo();
-                          },
-                          child: Container(
-                            width: 100,
-                            height: 45,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: const [
-                                Text(
-                                  "اضافة",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
@@ -326,7 +276,7 @@ class _MedicalInfomration extends State<MedicalInfomration> {
             MedicalDescription.text.isNotEmpty &&
             medicalEach!.isNotEmpty
         ? savingImage()
-        : const errorDialog(message: "عدم ترك الحقل فارغ");
+        : errorDialog(message: "dont_leave_it_empty".tr().toString());
   }
 
   savingImage() async {
@@ -349,8 +299,8 @@ class _MedicalInfomration extends State<MedicalInfomration> {
   savingData() async {
     showDialog(
       context: context,
-      builder: (_) => const LoadingAlertDialog(
-        message: "حفظ",
+      builder: (_) => LoadingAlertDialog(
+        message: "save".tr().toString(),
       ),
     );
     final User? user = takeDrug.auth?.currentUser;

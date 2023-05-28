@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' as dateFixing;
@@ -35,196 +36,192 @@ class _ViewAllEmails extends State<ViewAllEmails> {
         title: const Text("جميع الرسائل"),
         centerTitle: true,
       ),
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Column(
-          children: [
-            Container(
-              child: Row(
-                children: [],
-              ),
+      body: Column(
+        children: [
+          Container(
+            child: Row(
+              children: [],
             ),
-            currentUser != null
-                ? Expanded(
-                    child: StreamBuilder<QuerySnapshot>(
-                      stream: takeDrug.firebaseFirestore!
-                          .collection("emails")
-                          .where("sentBy", isEqualTo: currentUser)
-                          .orderBy("MessageSentOn", descending: true)
-                          .snapshots(),
-                      builder: (context, snapshot) {
-                        return !snapshot.hasData
-                            ? const Center(
-                                child: CircularProgressIndicator(),
-                              )
-                            : ListView.builder(
-                                physics: const AlwaysScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: snapshot.data!.docs.length,
-                                itemBuilder: (context, index) {
-                                  return Container(
-                                    padding: const EdgeInsets.all(10),
-                                    margin: const EdgeInsets.symmetric(
-                                        horizontal: 15, vertical: 10),
-                                    width: MediaQuery.of(context).size.width,
-                                    decoration: BoxDecoration(
-                                      color: const Color.fromARGB(
-                                          255, 206, 205, 205),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Row(
-                                                  children: [
-                                                    const Text("من: "),
-                                                    Text(
-                                                      "${snapshot.data!.docs[index]['From']}",
-                                                    ),
-                                                  ],
-                                                ),
-                                                IconButton(
-                                                  onPressed: () {},
-                                                  icon: Icon(
-                                                    Icons.delete,
-                                                    color: takeDrug
-                                                        .BackgroundColor,
+          ),
+          currentUser != null
+              ? Expanded(
+                  child: StreamBuilder<QuerySnapshot>(
+                    stream: takeDrug.firebaseFirestore!
+                        .collection("emails")
+                        .where("sentBy", isEqualTo: currentUser)
+                        .orderBy("MessageSentOn", descending: true)
+                        .snapshots(),
+                    builder: (context, snapshot) {
+                      return !snapshot.hasData
+                          ? const Center(
+                              child: CircularProgressIndicator(),
+                            )
+                          : ListView.builder(
+                              physics: const AlwaysScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: snapshot.data!.docs.length,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  padding: const EdgeInsets.all(10),
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 15, vertical: 10),
+                                  width: MediaQuery.of(context).size.width,
+                                  decoration: BoxDecoration(
+                                    color: const Color.fromARGB(
+                                        255, 206, 205, 205),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  const Text("من: "),
+                                                  Text(
+                                                    "${snapshot.data!.docs[index]['From']}",
                                                   ),
+                                                ],
+                                              ),
+                                              IconButton(
+                                                onPressed: () {},
+                                                icon: Icon(
+                                                  Icons.delete,
+                                                  color:
+                                                      takeDrug.BackgroundColor,
                                                 ),
-                                              ],
-                                            ),
-                                            const SizedBox(
-                                              height: 5,
-                                            ),
-                                            Row(
-                                              children: [
-                                                const Text(
-                                                  'تم ارسال الرسالة في: ',
-                                                ),
-                                                Text(
-                                                  snapshot
-                                                      .data!
-                                                      .docs[index]
-                                                          ['MessageSentOn']
-                                                      .toString(),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        const SizedBox(
-                                          height: 5,
-                                        ),
-                                        Row(
-                                          children: [
-                                            const Text(
-                                              'الي: ',
-                                            ),
-                                            Text(
-                                              snapshot.data!.docs[index]['To']
-                                                  .toString(),
-                                            ),
-                                          ],
-                                        ),
-                                        const SizedBox(
-                                          height: 5,
-                                        ),
-                                        Row(
-                                          children: [
-                                            const Text(
-                                              'الموضوع: ',
-                                            ),
-                                            Text(
-                                              snapshot
-                                                  .data!.docs[index]['subject']
-                                                  .toString()
-                                                  .toUpperCase(),
-                                            ),
-                                          ],
-                                        ),
-                                        const SizedBox(
-                                          height: 5,
-                                        ),
-                                        Row(
-                                          children: [
-                                            const Text(
-                                              'الرسالة: ',
-                                            ),
-                                            Text(
-                                              snapshot
-                                                  .data!.docs[index]['message']
-                                                  .toString(),
-                                            ),
-                                          ],
-                                        ),
-                                        const SizedBox(
-                                          height: 5,
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              );
-                      },
-                    ),
-                  )
-                : Expanded(
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          takeDrug.whiteOne,
-                        ),
-                        shadowColor: MaterialStateProperty.all(
-                          Colors.transparent,
-                        ),
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                              10.0,
-                            ),
+                                              ),
+                                            ],
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
+                                          Row(
+                                            children: [
+                                              const Text(
+                                                'تم ارسال الرسالة في: ',
+                                              ),
+                                              Text(
+                                                snapshot
+                                                    .data!
+                                                    .docs[index]
+                                                        ['MessageSentOn']
+                                                    .toString(),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      Row(
+                                        children: [
+                                          const Text(
+                                            'الي: ',
+                                          ),
+                                          Text(
+                                            snapshot.data!.docs[index]['To']
+                                                .toString(),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      Row(
+                                        children: [
+                                          const Text(
+                                            'الموضوع: ',
+                                          ),
+                                          Text(
+                                            snapshot
+                                                .data!.docs[index]['subject']
+                                                .toString()
+                                                .toUpperCase(),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      Row(
+                                        children: [
+                                          const Text(
+                                            'الرسالة: ',
+                                          ),
+                                          Text(
+                                            snapshot
+                                                .data!.docs[index]['message']
+                                                .toString(),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                    },
+                  ),
+                )
+              : Expanded(
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                        takeDrug.whiteOne,
+                      ),
+                      shadowColor: MaterialStateProperty.all(
+                        Colors.transparent,
+                      ),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                            10.0,
                           ),
                         ),
                       ),
-                      onPressed: () {
-                        Route route =
-                            MaterialPageRoute(builder: (_) => loginPage());
-                        Navigator.pushAndRemoveUntil(
-                            context, route, (route) => false);
-                      },
-                      child: Container(
-                        width: 200,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'يجب تسجيل الدخول',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: takeDrug.BackgroundColor),
-                            ),
-                            Icon(
-                              Icons.arrow_forward,
-                              color: takeDrug.BackgroundColor,
-                            ),
-                          ],
-                        ),
+                    ),
+                    onPressed: () {
+                      Route route =
+                          MaterialPageRoute(builder: (_) => loginPage());
+                      Navigator.pushAndRemoveUntil(
+                          context, route, (route) => false);
+                    },
+                    child: Container(
+                      width: 200,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "you_need_to_login".tr().toString(),
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: takeDrug.BackgroundColor),
+                          ),
+                          Icon(
+                            Icons.arrow_forward,
+                            color: takeDrug.BackgroundColor,
+                          ),
+                        ],
                       ),
                     ),
                   ),
-          ],
-        ),
+                ),
+        ],
       ),
     );
   }

@@ -155,7 +155,10 @@ class _timeToGoToDoctor extends State<timeToGoToDoctor> {
                         String asdf =
                             "${gettingSchduleData['year'].toString()}-${gettingSchduleData['month'].toString()}-${gettingSchduleData['day'].toString()}";
 
-                        if (gettingSchduleData['day'].toString().isNotEmpty) {
+                        bool reapet = gettingSchduleData['repeats'];
+                        print(reapet);
+
+                        if (reapet != true) {
                           return Container(
                             margin: const EdgeInsets.all(15),
                             decoration: BoxDecoration(

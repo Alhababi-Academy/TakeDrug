@@ -95,7 +95,6 @@ class _timeToGotToDoctorDetials extends State<timeToGotToDoctorDetials> {
         ),
         centerTitle: true,
       ),
-      drawer: currentUser != null ? UserDrawer() : null,
       body: SingleChildScrollView(
         physics: const NeverScrollableScrollPhysics(),
         child: Container(

@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:take_drug/Common/DialogBox/errorDialog.dart';
 import 'package:take_drug/Common/DialogBox/loadingDialog.dart';
 import 'package:take_drug/Common/config/config.dart';
 import 'package:intl/intl.dart' as DateInt;
@@ -26,112 +28,105 @@ class _UploadSugestions extends State<UploadSugestions> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Center(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(19.0),
-                    child: ListView(
-                      shrinkWrap: true,
-                      children: [
-                        Text(
-                          " اضافة اقتراح او شكوى",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: takeDrug.BackgroundColor,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1.5,
-                              fontSize: 24),
-                        ),
-                        const Padding(padding: EdgeInsets.only(top: 12.0)),
-                        ListTile(
-                          leading: Icon(
-                            Icons.money,
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(19.0),
+                  child: ListView(
+                    shrinkWrap: true,
+                    children: [
+                      Text(
+                        "add_complaint".tr().toString(),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
                             color: takeDrug.BackgroundColor,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1.5,
+                            fontSize: 24),
+                      ),
+                      const Padding(padding: EdgeInsets.only(top: 12.0)),
+                      ListTile(
+                        leading: Icon(
+                          Icons.money,
+                          color: takeDrug.BackgroundColor,
+                        ),
+                        title: SizedBox(
+                          width: 250.0,
+                          child: TextField(
+                            style: TextStyle(color: takeDrug.BackgroundColor),
+                            controller: suggestionsTitle,
+                            decoration: InputDecoration(
+                              hintText: "complaint_title".tr().toString(),
+                              hintStyle: TextStyle(color: Colors.grey),
+                              border: InputBorder.none,
+                            ),
                           ),
-                          title: SizedBox(
-                            width: 250.0,
-                            child: TextField(
-                              style: TextStyle(color: takeDrug.BackgroundColor),
-                              controller: suggestionsTitle,
-                              decoration: const InputDecoration(
-                                hintText: "عنوان الاقتراح",
-                                hintStyle: TextStyle(color: Colors.grey),
-                                border: InputBorder.none,
+                        ),
+                      ),
+                      const Divider(
+                        color: Colors.black,
+                      ),
+                      ListTile(
+                        leading: Icon(
+                          Icons.description,
+                          color: takeDrug.BackgroundColor,
+                        ),
+                        title: SizedBox(
+                          width: 250.0,
+                          child: TextField(
+                            style: TextStyle(color: takeDrug.BackgroundColor),
+                            controller: suggestionsDescription,
+                            decoration: InputDecoration(
+                              hintText: "complaint_description".tr().toString(),
+                              hintStyle: TextStyle(color: Colors.grey),
+                              border: InputBorder.none,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const Divider(
+                        color: Colors.black,
+                      ),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                            const Color(0xff0058A0),
+                          ),
+                          shadowColor: MaterialStateProperty.all(
+                            Colors.transparent,
+                          ),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                10.0,
                               ),
                             ),
                           ),
                         ),
-                        const Divider(
-                          color: Colors.black,
-                        ),
-                        ListTile(
-                          leading: Icon(
-                            Icons.description,
-                            color: takeDrug.BackgroundColor,
-                          ),
-                          title: SizedBox(
-                            width: 250.0,
-                            child: TextField(
-                              style: TextStyle(color: takeDrug.BackgroundColor),
-                              controller: suggestionsDescription,
-                              decoration: const InputDecoration(
-                                hintText: "وصف الاقتراح",
-                                hintStyle: TextStyle(color: Colors.grey),
-                                border: InputBorder.none,
+                        onPressed: () {
+                          saveItemInfo();
+                        },
+                        child: Container(
+                          height: 45,
+                          child: Center(
+                            child: Text(
+                              "add".tr().toString(),
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
                         ),
-                        const Divider(
-                          color: Colors.black,
-                        ),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                              const Color(0xff0058A0),
-                            ),
-                            shadowColor: MaterialStateProperty.all(
-                              Colors.transparent,
-                            ),
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                  10.0,
-                                ),
-                              ),
-                            ),
-                          ),
-                          onPressed: () {
-                            saveItemInfo();
-                          },
-                          child: Container(
-                            width: 100,
-                            height: 45,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: const [
-                                Text(
-                                  "اضافة",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
@@ -148,21 +143,35 @@ class _UploadSugestions extends State<UploadSugestions> {
   }
 
   saveItemInfo() async {
+    suggestionsTitle.text.isNotEmpty && suggestionsDescription.text.isNotEmpty
+        ? loadingDialog()
+        : showDialog(
+            context: context,
+            builder: (_) => const errorDialog(
+              message: "erro",
+            ),
+          );
+  }
+
+  loadingDialog() {
     showDialog(
       context: context,
-      builder: (_) => const LoadingAlertDialog(
-        message: "رفع الملفات",
+      builder: (_) => LoadingAlertDialog(
+        message: "upload_files".tr().toString(),
       ),
     );
-    final User? user = takeDrug.auth?.currentUser;
-    final uid = user!.uid;
-    final itemsRef =
-        await FirebaseFirestore.instance.collection("suggestions").add({
+    uploadeData();
+  }
+
+  uploadeData() async {
+    String? user = takeDrug.auth?.currentUser?.uid;
+
+    await FirebaseFirestore.instance.collection("suggestions").add({
       "suggestionsTitle": suggestionsTitle.text.trim(),
       "longDescription": suggestionsDescription.text.trim(),
       "publishedDate":
           DateInt.DateFormat('dd-MM-yyyy').format(DateTime.now()).toString(),
-      "uid": uid,
+      "uid": user,
       "name": name.toString(),
     }).then((value) {
       Navigator.pop(context);

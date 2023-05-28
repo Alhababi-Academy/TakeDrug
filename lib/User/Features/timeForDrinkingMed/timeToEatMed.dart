@@ -14,10 +14,7 @@ class timeToEatUser extends StatefulWidget {
 }
 
 class _timeToEatUser extends State<timeToEatUser> {
-  Future<List<NotificationModel>> data =
-      AwesomeNotifications().listScheduledNotifications().then((value) {
-    return value.toList();
-  });
+  List<NotificationModel> alarmsWithRepeat = [];
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +26,6 @@ class _timeToEatUser extends State<timeToEatUser> {
     }
 
     String? currentUser = takeDrug.auth?.currentUser?.uid;
-    setState(() {
-      data;
-    });
 
     return Scaffold(
       floatingActionButton: FloatingActionButton(
@@ -89,198 +83,210 @@ class _timeToEatUser extends State<timeToEatUser> {
                             snapshot.data![index].schedule?.toMap();
                         int? notificationID = snapshot.data![index].content!.id;
                         print("this is the day${gettingSchduleData!['day']}");
-
+                        bool reapet = gettingSchduleData['repeats'];
+                        print(reapet);
                         String theYear =
                             "${gettingSchduleData['year'].toString()}-${gettingSchduleData['month'].toString()}-${gettingSchduleData['day'].toString()}";
 
-                        return Container(
-                          margin: const EdgeInsets.all(15),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(7),
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey
-                                    .withOpacity(0.5), // shadow color
-                                spreadRadius: 5, // spread radius
-                                blurRadius: 7, // blur radius
-                                offset: const Offset(
-                                    0, 3), // changes position of shadow
-                              ),
-                            ],
-                          ),
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                Icons.local_offer,
-                                                color: takeDrug.BackgroundColor,
-                                                size: 15,
-                                              ),
-                                              const SizedBox(
-                                                width: 5,
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Text(
-                                                    "alarm_address"
-                                                        .tr()
-                                                        .toString(),
-                                                    style: const TextStyle(
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    snapshot.data![index]
-                                                        .content!.title
-                                                        .toString(),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      const Divider(
-                                        height: 2,
-                                        color: Colors.black,
-                                      ),
-                                      Row(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                Icons.calendar_month,
-                                                color: takeDrug.BackgroundColor,
-                                                size: 15,
-                                              ),
-                                              const SizedBox(
-                                                width: 5,
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Text(
-                                                    "date_of_alarm"
-                                                        .tr()
-                                                        .toString(),
-                                                    style: const TextStyle(
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    "${gettingSchduleData['year'].toString()}-${gettingSchduleData['month'].toString()}-${gettingSchduleData['day'].toString()}",
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      Row(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                Icons.watch,
-                                                color: takeDrug.BackgroundColor,
-                                                size: 15,
-                                              ),
-                                              const SizedBox(
-                                                width: 5,
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Text(
-                                                    "alarm_time"
-                                                        .tr()
-                                                        .toString(),
-                                                    style: const TextStyle(
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    "${gettingSchduleData['hour'].toString()}:${gettingSchduleData['minute'].toString()}",
-                                                  ),
-                                                  // Text(snapshot
-                                                  //     .data![index].schedule
-                                                  //     .toString())
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  Container(
-                                    height: 100,
-                                    child: Column(
+                        if (reapet = true) {
+                          return Container(
+                            margin: const EdgeInsets.all(15),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7),
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey
+                                      .withOpacity(0.5), // shadow color
+                                  spreadRadius: 5, // spread radius
+                                  blurRadius: 7, // blur radius
+                                  offset: const Offset(
+                                      0, 3), // changes position of shadow
+                                ),
+                              ],
+                            ),
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Column(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.start,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.end,
+                                          CrossAxisAlignment.start,
                                       children: [
-                                        GestureDetector(
-                                          onTap: () {
-                                            AwesomeNotifications()
-                                                .cancel(
-                                              int.parse(
-                                                snapshot
-                                                    .data![index].content!.id
-                                                    .toString(),
-                                              ),
-                                            )
-                                                .then((value) {
-                                              setState(() {});
-                                            });
-                                          },
-                                          child: const Icon(
-                                            Icons.delete,
-                                            color: Colors.blue,
-                                          ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.local_offer,
+                                                  color:
+                                                      takeDrug.BackgroundColor,
+                                                  size: 15,
+                                                ),
+                                                const SizedBox(
+                                                  width: 5,
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      "alarm_address"
+                                                          .tr()
+                                                          .toString(),
+                                                      style: const TextStyle(
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      snapshot.data![index]
+                                                          .content!.title
+                                                          .toString(),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        const Divider(
+                                          height: 2,
+                                          color: Colors.black,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.calendar_month,
+                                                  color:
+                                                      takeDrug.BackgroundColor,
+                                                  size: 15,
+                                                ),
+                                                const SizedBox(
+                                                  width: 5,
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      "date_of_alarm"
+                                                          .tr()
+                                                          .toString(),
+                                                      style: const TextStyle(
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      "${gettingSchduleData['year'].toString()}-${gettingSchduleData['month'].toString()}-${gettingSchduleData['day'].toString()}",
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.watch,
+                                                  color:
+                                                      takeDrug.BackgroundColor,
+                                                  size: 15,
+                                                ),
+                                                const SizedBox(
+                                                  width: 5,
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      "alarm_time"
+                                                          .tr()
+                                                          .toString(),
+                                                      style: const TextStyle(
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      "${gettingSchduleData['hour'].toString()}:${gettingSchduleData['minute'].toString()}",
+                                                    ),
+                                                    // Text(snapshot
+                                                    //     .data![index].schedule
+                                                    //     .toString())
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Image.network(
-                                  snapshot.data![index].content!.bigPicture
-                                      .toString(),
+                                    Container(
+                                      height: 100,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          GestureDetector(
+                                            onTap: () {
+                                              AwesomeNotifications()
+                                                  .cancel(
+                                                int.parse(
+                                                  snapshot
+                                                      .data![index].content!.id
+                                                      .toString(),
+                                                ),
+                                              )
+                                                  .then((value) {
+                                                setState(() {});
+                                              });
+                                            },
+                                            child: const Icon(
+                                              Icons.delete,
+                                              color: Colors.blue,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ),
-                            ],
-                          ),
-                        );
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: snapshot.data![index].content!
+                                              .bigPicture !=
+                                          null
+                                      ? Image.network(
+                                          snapshot
+                                              .data![index].content!.bigPicture
+                                              .toString(),
+                                        )
+                                      : Container(),
+                                ),
+                              ],
+                            ),
+                          );
+                        }
                       },
                     ),
                   );

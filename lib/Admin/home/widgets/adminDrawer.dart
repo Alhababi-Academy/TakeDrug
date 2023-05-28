@@ -1,11 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:take_drug/Admin/home/adminHomePage.dart';
 import 'package:take_drug/Common/Authentication/login.dart';
-import 'package:take_drug/Common/Authentication/myProfile.dart';
 import 'package:take_drug/Common/config/config.dart';
-import 'package:take_drug/User/Features/PagesInDrawer/aboutUs.dart';
-import 'package:take_drug/User/Features/PagesInDrawer/privacyAndSecurity.dart';
 
 class AdminDrawer extends StatelessWidget {
   Color color1 = const Color.fromARGB(128, 208, 199, 1);
@@ -58,83 +55,14 @@ class AdminDrawer extends StatelessWidget {
             decoration: const BoxDecoration(),
             child: Column(
               children: [
-                // ListTile(
-                //   leading: const Icon(
-                //     Icons.home,
-                //     color: Colors.white,
-                //   ),
-                //   title: const Text(
-                //     "الملف الشخصي",
-                //     style: TextStyle(
-                //       color: Colors.white,
-                //       fontWeight: FontWeight.bold,
-                //     ),
-                //   ),
-                //   onTap: () {
-                //     Route route =
-                //         MaterialPageRoute(builder: (c) => MyProfile());
-                //     Navigator.pushReplacement(context, route);
-                //   },
-                // ),
-                // const Divider(
-                //   height: 10.0,
-                //   color: Colors.white,
-                //   thickness: 6.0,
-                // ),
-                // ListTile(
-                //   leading: const Icon(
-                //     Icons.calendar_month,
-                //     color: Colors.white,
-                //   ),
-                //   title: const Text(
-                //     "السياسات والخصوصية",
-                //     style: TextStyle(
-                //       color: Colors.white,
-                //       fontWeight: FontWeight.bold,
-                //     ),
-                //   ),
-                //   onTap: () {
-                //     Route route =
-                //         MaterialPageRoute(builder: (c) => PrivacyPolicyPage());
-                //     Navigator.push(context, route);
-                //   },
-                // ),
-                // const Divider(
-                //   height: 10.0,
-                //   color: Colors.white,
-                //   thickness: 6.0,
-                // ),
-                // ListTile(
-                //   leading: const Icon(
-                //     Icons.indeterminate_check_box,
-                //     color: Colors.white,
-                //   ),
-                //   title: const Text(
-                //     "الاقتراحات والشكاوي",
-                //     style: TextStyle(
-                //       color: Colors.white,
-                //       fontWeight: FontWeight.bold,
-                //     ),
-                //   ),
-                //   onTap: () {
-                //     // Route route =
-                //     //     MaterialPageRoute(builder: (c) => const apiPage());
-                //     // Navigator.push(context, route);
-                //   },
-                // ),
-                // const Divider(
-                //   height: 10.0,
-                //   color: Colors.white,
-                //   thickness: 6.0,
-                // ),
                 ListTile(
                   leading: const Icon(
                     Icons.home,
                     color: Colors.white,
                   ),
-                  title: const Text(
-                    "الصفحة الرئيسية",
-                    style: TextStyle(
+                  title: Text(
+                    "home_page".tr().toString(),
+                    style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -156,9 +84,9 @@ class AdminDrawer extends StatelessWidget {
                     Icons.logout,
                     color: Colors.white,
                   ),
-                  title: const Text(
-                    "تسجيل خروج",
-                    style: TextStyle(
+                  title: Text(
+                    "sign_out".tr().toString(),
+                    style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -176,6 +104,29 @@ class AdminDrawer extends StatelessWidget {
                   height: 10.0,
                   color: Colors.white,
                   thickness: 6.0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        context.setLocale(const Locale("en"));
+                      },
+                      child: const Text(
+                        "English",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        context.setLocale(const Locale("ar"));
+                      },
+                      child: const Text(
+                        "Arabic",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

@@ -1,0 +1,570 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.take_drug"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+11-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:3:5-79
+11-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:3:22-76
+12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+12-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:4:5-80
+12-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:4:22-78
+13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+13-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:5:5-79
+13-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:5:22-77
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:6:5-66
+14-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:6:22-64
+15    <uses-permission android:name="android.permission.VIBRATE" />
+15-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:7:5-65
+15-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:7:22-63
+16    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+16-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:8:5-80
+16-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:8:22-78
+17    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+17-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:9:5-83
+17-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:9:22-80
+18    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+18-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:10:5-84
+18-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:10:22-82
+19    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+19-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:11:5-78
+19-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:11:22-76
+20    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+20-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:12:5-76
+20-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:12:22-74
+21
+22    <queries>
+22-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:14:1-27:15
+23        <intent>
+23-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:15:9-18:18
+24            <action android:name="android.intent.action.VIEW" />
+24-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:16:13-65
+24-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:16:21-62
+25
+26            <data android:scheme="https" />
+26-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:17:13-44
+26-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:17:19-41
+27        </intent>
+28        <intent>
+28-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:19:9-22:18
+29            <action android:name="android.intent.action.DIAL" />
+29-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:20:13-65
+29-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:20:21-62
+30
+31            <data android:scheme="tel" />
+31-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:17:13-44
+31-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:17:19-41
+32        </intent>
+33        <intent>
+33-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:23:9-26:18
+34            <action android:name="android.intent.action.SEND" />
+34-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:24:13-65
+34-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:24:21-62
+35
+36            <data android:mimeType="*/*" />
+36-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:17:13-44
+36-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:25:19-41
+37        </intent>
+38        <intent>
+38-->[:file_picker] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\file_picker\intermediates\merged_manifest\release\AndroidManifest.xml:12:9-16:18
+39            <action android:name="android.intent.action.GET_CONTENT" />
+39-->[:file_picker] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\file_picker\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-72
+39-->[:file_picker] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\file_picker\intermediates\merged_manifest\release\AndroidManifest.xml:13:21-69
+40
+41            <data android:mimeType="*/*" />
+41-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:17:13-44
+41-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:25:19-41
+42        </intent> <!-- Needs to be explicitly declared on Android R+ -->
+43        <package android:name="com.google.android.apps.maps" />
+43-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\3dfde69425f081a5c08eca8a238e6098\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:33:9-64
+43-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\3dfde69425f081a5c08eca8a238e6098\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:33:18-61
+44    </queries>
+45
+46    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+46-->[:geolocator_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\geolocator_android\intermediates\merged_manifest\release\AndroidManifest.xml:9:5-77
+46-->[:geolocator_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\geolocator_android\intermediates\merged_manifest\release\AndroidManifest.xml:9:22-74
+47    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+47-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:9:5-77
+47-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:9:22-74
+48    <uses-permission android:name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS" /> <!-- Include required permissions for Google Maps API to run. -->
+48-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:10:5-89
+48-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:10:22-86
+49    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+49-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\3dfde69425f081a5c08eca8a238e6098\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:23:5-79
+49-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\3dfde69425f081a5c08eca8a238e6098\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:23:22-76
+50
+51    <uses-feature
+51-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\3dfde69425f081a5c08eca8a238e6098\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:26:5-28:35
+52        android:glEsVersion="0x00020000"
+52-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\3dfde69425f081a5c08eca8a238e6098\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:27:9-41
+53        android:required="true" />
+53-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\3dfde69425f081a5c08eca8a238e6098\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:28:9-32
+54
+55    <permission
+55-->[androidx.core:core:1.9.0] C:\Users\Asus\.gradle\caches\transforms-3\85b7bdf0a11e2121e5a233436dc527ac\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+56        android:name="com.example.take_drug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+56-->[androidx.core:core:1.9.0] C:\Users\Asus\.gradle\caches\transforms-3\85b7bdf0a11e2121e5a233436dc527ac\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+57        android:protectionLevel="signature" />
+57-->[androidx.core:core:1.9.0] C:\Users\Asus\.gradle\caches\transforms-3\85b7bdf0a11e2121e5a233436dc527ac\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+58
+59    <uses-permission android:name="com.example.take_drug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- for android -->
+59-->[androidx.core:core:1.9.0] C:\Users\Asus\.gradle\caches\transforms-3\85b7bdf0a11e2121e5a233436dc527ac\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+59-->[androidx.core:core:1.9.0] C:\Users\Asus\.gradle\caches\transforms-3\85b7bdf0a11e2121e5a233436dc527ac\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+60    <!-- <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/> -->
+61    <!-- <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/> -->
+62    <!-- <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" /> -->
+63    <!-- <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" /> -->
+64    <!-- for Samsung -->
+65    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+65-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:19:5-86
+65-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:19:22-83
+66    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" /> <!-- for htc -->
+66-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:20:5-87
+66-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:20:22-84
+67    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+67-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:23:5-81
+67-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:23:22-78
+68    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" /> <!-- for sony -->
+68-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:24:5-83
+68-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:24:22-80
+69    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+69-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:27:5-88
+69-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:27:22-85
+70    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" /> <!-- for apex -->
+70-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:28:5-92
+70-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:28:22-89
+71    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" /> <!-- for solid -->
+71-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:31:5-84
+71-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:31:22-81
+72    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" /> <!-- for huawei -->
+72-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:34:5-83
+72-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:34:22-80
+73    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+73-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:37:5-91
+73-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:37:22-88
+74    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+74-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:38:5-92
+74-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:38:22-89
+75    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" /> <!-- for ZUK -->
+75-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:39:5-93
+75-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:39:22-90
+76    <uses-permission android:name="android.permission.READ_APP_BADGE" /> <!-- for OPPO -->
+76-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:42:5-73
+76-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:42:22-70
+77    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
+77-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:45:5-82
+77-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:45:22-79
+78    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" /> <!-- for EvMe -->
+78-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:46:5-83
+78-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:46:22-80
+79    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />
+79-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:49:5-88
+79-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:49:22-85
+80    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />
+80-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:50:5-89
+80-->[me.leolin:ShortcutBadger:1.1.22] C:\Users\Asus\.gradle\caches\transforms-3\44c9f882e64f105cc3438d272aab3a76\transformed\jetified-ShortcutBadger-1.1.22\AndroidManifest.xml:50:22-86
+81
+82    <application
+83        android:name="android.app.Application"
+83-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:30:9-42
+84        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+84-->[androidx.core:core:1.9.0] C:\Users\Asus\.gradle\caches\transforms-3\85b7bdf0a11e2121e5a233436dc527ac\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+85        android:icon="@mipmap/ic_launcher"
+85-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:31:9-43
+86        android:label="take_drug" >
+86-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:29:9-34
+87        <activity
+87-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:32:9-55:20
+88            android:name="com.example.take_drug.MainActivity"
+88-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:33:13-41
+89            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+89-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:38:13-163
+90            android:exported="true"
+90-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:34:13-36
+91            android:hardwareAccelerated="true"
+91-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:39:13-47
+92            android:launchMode="singleTop"
+92-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:35:13-43
+93            android:requestLegacyExternalStorage="true"
+93-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:37:13-56
+94            android:showWhenLocked="true"
+94-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:40:13-42
+95            android:theme="@style/LaunchTheme"
+95-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:36:13-47
+96            android:turnScreenOn="true"
+96-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:41:13-40
+97            android:windowSoftInputMode="adjustResize" >
+97-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:42:13-55
+98
+99            <!--
+100                 Specifies an Android theme to apply to this Activity as soon as
+101                 the Android process has started. This theme is visible to the user
+102                 while the Flutter UI initializes. After that, this theme continues
+103                 to determine the Window background behind the Flutter UI.
+104            -->
+105            <meta-data
+105-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:47:13-50:17
+106                android:name="io.flutter.embedding.android.NormalTheme"
+106-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:48:15-70
+107                android:resource="@style/NormalTheme" />
+107-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:49:15-52
+108
+109            <intent-filter>
+109-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:51:13-54:29
+110                <action android:name="android.intent.action.MAIN" />
+110-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:52:17-68
+110-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:52:25-66
+111
+112                <category android:name="android.intent.category.LAUNCHER" />
+112-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:53:17-76
+112-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:53:27-74
+113            </intent-filter>
+114        </activity>
+115
+116        <meta-data
+116-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:56:9-58:33
+117            android:name="flutterEmbedding"
+117-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:57:13-44
+118            android:value="2" />
+118-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:58:13-30
+119        <meta-data
+119-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:56:9-58:33
+120            android:name="flutterEmbedding"
+120-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:57:13-44
+121            android:value="2" />
+121-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:58:13-30
+122        <meta-data
+122-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:62:13-63:58
+123            android:name="com.google.android.geo.API_KEY"
+123-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:62:24-69
+124            android:value="AIzaSyBpLzaDvyWfvVvxD9xO3fM1i5FfCbjJ9nE" />
+124-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:63:1-56
+125
+126        <service
+126-->[:cloud_firestore] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\cloud_firestore\intermediates\merged_manifest\release\AndroidManifest.xml:10:9-14:19
+127            android:name="com.google.firebase.components.ComponentDiscoveryService"
+127-->[:cloud_firestore] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\cloud_firestore\intermediates\merged_manifest\release\AndroidManifest.xml:10:18-89
+128            android:directBootAware="true"
+128-->[com.google.firebase:firebase-common:20.3.2] C:\Users\Asus\.gradle\caches\transforms-3\7c67cb1107658111bdfb744d9b4eec58\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:34:13-43
+129            android:exported="false" >
+129-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:68:13-37
+130            <meta-data
+130-->[:cloud_firestore] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\cloud_firestore\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-13:85
+131                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
+131-->[:cloud_firestore] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\cloud_firestore\intermediates\merged_manifest\release\AndroidManifest.xml:12:17-134
+132                android:value="com.google.firebase.components.ComponentRegistrar" />
+132-->[:cloud_firestore] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\cloud_firestore\intermediates\merged_manifest\release\AndroidManifest.xml:13:17-82
+133            <meta-data
+133-->[:firebase_auth] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\firebase_auth\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-13:85
+134                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
+134-->[:firebase_auth] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\firebase_auth\intermediates\merged_manifest\release\AndroidManifest.xml:12:17-124
+135                android:value="com.google.firebase.components.ComponentRegistrar" />
+135-->[:firebase_auth] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\firebase_auth\intermediates\merged_manifest\release\AndroidManifest.xml:13:17-82
+136            <meta-data
+136-->[:firebase_storage] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\firebase_storage\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-13:85
+137                android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
+137-->[:firebase_storage] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\firebase_storage\intermediates\merged_manifest\release\AndroidManifest.xml:12:17-126
+138                android:value="com.google.firebase.components.ComponentRegistrar" />
+138-->[:firebase_storage] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\firebase_storage\intermediates\merged_manifest\release\AndroidManifest.xml:13:17-82
+139            <meta-data
+139-->[:firebase_core] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\firebase_core\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-13:85
+140                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+140-->[:firebase_core] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\firebase_core\intermediates\merged_manifest\release\AndroidManifest.xml:12:17-124
+141                android:value="com.google.firebase.components.ComponentRegistrar" />
+141-->[:firebase_core] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\firebase_core\intermediates\merged_manifest\release\AndroidManifest.xml:13:17-82
+142            <meta-data
+142-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:69:13-71:85
+143                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+143-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:70:17-109
+144                android:value="com.google.firebase.components.ComponentRegistrar" />
+144-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:71:17-82
+145            <meta-data
+145-->[com.google.firebase:firebase-firestore:24.4.5] C:\Users\Asus\.gradle\caches\transforms-3\8ec15aced19208ee9fe8726619b10abb\transformed\jetified-firebase-firestore-24.4.5\AndroidManifest.xml:19:13-21:85
+146                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+146-->[com.google.firebase:firebase-firestore:24.4.5] C:\Users\Asus\.gradle\caches\transforms-3\8ec15aced19208ee9fe8726619b10abb\transformed\jetified-firebase-firestore-24.4.5\AndroidManifest.xml:20:17-111
+147                android:value="com.google.firebase.components.ComponentRegistrar" />
+147-->[com.google.firebase:firebase-firestore:24.4.5] C:\Users\Asus\.gradle\caches\transforms-3\8ec15aced19208ee9fe8726619b10abb\transformed\jetified-firebase-firestore-24.4.5\AndroidManifest.xml:21:17-82
+148            <meta-data
+148-->[com.google.firebase:firebase-storage:20.1.0] C:\Users\Asus\.gradle\caches\transforms-3\bd056470c650fc1d6acbae32adf9ed80\transformed\jetified-firebase-storage-20.1.0\AndroidManifest.xml:32:13-34:85
+149                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+149-->[com.google.firebase:firebase-storage:20.1.0] C:\Users\Asus\.gradle\caches\transforms-3\bd056470c650fc1d6acbae32adf9ed80\transformed\jetified-firebase-storage-20.1.0\AndroidManifest.xml:33:17-107
+150                android:value="com.google.firebase.components.ComponentRegistrar" />
+150-->[com.google.firebase:firebase-storage:20.1.0] C:\Users\Asus\.gradle\caches\transforms-3\bd056470c650fc1d6acbae32adf9ed80\transformed\jetified-firebase-storage-20.1.0\AndroidManifest.xml:34:17-82
+151        </service>
+152        <service
+152-->[:geolocator_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\geolocator_android\intermediates\merged_manifest\release\AndroidManifest.xml:12:9-16:56
+153            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+153-->[:geolocator_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\geolocator_android\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-77
+154            android:enabled="true"
+154-->[:geolocator_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\geolocator_android\intermediates\merged_manifest\release\AndroidManifest.xml:14:13-35
+155            android:exported="false"
+155-->[:geolocator_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\geolocator_android\intermediates\merged_manifest\release\AndroidManifest.xml:15:13-37
+156            android:foregroundServiceType="location" />
+156-->[:geolocator_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\geolocator_android\intermediates\merged_manifest\release\AndroidManifest.xml:16:13-53
+157
+158        <provider
+158-->[:image_picker_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:10:9-18:20
+159            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+159-->[:image_picker_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-82
+160            android:authorities="com.example.take_drug.flutter.image_provider"
+160-->[:image_picker_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-74
+161            android:exported="false"
+161-->[:image_picker_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-37
+162            android:grantUriPermissions="true" >
+162-->[:image_picker_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:14:13-47
+163            <meta-data
+163-->[:image_picker_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:15:13-17:75
+164                android:name="android.support.FILE_PROVIDER_PATHS"
+164-->[:image_picker_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:16:17-67
+165                android:resource="@xml/flutter_image_picker_file_paths" />
+165-->[:image_picker_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:17:17-72
+166        </provider>
+167
+168        <receiver
+168-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:15:9-17:39
+169            android:name="me.carda.awesome_notifications.DartNotificationActionReceiver"
+169-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:16:13-89
+170            android:exported="true" />
+170-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:17:13-36
+171        <receiver
+171-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:18:9-20:39
+172            android:name="me.carda.awesome_notifications.DartDismissedNotificationReceiver"
+172-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:19:13-92
+173            android:exported="true" />
+173-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:20:13-36
+174        <receiver
+174-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:21:9-23:39
+175            android:name="me.carda.awesome_notifications.DartScheduledNotificationReceiver"
+175-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:22:13-92
+176            android:exported="true" />
+176-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:23:13-36
+177        <receiver
+177-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:24:9-38:20
+178            android:name="me.carda.awesome_notifications.DartRefreshSchedulesReceiver"
+178-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:25:13-87
+179            android:enabled="true"
+179-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:26:13-35
+180            android:exported="true" >
+180-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:27:13-36
+181            <intent-filter>
+181-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:28:13-37:29
+182                <category android:name="android.intent.category.DEFAULT" />
+182-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:29:17-76
+182-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:29:27-73
+183
+184                <action android:name="android.intent.action.BOOT_COMPLETED" />
+184-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:31:17-79
+184-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:31:25-76
+185                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+185-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:32:17-86
+185-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:32:25-83
+186                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+186-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:33:17-84
+186-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:33:25-81
+187                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+187-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:34:17-82
+187-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:34:25-79
+188                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+188-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:35:17-82
+188-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:35:25-79
+189                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
+189-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:36:17-107
+189-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:36:25-104
+190            </intent-filter>
+191        </receiver>
+192
+193        <service
+193-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:40:9-43:72
+194            android:name="me.carda.awesome_notifications.DartBackgroundService"
+194-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:41:13-80
+195            android:exported="false"
+195-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:42:13-37
+196            android:permission="android.permission.BIND_JOB_SERVICE" />
+196-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:43:13-69
+197        <service
+197-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:44:9-49:43
+198            android:name="me.carda.awesome_notifications.core.services.ForegroundService"
+198-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:45:13-90
+199            android:enabled="true"
+199-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:46:13-35
+200            android:exported="false"
+200-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:47:13-37
+201            android:foregroundServiceType="phoneCall"
+201-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:48:13-54
+202            android:stopWithTask="true" />
+202-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:49:13-40
+203
+204        <activity
+204-->[:url_launcher_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:10:9-13:74
+205            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+205-->[:url_launcher_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-74
+206            android:exported="false"
+206-->[:url_launcher_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-37
+207            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+207-->[:url_launcher_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-71
+208
+209        <provider
+209-->[:flutter_mailer] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\flutter_mailer\intermediates\merged_manifest\release\AndroidManifest.xml:10:9-18:20
+210            android:name="com.dataxad.flutter_mailer.FlutterMailerFileProvider"
+210-->[:flutter_mailer] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\flutter_mailer\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-80
+211            android:authorities="com.example.take_drug.adv_provider"
+211-->[:flutter_mailer] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\flutter_mailer\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-64
+212            android:exported="false"
+212-->[:flutter_mailer] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\flutter_mailer\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-37
+213            android:grantUriPermissions="true" >
+213-->[:flutter_mailer] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\flutter_mailer\intermediates\merged_manifest\release\AndroidManifest.xml:14:13-47
+214            <meta-data
+214-->[:image_picker_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:15:13-17:75
+215                android:name="android.support.FILE_PROVIDER_PATHS"
+215-->[:image_picker_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:16:17-67
+216                android:resource="@xml/flutter_mailer_paths" />
+216-->[:image_picker_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:17:17-72
+217        </provider> <!-- Needs to be explicitly declared on P+ -->
+218        <uses-library
+218-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\3dfde69425f081a5c08eca8a238e6098\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:39:9-41:40
+219            android:name="org.apache.http.legacy"
+219-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\3dfde69425f081a5c08eca8a238e6098\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:40:13-50
+220            android:required="false" />
+220-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\3dfde69425f081a5c08eca8a238e6098\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:41:13-37
+221
+222        <activity
+222-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:29:9-46:20
+223            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+223-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:30:13-80
+224            android:excludeFromRecents="true"
+224-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:31:13-46
+225            android:exported="true"
+225-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:32:13-36
+226            android:launchMode="singleTask"
+226-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:33:13-44
+227            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+227-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:34:13-72
+228            <intent-filter>
+228-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:35:13-45:29
+229                <action android:name="android.intent.action.VIEW" />
+229-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:16:13-65
+229-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:16:21-62
+230
+231                <category android:name="android.intent.category.DEFAULT" />
+231-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:29:17-76
+231-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:29:27-73
+232                <category android:name="android.intent.category.BROWSABLE" />
+232-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:39:17-78
+232-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:39:27-75
+233
+234                <data
+234-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:17:13-44
+235                    android:host="firebase.auth"
+236                    android:path="/"
+237                    android:scheme="genericidp" />
+237-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:17:19-41
+238            </intent-filter>
+239        </activity>
+240        <activity
+240-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:47:9-64:20
+241            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+241-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:48:13-79
+242            android:excludeFromRecents="true"
+242-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:49:13-46
+243            android:exported="true"
+243-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:50:13-36
+244            android:launchMode="singleTask"
+244-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:51:13-44
+245            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+245-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:52:13-72
+246            <intent-filter>
+246-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:53:13-63:29
+247                <action android:name="android.intent.action.VIEW" />
+247-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:16:13-65
+247-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:16:21-62
+248
+249                <category android:name="android.intent.category.DEFAULT" />
+249-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:29:17-76
+249-->[:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:29:27-73
+250                <category android:name="android.intent.category.BROWSABLE" />
+250-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:39:17-78
+250-->[com.google.firebase:firebase-auth:21.2.0] C:\Users\Asus\.gradle\caches\transforms-3\0e82541e6dffe10a455c9b61bbcee478\transformed\jetified-firebase-auth-21.2.0\AndroidManifest.xml:39:27-75
+251
+252                <data
+252-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:17:13-44
+253                    android:host="firebase.auth"
+254                    android:path="/"
+255                    android:scheme="recaptcha" />
+255-->C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:17:19-41
+256            </intent-filter>
+257        </activity>
+258
+259        <provider
+259-->[com.google.firebase:firebase-common:20.3.2] C:\Users\Asus\.gradle\caches\transforms-3\7c67cb1107658111bdfb744d9b4eec58\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:25:9-30:39
+260            android:name="com.google.firebase.provider.FirebaseInitProvider"
+260-->[com.google.firebase:firebase-common:20.3.2] C:\Users\Asus\.gradle\caches\transforms-3\7c67cb1107658111bdfb744d9b4eec58\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:26:13-77
+261            android:authorities="com.example.take_drug.firebaseinitprovider"
+261-->[com.google.firebase:firebase-common:20.3.2] C:\Users\Asus\.gradle\caches\transforms-3\7c67cb1107658111bdfb744d9b4eec58\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:27:13-72
+262            android:directBootAware="true"
+262-->[com.google.firebase:firebase-common:20.3.2] C:\Users\Asus\.gradle\caches\transforms-3\7c67cb1107658111bdfb744d9b4eec58\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:28:13-43
+263            android:exported="false"
+263-->[com.google.firebase:firebase-common:20.3.2] C:\Users\Asus\.gradle\caches\transforms-3\7c67cb1107658111bdfb744d9b4eec58\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:29:13-37
+264            android:initOrder="100" />
+264-->[com.google.firebase:firebase-common:20.3.2] C:\Users\Asus\.gradle\caches\transforms-3\7c67cb1107658111bdfb744d9b4eec58\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:30:13-36
+265
+266        <activity
+266-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\13beb97871bacead349918ab2efad008\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+267            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+267-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\13beb97871bacead349918ab2efad008\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+268            android:exported="false"
+268-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\13beb97871bacead349918ab2efad008\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+269            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+269-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\13beb97871bacead349918ab2efad008\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+270
+271        <meta-data
+271-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\b98038a8bb5f558b05cc7fc73ca7ad87\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+272            android:name="com.google.android.gms.version"
+272-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\b98038a8bb5f558b05cc7fc73ca7ad87\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+273            android:value="@integer/google_play_services_version" />
+273-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Asus\.gradle\caches\transforms-3\b98038a8bb5f558b05cc7fc73ca7ad87\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+274
+275        <uses-library
+275-->[androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\fa8aad42c825af1f34f93ab9a34c8ecb\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+276            android:name="androidx.window.extensions"
+276-->[androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\fa8aad42c825af1f34f93ab9a34c8ecb\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+277            android:required="false" />
+277-->[androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\fa8aad42c825af1f34f93ab9a34c8ecb\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+278        <uses-library
+278-->[androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\fa8aad42c825af1f34f93ab9a34c8ecb\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+279            android:name="androidx.window.sidecar"
+279-->[androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\fa8aad42c825af1f34f93ab9a34c8ecb\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+280            android:required="false" />
+280-->[androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\fa8aad42c825af1f34f93ab9a34c8ecb\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+281
+282        <provider
+282-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\79706406a972141c80782381f7bd6489\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+283            android:name="androidx.startup.InitializationProvider"
+283-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\79706406a972141c80782381f7bd6489\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+284            android:authorities="com.example.take_drug.androidx-startup"
+284-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\79706406a972141c80782381f7bd6489\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+285            android:exported="false" >
+285-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\79706406a972141c80782381f7bd6489\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+286            <meta-data
+286-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\79706406a972141c80782381f7bd6489\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+287                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+287-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\79706406a972141c80782381f7bd6489\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+288                android:value="androidx.startup" />
+288-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\79706406a972141c80782381f7bd6489\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+289            <meta-data
+289-->[androidx.lifecycle:lifecycle-process:2.5.1] C:\Users\Asus\.gradle\caches\transforms-3\d99da1d67ce3727b9b4c51778bbfeaf7\transformed\jetified-lifecycle-process-2.5.1\AndroidManifest.xml:31:13-33:52
+290                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+290-->[androidx.lifecycle:lifecycle-process:2.5.1] C:\Users\Asus\.gradle\caches\transforms-3\d99da1d67ce3727b9b4c51778bbfeaf7\transformed\jetified-lifecycle-process-2.5.1\AndroidManifest.xml:32:17-78
+291                android:value="androidx.startup" />
+291-->[androidx.lifecycle:lifecycle-process:2.5.1] C:\Users\Asus\.gradle\caches\transforms-3\d99da1d67ce3727b9b4c51778bbfeaf7\transformed\jetified-lifecycle-process-2.5.1\AndroidManifest.xml:33:17-49
+292        </provider>
+293    </application>
+294
+295</manifest>

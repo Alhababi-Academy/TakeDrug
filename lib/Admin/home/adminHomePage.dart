@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:take_drug/Admin/home/allUsers.dart';
 import 'package:take_drug/Admin/medical/goodPractice/allGoodPractice.dart';
@@ -18,8 +19,8 @@ class _adminHomePage extends State<adminHomePage> {
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Container(),
-        title: const Text(
-          "ادمن",
+        title: Text(
+          "admin".tr().toString(),
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 22,
@@ -61,7 +62,7 @@ class _adminHomePage extends State<adminHomePage> {
                         height: 5,
                       ),
                       Text(
-                        "الاقتراحات والشكاوي",
+                        "Suggestions_and_complaints".tr().toString(),
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 17,
@@ -95,7 +96,7 @@ class _adminHomePage extends State<adminHomePage> {
                         height: 5,
                       ),
                       Text(
-                        "جميع\n المستخدمين",
+                        "all_users".tr().toString(),
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 17,
@@ -130,7 +131,7 @@ class _adminHomePage extends State<adminHomePage> {
                         height: 5,
                       ),
                       Text(
-                        "الدليل\n الطبي",
+                        "medicual".tr().toString(),
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 17,
@@ -165,7 +166,7 @@ class _adminHomePage extends State<adminHomePage> {
                         height: 5,
                       ),
                       Text(
-                        "ممارسات\n صحية",
+                        "healthy_doing".tr().toString(),
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 17,
@@ -200,7 +201,7 @@ class _adminHomePage extends State<adminHomePage> {
                         height: 5,
                       ),
                       Text(
-                        "معلومات\n طبية",
+                        "medical_information_home".tr().toString(),
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 17,

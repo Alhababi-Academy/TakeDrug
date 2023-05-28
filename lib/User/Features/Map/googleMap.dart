@@ -103,7 +103,7 @@ class _MapScreenState extends State<MapScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'يجب تسجيل الدخول',
+                        "you_need_to_login".tr().toString(),
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
