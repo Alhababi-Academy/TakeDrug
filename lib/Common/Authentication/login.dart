@@ -83,26 +83,27 @@ class _loginPage extends State<loginPage> {
                         ),
                       ),
                       customTextFieldRegsiterPage(
-                          isSecure: isSecureClicked,
-                          enabledEdit: true,
-                          textEditingController: PasswordAdministrative,
-                          textInputType: TextInputType.emailAddress,
-                          hint: "123456789*",
-                          prefixIcon: Icon(
-                            Icons.lock,
-                            color: takeDrug.BackgroundColor,
-                          ),
-                          suffixIcon: IconButton(
-                            icon: Icon(!isSecureClicked
-                                ? Icons.visibility_off
-                                : Icons.remove_red_eye),
-                            color: takeDrug.BackgroundColor,
-                            onPressed: () {
-                              setState(() {
-                                isSecureClicked = !isSecureClicked;
-                              });
-                            },
-                          )),
+                        isSecure: isSecureClicked,
+                        enabledEdit: true,
+                        textEditingController: PasswordAdministrative,
+                        textInputType: TextInputType.emailAddress,
+                        hint: "123456789*",
+                        prefixIcon: Icon(
+                          Icons.lock,
+                          color: takeDrug.BackgroundColor,
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Icon(!isSecureClicked
+                              ? Icons.visibility_off
+                              : Icons.remove_red_eye),
+                          color: takeDrug.BackgroundColor,
+                          onPressed: () {
+                            setState(() {
+                              isSecureClicked = !isSecureClicked;
+                            });
+                          },
+                        ),
+                      ),
                       const SizedBox(
                         height: 10,
                       ),

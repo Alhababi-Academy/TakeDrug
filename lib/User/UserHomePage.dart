@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:take_drug/Common/Authentication/myProfile.dart';
 import 'package:take_drug/Common/Widgets/Drawer.dart';
 import 'package:take_drug/Common/config/config.dart';
-import 'package:take_drug/User/Features/Map/googleMap.dart';
+import 'package:take_drug/User/Features/Map/allLocations.dart';
 import 'package:take_drug/User/Features/gmail/viewData.dart';
-import 'package:take_drug/User/Features/timeForDrinkingMed/timeToEatDetails.dart';
 import 'package:take_drug/User/Features/timeForDrinkingMed/timeToEatMed.dart';
 import 'package:take_drug/User/Features/timeToGoToDoctor/timeToGoToDoctor.dart';
 import 'package:take_drug/User/Features/uploadFiles/viewFiles.dart';
@@ -336,7 +335,7 @@ class _UserHomePageState extends State<UserHomePage> {
             ),
             GestureDetector(
               onTap: () {
-                Route route = MaterialPageRoute(builder: (_) => MapScreen());
+                Route route = MaterialPageRoute(builder: (_) => allLocaitons());
                 Navigator.push(context, route);
               },
               child: Container(

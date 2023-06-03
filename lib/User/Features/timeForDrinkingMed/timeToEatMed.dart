@@ -1,7 +1,6 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:take_drug/Common/Authentication/myProfile.dart';
 import 'package:take_drug/Common/Widgets/Drawer.dart';
 import 'package:take_drug/Common/config/config.dart';
 import 'package:take_drug/User/Features/timeForDrinkingMed/timeToEatDetails.dart';
@@ -176,23 +175,23 @@ class _timeToEatUser extends State<timeToEatUser> {
                                                 const SizedBox(
                                                   width: 5,
                                                 ),
-                                                Row(
-                                                  children: [
-                                                    Text(
-                                                      "date_of_alarm"
-                                                          .tr()
-                                                          .toString(),
-                                                      style: const TextStyle(
-                                                        color: Colors.black,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      "${gettingSchduleData['year'].toString()}-${gettingSchduleData['month'].toString()}-${gettingSchduleData['day'].toString()}",
-                                                    ),
-                                                  ],
-                                                ),
+                                                // Row(
+                                                //   children: [
+                                                //     Text(
+                                                //       "date_of_alarm"
+                                                //           .tr()
+                                                //           .toString(),
+                                                //       style: const TextStyle(
+                                                //         color: Colors.black,
+                                                //         fontWeight:
+                                                //             FontWeight.bold,
+                                                //       ),
+                                                //     ),
+                                                //     Text(
+                                                //       "${gettingSchduleData['year'].toString()}-${gettingSchduleData['month'].toString()}-${gettingSchduleData['day'].toString()}",
+                                                //     ),
+                                                //   ],
+                                                // ),
                                               ],
                                             ),
                                           ],
