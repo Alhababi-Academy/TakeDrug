@@ -17,6 +17,8 @@ MERGED from [:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-m
 MERGED from [:awesome_notifications] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\awesome_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:14:5-50:19
 MERGED from [:url_launcher_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:9:5-14:19
 MERGED from [:url_launcher_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:9:5-14:19
+MERGED from [:location] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\location\intermediates\merged_manifest\release\AndroidManifest.xml:12:5-18:19
+MERGED from [:location] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\location\intermediates\merged_manifest\release\AndroidManifest.xml:12:5-18:19
 MERGED from [:flutter_mailer] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\flutter_mailer\intermediates\merged_manifest\release\AndroidManifest.xml:9:5-19:19
 MERGED from [:flutter_mailer] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\flutter_mailer\intermediates\merged_manifest\release\AndroidManifest.xml:9:5-19:19
 MERGED from [me.carda:androidcore:0.7.7] C:\Users\Asus\.gradle\caches\transforms-3\5c231cd69acd566beb55112e185e00a0\transformed\jetified-androidcore-0.7.7\AndroidManifest.xml:9:5-16:19
@@ -91,6 +93,7 @@ MERGED from [:flutter_file_downloader] C:\Users\Asus\OneDrive\Documents\TakeDrug
 MERGED from [:shared_preferences_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\shared_preferences_android\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-9:12
 MERGED from [:permission_handler_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\permission_handler_android\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-9:12
 MERGED from [:geocoding_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\geocoding_android\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-9:12
+MERGED from [:location] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\location\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-20:12
 MERGED from [:flutter_mailer] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\flutter_mailer\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-21:12
 MERGED from [me.carda:androidcore:0.7.7] C:\Users\Asus\.gradle\caches\transforms-3\5c231cd69acd566beb55112e185e00a0\transformed\jetified-androidcore-0.7.7\AndroidManifest.xml:2:1-18:12
 MERGED from [androidx.appcompat:appcompat-resources:1.5.1] C:\Users\Asus\.gradle\caches\transforms-3\a28d4931f21c783873bcc5c96906e9db\transformed\jetified-appcompat-resources-1.5.1\AndroidManifest.xml:17:1-22:12
@@ -119,12 +122,12 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] C:\Users\Asus\.gradle
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] C:\Users\Asus\.gradle\caches\transforms-3\03225268dc4654caffd995f14c8217ae\transformed\jetified-lifecycle-viewmodel-savedstate-2.5.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\fa8aad42c825af1f34f93ab9a34c8ecb\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Asus\.gradle\caches\transforms-3\667df562e5afe27ce361bb566a9ccc9a\transformed\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\Asus\.gradle\caches\transforms-3\f47b88897854060f9dbb934ee19adc62\transformed\jetified-core-ktx-1.9.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.media:media:1.6.0] C:\Users\Asus\.gradle\caches\transforms-3\8e57075bf91ef954e0b93c1345469045\transformed\media-1.6.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.browser:browser:1.4.0] C:\Users\Asus\.gradle\caches\transforms-3\162e57b214e200a6207c40330426bda2\transformed\browser-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\c12b9a2e892a3f675f5ec0d3a4e7fd90\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\6ff7e16b68d8770d572ff8b3f4921c4a\transformed\jetified-emoji2-views-helper-1.2.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\79706406a972141c80782381f7bd6489\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:17:1-35:12
-MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\Asus\.gradle\caches\transforms-3\f47b88897854060f9dbb934ee19adc62\transformed\jetified-core-ktx-1.9.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\b709b14b30b77c7fc5e44265a8079b79\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Asus\.gradle\caches\transforms-3\ad79ee441fd2797fcb33915c66d89243\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Asus\.gradle\caches\transforms-3\7e2f100e621865418590dd86294fff2b\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -169,6 +172,8 @@ INJECTED from C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\mai
 		ADDED from C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:1:11-69
 uses-permission#android.permission.ACCESS_FINE_LOCATION
 ADDED from C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:3:5-79
+MERGED from [:location] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\location\intermediates\merged_manifest\release\AndroidManifest.xml:10:5-79
+MERGED from [:location] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\location\intermediates\merged_manifest\release\AndroidManifest.xml:10:5-79
 	android:name
 		ADDED from C:\Users\Asus\OneDrive\Documents\TakeDrug-main\android\app\src\main\AndroidManifest.xml:3:22-76
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
@@ -289,6 +294,8 @@ MERGED from [:permission_handler_android] C:\Users\Asus\OneDrive\Documents\TakeD
 MERGED from [:permission_handler_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\permission_handler_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-7:41
 MERGED from [:geocoding_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\geocoding_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-7:41
 MERGED from [:geocoding_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\geocoding_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-7:41
+MERGED from [:location] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\location\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-7:41
+MERGED from [:location] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\location\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_mailer] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\flutter_mailer\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_mailer] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\flutter_mailer\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-7:41
 MERGED from [me.carda:androidcore:0.7.7] C:\Users\Asus\.gradle\caches\transforms-3\5c231cd69acd566beb55112e185e00a0\transformed\jetified-androidcore-0.7.7\AndroidManifest.xml:5:5-7:41
@@ -345,6 +352,8 @@ MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\t
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\fa8aad42c825af1f34f93ab9a34c8ecb\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Asus\.gradle\caches\transforms-3\667df562e5afe27ce361bb566a9ccc9a\transformed\multidex-2.0.0\AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\Asus\.gradle\caches\transforms-3\667df562e5afe27ce361bb566a9ccc9a\transformed\multidex-2.0.0\AndroidManifest.xml:20:5-43
+MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\Asus\.gradle\caches\transforms-3\f47b88897854060f9dbb934ee19adc62\transformed\jetified-core-ktx-1.9.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\Asus\.gradle\caches\transforms-3\f47b88897854060f9dbb934ee19adc62\transformed\jetified-core-ktx-1.9.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.media:media:1.6.0] C:\Users\Asus\.gradle\caches\transforms-3\8e57075bf91ef954e0b93c1345469045\transformed\media-1.6.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.media:media:1.6.0] C:\Users\Asus\.gradle\caches\transforms-3\8e57075bf91ef954e0b93c1345469045\transformed\media-1.6.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.browser:browser:1.4.0] C:\Users\Asus\.gradle\caches\transforms-3\162e57b214e200a6207c40330426bda2\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
@@ -355,8 +364,6 @@ MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\Asus\.gradle\ca
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\6ff7e16b68d8770d572ff8b3f4921c4a\transformed\jetified-emoji2-views-helper-1.2.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\79706406a972141c80782381f7bd6489\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:21:5-44
 MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\79706406a972141c80782381f7bd6489\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:21:5-44
-MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\Asus\.gradle\caches\transforms-3\f47b88897854060f9dbb934ee19adc62\transformed\jetified-core-ktx-1.9.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\Asus\.gradle\caches\transforms-3\f47b88897854060f9dbb934ee19adc62\transformed\jetified-core-ktx-1.9.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\b709b14b30b77c7fc5e44265a8079b79\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\b709b14b30b77c7fc5e44265a8079b79\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Asus\.gradle\caches\transforms-3\ad79ee441fd2797fcb33915c66d89243\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -647,6 +654,20 @@ ADDED from [:url_launcher_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-mai
 		ADDED from [:url_launcher_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-71
 	android:name
 		ADDED from [:url_launcher_android] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-74
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from [:location] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\location\intermediates\merged_manifest\release\AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from [:location] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\location\intermediates\merged_manifest\release\AndroidManifest.xml:9:22-78
+service#com.lyokone.location.FlutterLocationService
+ADDED from [:location] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\location\intermediates\merged_manifest\release\AndroidManifest.xml:13:9-17:56
+	android:enabled
+		ADDED from [:location] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\location\intermediates\merged_manifest\release\AndroidManifest.xml:15:13-35
+	android:exported
+		ADDED from [:location] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\location\intermediates\merged_manifest\release\AndroidManifest.xml:16:13-37
+	android:foregroundServiceType
+		ADDED from [:location] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\location\intermediates\merged_manifest\release\AndroidManifest.xml:17:13-53
+	android:name
+		ADDED from [:location] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\location\intermediates\merged_manifest\release\AndroidManifest.xml:14:13-71
 provider#com.dataxad.flutter_mailer.FlutterMailerFileProvider
 ADDED from [:flutter_mailer] C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\flutter_mailer\intermediates\merged_manifest\release\AndroidManifest.xml:10:9-18:20
 	android:grantUriPermissions

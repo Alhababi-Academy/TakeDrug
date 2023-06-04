@@ -8733,7 +8733,6 @@ com.google.android.gms.common.api.DataBufferResponse
 com.google.android.gms.common.api.GoogleApi$Settings$Builder:
     public com.google.android.gms.common.api.GoogleApi$Settings$Builder setLooper(android.os.Looper)
 com.google.android.gms.common.api.GoogleApi:
-    public void <init>(android.app.Activity,com.google.android.gms.common.api.Api,com.google.android.gms.common.api.Api$ApiOptions,com.google.android.gms.common.api.GoogleApi$Settings)
     public void <init>(android.app.Activity,com.google.android.gms.common.api.Api,com.google.android.gms.common.api.Api$ApiOptions,com.google.android.gms.common.api.internal.StatusExceptionMapper)
     public void <init>(android.content.Context,com.google.android.gms.common.api.Api,com.google.android.gms.common.api.Api$ApiOptions,android.os.Looper,com.google.android.gms.common.api.internal.StatusExceptionMapper)
     protected com.google.android.gms.tasks.Task disconnectService()
@@ -9998,7 +9997,6 @@ com.google.android.gms.internal.location.zzbi
 com.google.android.gms.internal.location.zzbj
 com.google.android.gms.internal.location.zzbl
 com.google.android.gms.internal.location.zzbp:
-    public void <init>(android.app.Activity)
     public final com.google.android.gms.tasks.Task flushLocations()
     public final com.google.android.gms.tasks.Task getCurrentLocation(int,com.google.android.gms.tasks.CancellationToken)
     public final com.google.android.gms.tasks.Task getCurrentLocation(com.google.android.gms.location.CurrentLocationRequest,com.google.android.gms.tasks.CancellationToken)
@@ -10034,8 +10032,6 @@ com.google.android.gms.internal.location.zzca
 com.google.android.gms.internal.location.zzcb
 com.google.android.gms.internal.location.zzcc:
     public final com.google.android.gms.common.api.PendingResult checkLocationSettings(com.google.android.gms.common.api.GoogleApiClient,com.google.android.gms.location.LocationSettingsRequest)
-com.google.android.gms.internal.location.zzce:
-    public void <init>(android.app.Activity)
 com.google.android.gms.internal.location.zzcf
 com.google.android.gms.internal.location.zzcg
 com.google.android.gms.internal.location.zzch
@@ -10411,10 +10407,8 @@ com.google.android.gms.location.LocationResult:
     public static boolean hasResult(android.content.Intent)
 com.google.android.gms.location.LocationServices:
     private void <init>()
-    public static com.google.android.gms.location.FusedLocationProviderClient getFusedLocationProviderClient(android.app.Activity)
     public static com.google.android.gms.location.GeofencingClient getGeofencingClient(android.app.Activity)
     public static com.google.android.gms.location.GeofencingClient getGeofencingClient(android.content.Context)
-    public static com.google.android.gms.location.SettingsClient getSettingsClient(android.app.Activity)
 com.google.android.gms.location.LocationSettingsRequest$Builder:
     public com.google.android.gms.location.LocationSettingsRequest$Builder addAllLocationRequests(java.util.Collection)
     public com.google.android.gms.location.LocationSettingsRequest$Builder setAlwaysShow(boolean)
@@ -10998,8 +10992,6 @@ com.google.android.gms.tasks.SuccessContinuation
 com.google.android.gms.tasks.Task:
     public com.google.android.gms.tasks.Task addOnCanceledListener(android.app.Activity,com.google.android.gms.tasks.OnCanceledListener)
     public com.google.android.gms.tasks.Task addOnCompleteListener(android.app.Activity,com.google.android.gms.tasks.OnCompleteListener)
-    public abstract com.google.android.gms.tasks.Task addOnFailureListener(android.app.Activity,com.google.android.gms.tasks.OnFailureListener)
-    public abstract com.google.android.gms.tasks.Task addOnSuccessListener(android.app.Activity,com.google.android.gms.tasks.OnSuccessListener)
     public abstract java.lang.Object getResult(java.lang.Class)
     public com.google.android.gms.tasks.Task onSuccessTask(com.google.android.gms.tasks.SuccessContinuation)
     public com.google.android.gms.tasks.Task onSuccessTask(java.util.concurrent.Executor,com.google.android.gms.tasks.SuccessContinuation)
@@ -11020,28 +11012,11 @@ com.google.android.gms.tasks.zzad:
     private void <init>()
 com.google.android.gms.tasks.zzb:
     public final boolean isCancellationRequested()
-com.google.android.gms.tasks.zzd:
-    public final void zzc()
-com.google.android.gms.tasks.zzf:
-    public final void zzc()
-com.google.android.gms.tasks.zzh:
-    public final void zzc()
-com.google.android.gms.tasks.zzj:
-    public final void zzc()
-com.google.android.gms.tasks.zzl:
-    public final void zzc()
-com.google.android.gms.tasks.zzn:
-    public final void zzc()
 com.google.android.gms.tasks.zzo
 com.google.android.gms.tasks.zzp
-com.google.android.gms.tasks.zzq:
-    public abstract void zzc()
-com.google.android.gms.tasks.zzv
 com.google.android.gms.tasks.zzw:
     public final com.google.android.gms.tasks.Task addOnCanceledListener(android.app.Activity,com.google.android.gms.tasks.OnCanceledListener)
     public final com.google.android.gms.tasks.Task addOnCompleteListener(android.app.Activity,com.google.android.gms.tasks.OnCompleteListener)
-    public final com.google.android.gms.tasks.Task addOnFailureListener(android.app.Activity,com.google.android.gms.tasks.OnFailureListener)
-    public final com.google.android.gms.tasks.Task addOnSuccessListener(android.app.Activity,com.google.android.gms.tasks.OnSuccessListener)
     public final java.lang.Object getResult(java.lang.Class)
     public final com.google.android.gms.tasks.Task onSuccessTask(com.google.android.gms.tasks.SuccessContinuation)
     public final com.google.android.gms.tasks.Task onSuccessTask(java.util.concurrent.Executor,com.google.android.gms.tasks.SuccessContinuation)
@@ -14935,10 +14910,8 @@ com.google.firebase.firestore.FirebaseFirestoreSettings:
 com.google.firebase.firestore.LoadBundleTask:
     public com.google.android.gms.tasks.Task addOnCanceledListener(android.app.Activity,com.google.android.gms.tasks.OnCanceledListener)
     public com.google.android.gms.tasks.Task addOnCompleteListener(android.app.Activity,com.google.android.gms.tasks.OnCompleteListener)
-    public com.google.android.gms.tasks.Task addOnFailureListener(android.app.Activity,com.google.android.gms.tasks.OnFailureListener)
     public com.google.firebase.firestore.LoadBundleTask addOnProgressListener(android.app.Activity,com.google.firebase.firestore.OnProgressListener)
     public com.google.firebase.firestore.LoadBundleTask addOnProgressListener(java.util.concurrent.Executor,com.google.firebase.firestore.OnProgressListener)
-    public com.google.android.gms.tasks.Task addOnSuccessListener(android.app.Activity,com.google.android.gms.tasks.OnSuccessListener)
     public com.google.firebase.firestore.LoadBundleTaskProgress getResult(java.lang.Class)
     public synthetic bridge java.lang.Object getResult(java.lang.Class)
     private synthetic void lambda$addOnProgressListener$0(com.google.firebase.firestore.OnProgressListener)
@@ -15801,8 +15774,6 @@ com.google.firebase.storage.StorageTask:
     public com.google.firebase.storage.StorageTask addOnCanceledListener(android.app.Activity,com.google.android.gms.tasks.OnCanceledListener)
     public synthetic bridge com.google.android.gms.tasks.Task addOnCompleteListener(android.app.Activity,com.google.android.gms.tasks.OnCompleteListener)
     public com.google.firebase.storage.StorageTask addOnCompleteListener(android.app.Activity,com.google.android.gms.tasks.OnCompleteListener)
-    public synthetic bridge com.google.android.gms.tasks.Task addOnFailureListener(android.app.Activity,com.google.android.gms.tasks.OnFailureListener)
-    public com.google.firebase.storage.StorageTask addOnFailureListener(android.app.Activity,com.google.android.gms.tasks.OnFailureListener)
     public synthetic bridge com.google.firebase.storage.ControllableTask addOnPausedListener(android.app.Activity,com.google.firebase.storage.OnPausedListener)
     public synthetic bridge com.google.firebase.storage.ControllableTask addOnPausedListener(com.google.firebase.storage.OnPausedListener)
     public synthetic bridge com.google.firebase.storage.ControllableTask addOnPausedListener(java.util.concurrent.Executor,com.google.firebase.storage.OnPausedListener)
@@ -15813,8 +15784,6 @@ com.google.firebase.storage.StorageTask:
     public synthetic bridge com.google.firebase.storage.CancellableTask addOnProgressListener(java.util.concurrent.Executor,com.google.firebase.storage.OnProgressListener)
     public com.google.firebase.storage.StorageTask addOnProgressListener(android.app.Activity,com.google.firebase.storage.OnProgressListener)
     public com.google.firebase.storage.StorageTask addOnProgressListener(com.google.firebase.storage.OnProgressListener)
-    public synthetic bridge com.google.android.gms.tasks.Task addOnSuccessListener(android.app.Activity,com.google.android.gms.tasks.OnSuccessListener)
-    public com.google.firebase.storage.StorageTask addOnSuccessListener(android.app.Activity,com.google.android.gms.tasks.OnSuccessListener)
     public com.google.firebase.storage.StorageTask$ProvideError getResult(java.lang.Class)
     public synthetic bridge java.lang.Object getResult(java.lang.Class)
     private static synthetic void lambda$successTaskImpl$6(com.google.android.gms.tasks.SuccessContinuation,com.google.android.gms.tasks.TaskCompletionSource,com.google.android.gms.tasks.CancellationTokenSource,com.google.firebase.storage.StorageTask$ProvideError)
@@ -20948,6 +20917,48 @@ com.google.type.TimeZone$1
 com.google.type.TimeZone$Builder
 com.google.type.TimeZone
 com.google.type.TimeZoneOrBuilder
+com.lyokone.location.BuildConfig
+com.lyokone.location.FlutterLocation:
+    private static final int GPS_ENABLE_REQUEST
+    private static final int REQUEST_CHECK_SETTINGS
+    private static final int REQUEST_PERMISSIONS_REQUEST_CODE
+    private static final java.lang.String TAG
+com.lyokone.location.FlutterLocationService:
+    private static final java.lang.String CHANNEL_ID
+    private static final int ONGOING_NOTIFICATION_ID
+    private static final int REQUEST_PERMISSIONS_REQUEST_CODE
+    private static final java.lang.String TAG
+    public final io.flutter.plugin.common.MethodChannel$Result getResult()
+com.lyokone.location.FlutterLocationServiceKt
+com.lyokone.location.LocationPlugin:
+    private static final java.lang.String TAG
+com.lyokone.location.MethodCallHandlerImpl:
+    private static final java.lang.String METHOD_CHANNEL_NAME
+    private static final java.lang.String TAG
+com.lyokone.location.NotificationOptions:
+    public final java.lang.String component1()
+    public final java.lang.String component2()
+    public final java.lang.String component3()
+    public final java.lang.String component4()
+    public final java.lang.String component5()
+    public final java.lang.Integer component6()
+    public final boolean component7()
+    public final com.lyokone.location.NotificationOptions copy(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Integer,boolean)
+    public static synthetic com.lyokone.location.NotificationOptions copy$default(com.lyokone.location.NotificationOptions,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Integer,boolean,int,java.lang.Object)
+com.lyokone.location.R$attr
+com.lyokone.location.R$color
+com.lyokone.location.R$dimen
+com.lyokone.location.R$drawable
+com.lyokone.location.R$id
+com.lyokone.location.R$integer
+com.lyokone.location.R$layout
+com.lyokone.location.R$string
+com.lyokone.location.R$style
+com.lyokone.location.R$styleable
+com.lyokone.location.R
+com.lyokone.location.StreamHandlerImpl:
+    private static final java.lang.String STREAM_CHANNEL_NAME
+    private static final java.lang.String TAG
 com.mr.flutter.plugin.filepicker.BuildConfig
 com.mr.flutter.plugin.filepicker.FilePickerDelegate:
     private static final java.lang.String TAG

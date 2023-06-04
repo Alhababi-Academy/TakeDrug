@@ -52,14 +52,7 @@ class _newMyMap extends State<newMyMap> {
                     snapshot.data!.get('lng'),
                   ),
                   zoom: 14.47),
-              onMapCreated: (GoogleMapController controller) async {
-                setState(
-                  () {
-                    _controller = controller;
-                    _added = true;
-                  },
-                );
-              },
+              onMapCreated: (GoogleMapController controller) async {},
             );
           }
         },

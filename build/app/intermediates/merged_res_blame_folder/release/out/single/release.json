@@ -772,6 +772,10 @@
         "source": "com.example.take_drug.app-appcompat-1.5.1-3:/anim/abc_slide_out_top.xml"
     },
     {
+        "merged": "com.example.take_drug.app-merged_res-36:/drawable_navigation_empty_icon.xml.flat",
+        "source": "com.example.take_drug.app-packaged_res-50:/drawable/navigation_empty_icon.xml"
+    },
+    {
         "merged": "com.example.take_drug.app-merged_res-36:/mipmap-xhdpi_ic_launcher.png.flat",
         "source": "com.example.take_drug.app-main-28:/mipmap-xhdpi/ic_launcher.png"
     },

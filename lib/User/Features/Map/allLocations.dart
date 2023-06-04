@@ -1,11 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:take_drug/Admin/home/allUsers.dart';
-import 'package:take_drug/Admin/medical/goodPractice/allGoodPractice.dart';
-import 'package:take_drug/Admin/medical/medical/allMedical.dart';
-import 'package:take_drug/Admin/home/suggestions.dart';
-import 'package:take_drug/Admin/home/widgets/adminDrawer.dart';
-import 'package:take_drug/Admin/medical/medicalInfomration/allMedicalInformation.dart';
 import 'package:take_drug/Common/config/config.dart';
 import 'package:take_drug/User/Features/Map/hosplitalsAndPharmacy/hospitals.dart';
 import 'package:take_drug/User/Features/Map/hosplitalsAndPharmacy/pharmacies.dart';
@@ -113,9 +107,5 @@ class _allLocaitons extends State<allLocaitons> {
         ),
       ),
     );
-  }
-
-  checkExpertStatus() {
-    Navigator.of(context);
   }
 }

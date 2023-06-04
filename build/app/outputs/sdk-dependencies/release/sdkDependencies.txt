@@ -1256,7 +1256,7 @@ library {
 }
 library {
   digests {
-    sha256: "\266\213>c]e\rUj\2724X\267w\201A\373\252:\256\'\366\314\373\020\346\272\334A\310\272\232"
+    sha256: "\201lc\025K^\302\017\310wB.\355\304[\360\203o\024\ae\234J\364\353\026\264\210E\274\203\206"
   }
 }
 library_dependencies {
@@ -1831,6 +1831,7 @@ module_dependencies {
   dependency_index: 96
   dependency_index: 42
   dependency_index: 66
+  dependency_index: 22
   dependency_index: 74
   dependency_index: 97
   dependency_index: 40
@@ -1864,6 +1865,16 @@ repositories {
 repositories {
   maven_repo {
     url: "https://jitpack.io"
+  }
+}
+repositories {
+  maven_repo {
+    url: "https://dl.google.com/dl/android/maven2/"
+  }
+}
+repositories {
+  maven_repo {
+    url: "https://repo.maven.apache.org/maven2/"
   }
 }
 repositories {

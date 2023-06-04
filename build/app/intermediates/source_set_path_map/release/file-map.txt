@@ -48,7 +48,8 @@ com.example.take_drug.app-packaged_res-46 C:\Users\Asus\OneDrive\Documents\TakeD
 com.example.take_drug.app-packaged_res-47 C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\geolocator_android\intermediates\packaged_res\release
 com.example.take_drug.app-packaged_res-48 C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\google_maps_flutter_android\intermediates\packaged_res\release
 com.example.take_drug.app-packaged_res-49 C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\image_picker_android\intermediates\packaged_res\release
-com.example.take_drug.app-packaged_res-50 C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\path_provider_android\intermediates\packaged_res\release
-com.example.take_drug.app-packaged_res-51 C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\permission_handler_android\intermediates\packaged_res\release
-com.example.take_drug.app-packaged_res-52 C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\shared_preferences_android\intermediates\packaged_res\release
-com.example.take_drug.app-packaged_res-53 C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\url_launcher_android\intermediates\packaged_res\release
+com.example.take_drug.app-packaged_res-50 C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\location\intermediates\packaged_res\release
+com.example.take_drug.app-packaged_res-51 C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\path_provider_android\intermediates\packaged_res\release
+com.example.take_drug.app-packaged_res-52 C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\permission_handler_android\intermediates\packaged_res\release
+com.example.take_drug.app-packaged_res-53 C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\shared_preferences_android\intermediates\packaged_res\release
+com.example.take_drug.app-packaged_res-54 C:\Users\Asus\OneDrive\Documents\TakeDrug-main\build\url_launcher_android\intermediates\packaged_res\release
