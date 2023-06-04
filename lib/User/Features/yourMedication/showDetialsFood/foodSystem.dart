@@ -1,12 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:take_drug/Common/Authentication/myProfile.dart';
 import 'package:take_drug/Common/Widgets/Drawer.dart';
 import 'package:take_drug/Common/config/config.dart';
-import 'package:take_drug/User/Features/Map/googleMap.dart';
-import 'package:take_drug/User/Features/gmail/viewData.dart';
-import 'package:take_drug/User/Features/uploadFiles/viewFiles.dart';
 import 'package:take_drug/User/Features/yourMedication/showDetialsFood/pageDetialsFood.dart';
 
 class foodSystemUser extends StatefulWidget {
@@ -26,47 +22,6 @@ class _foodSystemUser extends State<foodSystemUser> {
       appBar: AppBar(
         toolbarHeight: 70,
         backgroundColor: takeDrug.BackgroundColor,
-        // actions: [
-        //   Padding(
-        //     padding: const EdgeInsets.all(8.0),
-        //     child: GestureDetector(
-        //       onTap: () {
-        //         Route route =
-        //             MaterialPageRoute(builder: (_) => const MyProfile());
-        //         Navigator.push(context, route);
-        //       },
-        //       child: Column(
-        //         children: [
-        //           const Icon(
-        //             Icons.person_2_rounded,
-        //           ),
-        //           GestureDetector(
-        //             onTap: () {
-        //               Navigator.pop(context);
-        //             },
-        //             child: Row(
-        //               children: const [
-        //                 Text(
-        //                   "رجوع",
-        //                   style: TextStyle(fontWeight: FontWeight.bold),
-        //                 ),
-        //                 SizedBox(
-        //                   width: 5,
-        //                 ),
-        //                 SizedBox(
-        //                   height: 30,
-        //                 ),
-        //                 Icon(
-        //                   Icons.arrow_forward,
-        //                 ),
-        //               ],
-        //             ),
-        //           )
-        //         ],
-        //       ),
-        //     ),
-        //   ),
-        // ],
         title: Column(
           children: [Text("your_Medical".tr().toString())],
         ),
@@ -103,7 +58,6 @@ class _foodSystemUser extends State<foodSystemUser> {
                     itemCount: snapshot.data!.docs.length,
                     itemBuilder: (context, index) {
                       String medicalID = snapshot.data!.docs[index].id;
-
                       return Container(
                         margin: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
@@ -121,52 +75,46 @@ class _foodSystemUser extends State<foodSystemUser> {
                           ],
                         ),
                         padding: const EdgeInsets.all(10),
-                        child: Row(
+                        child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Column(
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.local_offer,
-                                          color: takeDrug.BackgroundColor,
-                                        ),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text(snapshot.data!.docs[index]
-                                            ['foodTitle']),
-                                      ],
+                                    Icon(
+                                      Icons.local_offer,
+                                      color: takeDrug.BackgroundColor,
                                     ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(snapshot.data!.docs[index]
+                                        ['foodTitle']),
                                   ],
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.pix,
+                                  color: takeDrug.BackgroundColor,
                                 ),
                                 const SizedBox(
-                                  height: 10,
+                                  width: 10,
                                 ),
-                                Row(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.pix,
-                                          color: takeDrug.BackgroundColor,
-                                        ),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text(snapshot.data!.docs[index]
-                                            ['foodDescription']),
-                                      ],
-                                    ),
-                                  ],
+                                Expanded(
+                                  child: Text(
+                                    snapshot.data!.docs[index]
+                                        ['foodDescription'],
+                                  ),
                                 ),
                               ],
                             ),

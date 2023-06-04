@@ -25,47 +25,6 @@ class _PageDetailsMedicalInformation
       appBar: AppBar(
         toolbarHeight: 70,
         backgroundColor: takeDrug.BackgroundColor,
-        // actions: [
-        //   Padding(
-        //     padding: const EdgeInsets.all(8.0),
-        //     child: GestureDetector(
-        //       onTap: () {
-        //         Route route =
-        //             MaterialPageRoute(builder: (_) => const MyProfile());
-        //         Navigator.push(context, route);
-        //       },
-        //       child: Column(
-        //         children: [
-        //           const Icon(
-        //             Icons.person_2_rounded,
-        //           ),
-        //           GestureDetector(
-        //             onTap: () {
-        //               Navigator.pop(context);
-        //             },
-        //             child: Row(
-        //               children: const [
-        //                 Text(
-        //                   "رجوع",
-        //                   style: TextStyle(fontWeight: FontWeight.bold),
-        //                 ),
-        //                 SizedBox(
-        //                   width: 5,
-        //                 ),
-        //                 SizedBox(
-        //                   height: 30,
-        //                 ),
-        //                 Icon(
-        //                   Icons.arrow_forward,
-        //                 ),
-        //               ],
-        //             ),
-        //           )
-        //         ],
-        //       ),
-        //     ),
-        //   ),
-        // ],
         title: Column(
           children: [Text("medical_information".tr().toString())],
         ),
@@ -159,12 +118,8 @@ class _PageDetailsMedicalInformation
                           ),
                           Container(
                             margin: const EdgeInsets.only(right: 35),
-                            child: Row(
-                              children: [
-                                Text(
-                                  "${snapshot.data!['foodDescription']}",
-                                ),
-                              ],
+                            child: Text(
+                              "${snapshot.data!['foodDescription']}",
                             ),
                           ),
                           Container(

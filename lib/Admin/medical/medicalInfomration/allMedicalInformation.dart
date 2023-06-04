@@ -106,10 +106,12 @@ class _allMedicalInformation extends State<allMedicalInformation> {
                                         Text(
                                           'description'.tr().toString(),
                                         ),
-                                        Text(
-                                          snapshot.data!
-                                              .docs[index]['foodDescription']
-                                              .toString(),
+                                        Expanded(
+                                          child: Text(
+                                            snapshot.data!
+                                                .docs[index]['foodDescription']
+                                                .toString(),
+                                          ),
                                         ),
                                       ],
                                     ),

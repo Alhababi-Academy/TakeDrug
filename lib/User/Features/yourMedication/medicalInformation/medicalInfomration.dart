@@ -1,11 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:take_drug/Common/Authentication/myProfile.dart';
 import 'package:take_drug/Common/Widgets/Drawer.dart';
 import 'package:take_drug/Common/config/config.dart';
-import 'package:take_drug/User/Features/yourMedication/medicalInformation/pageDetialsFood.dart';
-import 'package:take_drug/User/Features/yourMedication/showDetialsFood/pageDetialsFood.dart';
+import 'package:take_drug/User/Features/yourMedication/medicalInformation/PageDetailsMedicalInfomration.dart';
 
 class medicalInfomrationUserPage extends StatefulWidget {
   const medicalInfomrationUserPage({super.key});
@@ -25,49 +23,12 @@ class _medicalInfomrationUserPage extends State<medicalInfomrationUserPage> {
       appBar: AppBar(
         toolbarHeight: 70,
         backgroundColor: takeDrug.BackgroundColor,
-        // actions: [
-        //   Padding(
-        //     padding: const EdgeInsets.all(8.0),
-        //     child: GestureDetector(
-        //       onTap: () {
-        //         Route route =
-        //             MaterialPageRoute(builder: (_) => const MyProfile());
-        //         Navigator.push(context, route);
-        //       },
-        //       child: Column(
-        //         children: [
-        //           const Icon(
-        //             Icons.person_2_rounded,
-        //           ),
-        //           GestureDetector(
-        //             onTap: () {
-        //               Navigator.pop(context);
-        //             },
-        //             child: Row(
-        //               children: const [
-        //                 Text(
-        //                   "رجوع",
-        //                   style: TextStyle(fontWeight: FontWeight.bold),
-        //                 ),
-        //                 SizedBox(
-        //                   width: 5,
-        //                 ),
-        //                 SizedBox(
-        //                   height: 30,
-        //                 ),
-        //                 Icon(
-        //                   Icons.arrow_forward,
-        //                 ),
-        //               ],
-        //             ),
-        //           )
-        //         ],
-        //       ),
-        //     ),
-        //   ),
-        // ],
         title: Column(
-          children: [Text("medical_information".tr().toString())],
+          children: [
+            Text(
+              "medical_information".tr().toString(),
+            ),
+          ],
         ),
         centerTitle: true,
       ),
@@ -188,24 +149,18 @@ class _medicalInfomrationUserPage extends State<medicalInfomrationUserPage> {
                                 ),
                                 Row(
                                   children: [
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.pix,
-                                          color: takeDrug.BackgroundColor,
-                                        ),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        Row(
-                                          children: [
-                                            Text(
-                                              snapshot.data!.docs[index]
-                                                  ['foodDescription'],
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                    Icon(
+                                      Icons.pix,
+                                      color: takeDrug.BackgroundColor,
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Expanded(
+                                      child: Text(
+                                        snapshot.data!.docs[index]
+                                            ['foodDescription'],
+                                      ),
                                     ),
                                   ],
                                 ),

@@ -122,52 +122,46 @@ class _healthyDoingUser extends State<healthyDoingUser> {
                           ],
                         ),
                         padding: const EdgeInsets.all(10),
-                        child: Row(
+                        child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Column(
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.local_offer,
-                                          color: takeDrug.BackgroundColor,
-                                        ),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text(snapshot.data!.docs[index]
-                                            ['foodTitle']),
-                                      ],
+                                    Icon(
+                                      Icons.local_offer,
+                                      color: takeDrug.BackgroundColor,
                                     ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(snapshot.data!.docs[index]
+                                        ['foodTitle']),
                                   ],
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.pix,
+                                  color: takeDrug.BackgroundColor,
                                 ),
                                 const SizedBox(
-                                  height: 10,
+                                  width: 10,
                                 ),
-                                Row(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.pix,
-                                          color: takeDrug.BackgroundColor,
-                                        ),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text(snapshot.data!.docs[index]
-                                            ['foodDescription']),
-                                      ],
-                                    ),
-                                  ],
+                                Expanded(
+                                  child: Text(
+                                    snapshot.data!.docs[index]
+                                        ['foodDescription'],
+                                  ),
                                 ),
                               ],
                             ),

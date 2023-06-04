@@ -24,7 +24,6 @@ class customTextFieldRegsiterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(9),
         color: takeDrug.whiteOne,
@@ -38,7 +37,6 @@ class customTextFieldRegsiterPage extends StatelessWidget {
         decoration: InputDecoration(
           filled: true,
           isCollapsed: false,
-          // contentPadding: const EdgeInsets.all(7),
           isDense: true,
           suffixStyle: TextStyle(color: takeDrug.SecondaryColor),
           border: OutlineInputBorder(
@@ -48,10 +46,6 @@ class customTextFieldRegsiterPage extends StatelessWidget {
           hintText: hint,
           hintStyle: const TextStyle(fontSize: 12),
           focusedBorder: OutlineInputBorder(
-            // borderSide: const BorderSide(
-            //   width: 1,
-            //   color: Colors.amber,
-            // ),
             borderSide: BorderSide.none,
             borderRadius: BorderRadius.circular(30),
           ),

@@ -100,10 +100,12 @@ class _allGoodPractice extends State<allGoodPractice> {
                                         Text(
                                           "description".tr().toString(),
                                         ),
-                                        Text(
-                                          snapshot.data!
-                                              .docs[index]['foodDescription']
-                                              .toString(),
+                                        Expanded(
+                                          child: Text(
+                                            snapshot.data!
+                                                .docs[index]['foodDescription']
+                                                .toString(),
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -114,17 +116,13 @@ class _allGoodPractice extends State<allGoodPractice> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Row(
-                                          children: [
-                                            Text(
-                                              "date_uploaded".tr().toString(),
-                                            ),
-                                            Text(
-                                              snapshot.data!
-                                                  .docs[index]['publishedDate']
-                                                  .toString(),
-                                            ),
-                                          ],
+                                        Text(
+                                          "date_uploaded".tr().toString(),
+                                        ),
+                                        Text(
+                                          snapshot.data!
+                                              .docs[index]['publishedDate']
+                                              .toString(),
                                         ),
                                         Row(
                                           children: [

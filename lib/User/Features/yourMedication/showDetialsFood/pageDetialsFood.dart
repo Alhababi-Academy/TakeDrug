@@ -82,14 +82,6 @@ class _PageDetailsFood extends State<PageDetailsFood> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(7),
             color: Colors.white,
-            boxShadow: [
-              // BoxShadow(
-              //   color: Colors.grey.withOpacity(0.5), // shadow color
-              //   spreadRadius: 5, // spread radius
-              //   blurRadius: 7, // blur radius
-              //   offset: Offset(0, 3), // changes position of shadow
-              // ),
-            ],
           ),
           padding: const EdgeInsets.all(10),
           child: StreamBuilder<DocumentSnapshot>(
@@ -163,12 +155,8 @@ class _PageDetailsFood extends State<PageDetailsFood> {
                           ),
                           Container(
                             margin: const EdgeInsets.only(right: 35),
-                            child: Row(
-                              children: [
-                                Text(
-                                  "${snapshot.data!['foodDescription']}",
-                                ),
-                              ],
+                            child: Text(
+                              "${snapshot.data!['foodDescription']}",
                             ),
                           ),
                         ],

@@ -33,6 +33,7 @@ class _editMedicalInformaitno extends State<editMedicalInformaitno> {
     'prefreant'.tr().toString(),
     'all'.tr().toString()
   ];
+
   String? medicalEach;
 
   @override

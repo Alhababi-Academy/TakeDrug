@@ -167,12 +167,8 @@ class _PageDetailsGoodPractice extends State<PageDetailsGoodPractice> {
                           ),
                           Container(
                             margin: const EdgeInsets.only(right: 35),
-                            child: Row(
-                              children: [
-                                Text(
-                                  "${snapshot.data!['foodDescription']}",
-                                ),
-                              ],
+                            child: Text(
+                              "${snapshot.data!['foodDescription']}",
                             ),
                           ),
                         ],

@@ -9,15 +9,14 @@ import 'package:take_drug/Common/Widgets/customTextFieldRegisterPage.dart';
 import 'package:take_drug/Common/config/config.dart';
 import 'package:intl/intl.dart' as DateInt;
 
-class editMedical extends StatefulWidget {
-  final String ID;
-  const editMedical({super.key, required this.ID});
+class medicalFood extends StatefulWidget {
+  const medicalFood({super.key});
 
   @override
-  State<editMedical> createState() => _editMedical();
+  State<medicalFood> createState() => _medicalFood();
 }
 
-class _editMedical extends State<editMedical> {
+class _medicalFood extends State<medicalFood> {
   String uploadImageUrl = "";
   final TextEditingController MedicalDescription = TextEditingController();
 
@@ -33,26 +32,6 @@ class _editMedical extends State<editMedical> {
     'all'.tr().toString()
   ];
   String? medicalEach;
-
-  @override
-  void initState() {
-    GettingData();
-    super.initState();
-  }
-
-  GettingData() async {
-    await takeDrug.firebaseFirestore!
-        .collection("medicalGuide")
-        .doc(widget.ID)
-        .get()
-        .then((result) {
-      setState(() {
-        MedicalTitle.text = result.data()?['foodTitle'];
-        MedicalDescription.text = result.data()?['foodDescription'];
-        medicalEach = result.data()?['catagories'];
-      });
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +50,7 @@ class _editMedical extends State<editMedical> {
                     shrinkWrap: true,
                     children: [
                       Text(
-                        "add_medical_doctor".tr().toString(),
+                        "medical_food_system".tr().toString(),
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: takeDrug.BackgroundColor,
@@ -85,7 +64,7 @@ class _editMedical extends State<editMedical> {
                           left: 10,
                         ),
                         child: Text(
-                          "title".tr().toString(),
+                          "information_medical".tr().toString(),
                           style: TextStyle(
                             color: takeDrug.BackgroundColor,
                             fontWeight: FontWeight.bold,
@@ -102,12 +81,13 @@ class _editMedical extends State<editMedical> {
                         ),
                         textEditingController: MedicalTitle,
                         textInputType: TextInputType.text,
+                        hint: "sugar_sick".tr().toString(),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       Text(
-                        "description".tr().toString(),
+                        "description_medical".tr().toString(),
                         style: TextStyle(
                           color: takeDrug.BackgroundColor,
                           fontWeight: FontWeight.bold,
@@ -123,6 +103,7 @@ class _editMedical extends State<editMedical> {
                         ),
                         textEditingController: MedicalDescription,
                         textInputType: TextInputType.text,
+                        hint: "description".tr().toString(),
                       ),
                       const SizedBox(
                         height: 10,
@@ -246,24 +227,20 @@ class _editMedical extends State<editMedical> {
     );
     final User? user = takeDrug.auth?.currentUser;
     final uid = user!.uid;
-    final itemsRef = await FirebaseFirestore.instance
-        .collection("medicalGuide")
-        .doc(widget.ID)
-        .update({
+    final itemsRef =
+        await FirebaseFirestore.instance.collection("medicalFood").add({
       "foodTitle": MedicalTitle.text.trim(),
       "foodDescription": MedicalDescription.text.trim(),
+      "publishedDate":
+          DateInt.DateFormat('dd-MM-yyyy').format(DateTime.now()).toString(),
+      "uid": uid,
+      "byAdmin": name.toString(),
+      "medicalType": "medicalFood",
       "catagories": medicalEach,
     }).then((value) {
       Navigator.pop(context);
-      showDialog(
-        context: context,
-        builder: (_) => errorDialog(
-          message: "done_updating_data".tr().toString(),
-        ),
-      ).then((value) {
-        Route route = MaterialPageRoute(builder: (_) => adminHomePage());
-        Navigator.push(context, route);
-      });
+      Route route = MaterialPageRoute(builder: (_) => adminHomePage());
+      Navigator.push(context, route);
     });
   }
 }

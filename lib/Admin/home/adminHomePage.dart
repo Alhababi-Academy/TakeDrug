@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:take_drug/Admin/home/allUsers.dart';
 import 'package:take_drug/Admin/medical/goodPractice/allGoodPractice.dart';
-import 'package:take_drug/Admin/medical/medical/allMedical.dart';
+import 'package:take_drug/Admin/medical/medical_food_system/allMedicalFood.dart';
 import 'package:take_drug/Admin/home/suggestions.dart';
 import 'package:take_drug/Admin/home/widgets/adminDrawer.dart';
 import 'package:take_drug/Admin/medical/medicalInfomration/allMedicalInformation.dart';
@@ -111,7 +111,7 @@ class _adminHomePage extends State<adminHomePage> {
               GestureDetector(
                 onTap: () {
                   Route route =
-                      MaterialPageRoute(builder: (_) => const allMedical());
+                      MaterialPageRoute(builder: (_) => const allMedicalFood());
                   Navigator.push(context, route);
                 },
                 child: Card(
@@ -131,7 +131,7 @@ class _adminHomePage extends State<adminHomePage> {
                         height: 5,
                       ),
                       Text(
-                        "medicual".tr().toString(),
+                        "medical_food_system".tr().toString(),
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 17,

@@ -2,26 +2,26 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' as dateFixing;
-import 'package:take_drug/Admin/medical/medical/editMedical.dart';
-import 'package:take_drug/Admin/medical/medical/medical.dart';
+import 'package:take_drug/Admin/medical/medical_food_system/editMedicalFood.dart';
+import 'package:take_drug/Admin/medical/medical_food_system/medicalFood.dart';
 import 'package:take_drug/Common/DialogBox/loadingDialog.dart';
 import 'package:take_drug/Common/config/config.dart';
 
-class allMedical extends StatefulWidget {
-  const allMedical({super.key});
+class allMedicalFood extends StatefulWidget {
+  const allMedicalFood({super.key});
 
   @override
-  State<allMedical> createState() => _allMedical();
+  State<allMedicalFood> createState() => _allMedicalFood();
 }
 
-class _allMedical extends State<allMedical> {
+class _allMedicalFood extends State<allMedicalFood> {
   String? currentUser = takeDrug.auth?.currentUser?.uid;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Route route = MaterialPageRoute(builder: (_) => const Medical());
+          Route route = MaterialPageRoute(builder: (_) => const medicalFood());
           Navigator.push(context, route);
         },
         child: const Icon(
@@ -29,7 +29,7 @@ class _allMedical extends State<allMedical> {
         ),
       ),
       appBar: AppBar(
-        title: Text("all_data_medical".tr().toString()),
+        title: Text("medical_food_system".tr().toString()),
         centerTitle: true,
       ),
       body: Column(
@@ -42,7 +42,7 @@ class _allMedical extends State<allMedical> {
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
               stream: takeDrug.firebaseFirestore!
-                  .collection("medicalGuide")
+                  .collection("medicalFood")
                   .orderBy("publishedDate", descending: true)
                   .snapshots(),
               builder: (context, snapshot) {
@@ -99,10 +99,12 @@ class _allMedical extends State<allMedical> {
                                         Text(
                                           "description".tr().toString(),
                                         ),
-                                        Text(
-                                          snapshot.data!
-                                              .docs[index]['foodDescription']
-                                              .toString(),
+                                        Expanded(
+                                          child: Text(
+                                            snapshot.data!
+                                                .docs[index]['foodDescription']
+                                                .toString(),
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -131,7 +133,7 @@ class _allMedical extends State<allMedical> {
                                               onPressed: () {
                                                 Route route = MaterialPageRoute(
                                                   builder: (_) =>
-                                                      editMedical(ID: ID),
+                                                      editMedicalFood(ID: ID),
                                                 );
                                                 Navigator.push(context, route);
                                               },
@@ -164,7 +166,7 @@ class _allMedical extends State<allMedical> {
       builder: (_) => LoadingAlertDialog(message: "delete".tr().toString()),
     );
     await takeDrug.firebaseFirestore!
-        .collection("medicalGuide")
+        .collection("medicalFood")
         .doc(certificateID)
         .delete();
     Navigator.pop(context);
