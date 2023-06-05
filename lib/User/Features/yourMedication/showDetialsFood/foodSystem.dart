@@ -52,99 +52,101 @@ class _foodSystemUser extends State<foodSystemUser> {
                     child: CircularProgressIndicator(),
                   );
                 } else {
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    physics: const AlwaysScrollableScrollPhysics(),
-                    itemCount: snapshot.data!.docs.length,
-                    itemBuilder: (context, index) {
-                      String medicalID = snapshot.data!.docs[index].id;
-                      return Container(
-                        margin: const EdgeInsets.all(15),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(7),
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color:
-                                  Colors.grey.withOpacity(0.5), // shadow color
-                              spreadRadius: 5, // spread radius
-                              blurRadius: 7, // blur radius
-                              offset: const Offset(
-                                  0, 3), // changes position of shadow
-                            ),
-                          ],
-                        ),
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.local_offer,
-                                      color: takeDrug.BackgroundColor,
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text(snapshot.data!.docs[index]
-                                        ['foodTitle']),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.pix,
-                                  color: takeDrug.BackgroundColor,
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    snapshot.data!.docs[index]
-                                        ['foodDescription'],
+                  return Expanded(
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      itemCount: snapshot.data!.docs.length,
+                      itemBuilder: (context, index) {
+                        String medicalID = snapshot.data!.docs[index].id;
+                        return Container(
+                          margin: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(7),
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey
+                                    .withOpacity(0.5), // shadow color
+                                spreadRadius: 5, // spread radius
+                                blurRadius: 7, // blur radius
+                                offset: const Offset(
+                                    0, 3), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.local_offer,
+                                        color: takeDrug.BackgroundColor,
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      Text(snapshot.data!.docs[index]
+                                          ['foodTitle']),
+                                    ],
                                   ),
-                                ),
-                              ],
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                Route route = MaterialPageRoute(
-                                    builder: (_) =>
-                                        PageDetailsFood(medicalID: medicalID));
-                                Navigator.push(context, route);
-                              },
-                              child: Center(
-                                child: Container(
-                                  padding:
-                                      const EdgeInsets.only(right: 4, left: 4),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: Colors.blue,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(6),
-                                    color: Colors.lightBlue[50],
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.pix,
+                                    color: takeDrug.BackgroundColor,
                                   ),
-                                  child: Text("show_details".tr().toString()),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      snapshot.data!.docs[index]
+                                          ['foodDescription'],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Route route = MaterialPageRoute(
+                                      builder: (_) => PageDetailsFood(
+                                          medicalID: medicalID));
+                                  Navigator.push(context, route);
+                                },
+                                child: Center(
+                                  child: Container(
+                                    padding: const EdgeInsets.only(
+                                        right: 4, left: 4),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: Colors.blue,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(6),
+                                      color: Colors.lightBlue[50],
+                                    ),
+                                    child: Text("show_details".tr().toString()),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
+                            ],
+                          ),
+                        );
+                      },
+                    ),
                   );
                 }
               },
