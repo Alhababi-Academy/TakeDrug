@@ -4,7 +4,7 @@
     "type": "PACKAGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.dataxad.flutter_mailer",
+  "applicationId": "icom.dataxad.flutter_mailer",
   "variantName": "debug",
   "elements": [
     {

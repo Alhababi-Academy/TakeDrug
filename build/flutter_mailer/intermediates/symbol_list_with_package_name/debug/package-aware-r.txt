@@ -1,4 +1,4 @@
-com.dataxad.flutter_mailer
+icom.dataxad.flutter_mailer
 attr activityAction
 attr activityName
 attr alpha

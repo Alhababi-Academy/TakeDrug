@@ -18,12 +18,7 @@ class NotificationService {
           playSound: true,
         ),
       ],
-      channelGroups: [
-        NotificationChannelGroup(
-          channelGroupKey: 'high_importance_channel_group',
-          channelGroupName: 'Group 1',
-        )
-      ],
+      channelGroups: [],
       debug: true,
     );
 
@@ -35,12 +30,7 @@ class NotificationService {
       },
     );
 
-    await AwesomeNotifications().setListeners(
-      onActionReceivedMethod: onActionReceivedMethod,
-      onNotificationCreatedMethod: onNotificationCreatedMethod,
-      onNotificationDisplayedMethod: onNotificationDisplayedMethod,
-      onDismissActionReceivedMethod: onDismissActionReceivedMethod,
-    );
+    await AwesomeNotifications();
   }
 
   /// Use this method to detect when a new notification or a schedule is created
@@ -80,7 +70,6 @@ class NotificationService {
     required final String body,
     final String? summary,
     final Map<String, String>? payload,
-    final ActionType actionType = ActionType.Default,
     final NotificationLayout? notificationLayout =
         NotificationLayout.BigPicture,
     final NotificationCategory? category,
@@ -106,12 +95,10 @@ class NotificationService {
         title: title,
         body: body,
         wakeUpScreen: true,
-        actionType: actionType,
         notificationLayout: notificationLayout!,
         summary: summary,
         category: NotificationCategory.Alarm,
         criticalAlert: true,
-        roundedBigPicture: true,
         largeIcon: "",
         payload: payload,
         bigPicture: bigPicture,

@@ -4,12 +4,12 @@
 4
 5    <uses-sdk
 6        android:minSdkVersion="16"
-6-->C:\Users\Asus\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_file_downloader-1.1.1\android\src\main\AndroidManifest.xml
+6-->/Users/zeyadalhababi/.pub-cache/hosted/pub.dev/flutter_file_downloader-1.1.2/android/src/main/AndroidManifest.xml
 7        android:targetSdkVersion="16" />
-7-->C:\Users\Asus\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_file_downloader-1.1.1\android\src\main\AndroidManifest.xml
+7-->/Users/zeyadalhababi/.pub-cache/hosted/pub.dev/flutter_file_downloader-1.1.2/android/src/main/AndroidManifest.xml
 8
 9    <uses-permission android:name="android.permission.INTERNET" />
-9-->C:\Users\Asus\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_file_downloader-1.1.1\android\src\main\AndroidManifest.xml:4:5-66
-9-->C:\Users\Asus\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_file_downloader-1.1.1\android\src\main\AndroidManifest.xml:4:22-64
+9-->/Users/zeyadalhababi/.pub-cache/hosted/pub.dev/flutter_file_downloader-1.1.2/android/src/main/AndroidManifest.xml:4:5-66
+9-->/Users/zeyadalhababi/.pub-cache/hosted/pub.dev/flutter_file_downloader-1.1.2/android/src/main/AndroidManifest.xml:4:22-64
 10
 11</manifest>
